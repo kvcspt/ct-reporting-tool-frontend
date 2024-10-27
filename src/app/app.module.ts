@@ -4,6 +4,7 @@ import { HttpClientModule } from '@angular/common/http'; // Import HttpClientMod
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
 import {MatError, MatFormField, MatLabel} from "@angular/material/form-field";
 import {MatCard} from "@angular/material/card";
