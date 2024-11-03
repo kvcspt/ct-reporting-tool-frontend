@@ -1,0 +1,7 @@
+<div class="upload-container">
+  <h2>Upload CT DICOM Files</h2>
+  <form (ngSubmit)="onUpload()" enctype="multipart/form-data">
+    <input type="file" (change)="onFileSelected($event)" multiple/> <!--accept=".dcm" -->
+    <button type="submit" [disabled]="!selectedFiles">Upload</button>
+  </form>
+</div>

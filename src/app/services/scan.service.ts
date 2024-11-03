@@ -14,4 +14,10 @@ export class ScanService {
   getScans(): Observable<Scan[]> {
     return this.http.get<Scan[]>(this.apiUrl);
   }
+
+  uploadDicomFiles(files: FileList): Observable<any> {
+    const formData = new FormData();
+    Array.from(files).forEach(file => formData.append('files', file, file.name));
+    return this.http.post(this.apiUrl, formData);
+  }
 }

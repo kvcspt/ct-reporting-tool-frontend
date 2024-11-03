@@ -29,6 +29,7 @@ import {
   MatHeaderRow, MatHeaderRowDef, MatRow, MatRowDef,
   MatTable
 } from "@angular/material/table";
+import { ScanUploadComponent } from './ct-studies/scan-upload/scan-upload.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import {
     RegisterComponent,
     NavBarComponent,
     CtStudiesComponent,
-    ScanTableComponent
+    ScanTableComponent,
+    ScanUploadComponent
   ],
   imports: [
     BrowserModule,
