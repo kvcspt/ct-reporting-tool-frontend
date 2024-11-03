@@ -19,6 +19,9 @@
           <a class="nav-link" routerLink="/logout" (click)="logout()">Logout</a>
         </li>
       </ul>
+      <button class="btn btn-outline-secondary" (click)="toggleTheme()">
+        {{ isDarkMode() ? 'Light Mode' : 'Dark Mode' }}
+      </button>
     </div>
   </div>
 </nav>
