@@ -11,6 +11,7 @@ import {ToastrService} from "ngx-toastr";
 })
 export class LoginComponent {
   loginForm: FormGroup;
+  errorMessage: string | undefined;
 
   constructor(private fb: FormBuilder, private router: Router, private toastr: ToastrService, private authService: AuthService) {
     this.loginForm = this.fb.group({
@@ -21,14 +22,14 @@ export class LoginComponent {
 
   onSubmit() {
     if (this.loginForm.valid) {
-      let user = new User(0, this.loginForm.value.username, this.loginForm.value.password,"","","");
-      this.authService.register(user).subscribe({
+      let user = new User(0, this.loginForm.value.username, this.loginForm.value.password,"","","USER");
+      this.authService.login(user).subscribe({
         next: (resp) => {
-          this.toastr.success("Registration successful");
-          this.router.navigate(['/']);
+          this.toastr.success("Successful login");
+          this.router.navigate(['/ct-studies']);
         },
         error: (error) => {
-          this.toastr.success("Something went wrong!");
+          this.errorMessage = "Invalid username or password!";
         }
       })
     }

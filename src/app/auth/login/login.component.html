@@ -1,17 +1,18 @@
-<div class="d-flex justify-content-center align-items-center vh-100 bg-dark">
+<div class="d-flex justify-content-center align-items-center vh-100">
   <mat-card class="p-4 bg-light text-dark">
     <h2 class="text-center">Login</h2>
     <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
       <mat-form-field appearance="fill" class="w-100 mb-3">
         <mat-label>Email</mat-label>
-        <input matInput placeholder="Enter your email" formControlName="username" type="text" required />
-        <mat-error *ngIf="loginForm.get('username')?.invalid">Please enter a valid email</mat-error>
+        <input matInput placeholder="Enter your username" formControlName="username" type="text" required />
+        <mat-error *ngIf="loginForm.get('username')?.invalid">Please enter a valid username</mat-error>
       </mat-form-field>
-      <mat-form-field appearance="fill" class="w-100 mb-3">
+      <mat-form-field appearance="fill" class="w-100 mb-2">
         <mat-label>Password</mat-label>
         <input matInput placeholder="Enter your password" formControlName="password" type="password" required />
         <mat-error *ngIf="loginForm.get('password')?.invalid">Password is required</mat-error>
       </mat-form-field>
+      <div *ngIf="errorMessage" class="text-danger mb-2">{{ errorMessage }}</div>
       <button mat-raised-button color="primary" class="w-100 mb-3" type="submit" [disabled]="loginForm.invalid">Login</button>
       <a routerLink="/register" class="text-center d-block text-muted">Don't have an account? Register</a>
     </form>
