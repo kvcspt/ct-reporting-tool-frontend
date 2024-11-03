@@ -1,0 +1,29 @@
+<div class="container mt-5">
+  <h2 class="text-center">CT Study Management</h2>
+
+  <!-- Notifications Area -->
+  <div *ngIf="notification" class="alert alert-info" role="alert">
+    {{ notification }}
+  </div>
+
+  <div class="row mb-3">
+    <div class="col-md-6">
+      <button mat-raised-button color="primary" class="w-100" (click)="onUploadClick()">Upload New CT Study</button>
+    </div>
+    <div class="col-md-6">
+      <button mat-raised-button color="accent" class="w-100" (click)="onViewScansClick()">View Previous Scans</button>
+    </div>
+  </div>
+
+  <!-- Search Bar -->
+  <div class="mb-4">
+    <mat-form-field appearance="fill" class="w-100">
+      <mat-label>Search Previous Scans</mat-label>
+      <input matInput [(ngModel)]="searchTerm" (input)="filterScans()" placeholder="Search by study name or date">
+    </mat-form-field>
+  </div>
+
+  <div>
+    <app-scan-table [filteredScans]="filteredScans"></app-scan-table>
+  </div>
+</div>

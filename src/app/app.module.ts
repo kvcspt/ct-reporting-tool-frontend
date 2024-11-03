@@ -16,8 +16,10 @@ import { ToastrModule } from "ngx-toastr";
 import { MatOption } from "@angular/material/autocomplete";
 import { MatSelect } from "@angular/material/select";
 import { NavBarComponent } from './nav-bar/nav-bar.component';
+import { CtStudiesComponent } from './ct-studies/ct-studies.component';
 import {MatList, MatListItem} from "@angular/material/list";
 import {MatDialogContent, MatDialogTitle} from "@angular/material/dialog";
+import { ScanTableComponent } from './ct-studies/scan-table/scan-table.component';
 import {
   MatCell,
   MatCellDef,
@@ -33,7 +35,9 @@ import {
     AppComponent,
     LoginComponent,
     RegisterComponent,
-    NavBarComponent
+    NavBarComponent,
+    CtStudiesComponent,
+    ScanTableComponent
   ],
   imports: [
     BrowserModule,
