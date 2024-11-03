@@ -11,6 +11,8 @@ export class CtStudiesComponent {
   public scans: Array<Scan> = [];
   public filteredScans: Array<Scan> = [];
   public searchTerm: string = '';
+  public viewScans = false;
+  public uploadScans = false;
 
   constructor(private scanService: ScanService) {}
 
@@ -41,17 +43,5 @@ export class CtStudiesComponent {
           formattedScanDate.includes(this.searchTerm);
       });
     }
-    console.log(this.filteredScans);
-  }
-
-
-  onUploadClick() {
-    // Logic to handle upload button click
-    // For example, navigate to upload form
-  }
-
-  onViewScansClick() {
-    // Logic to handle view scans button click
-    // This might show the current list of scans or navigate to a detailed view
   }
 }
