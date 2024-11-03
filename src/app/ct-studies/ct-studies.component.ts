@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import {ScanService} from "../services/scan.service";
-import {Scan} from "../model/Scan";
+import {Scan} from "../models/scan";
 
 @Component({
   selector: 'app-ct-studies',

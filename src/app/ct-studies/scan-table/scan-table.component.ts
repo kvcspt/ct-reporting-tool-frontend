@@ -1,5 +1,5 @@
 import {Component, Input} from '@angular/core';
-import {Scan} from "../../model/Scan";
+import {Scan} from "../../models/scan";
 
 @Component({
   selector: 'app-scan-table',
