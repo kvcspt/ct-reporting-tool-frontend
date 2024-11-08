@@ -11,12 +11,16 @@ export class AuthService {
   private readonly loginPath = "/api/auth/login";
   private readonly registerPath: string = "/api/auth/register";
   private isAuthenticated = false;
+  private loggedInUser: User | null | undefined;
 
   constructor(private http: HttpClient, private router: Router) { }
 
   login(user: User){
-    return this.http.post(this.loginPath, user).pipe(
-      tap(() => this.isAuthenticated = true)
+    return this.http.post<User>(this.loginPath, user).pipe(
+      tap((responseUser: User) => {
+        this.isAuthenticated = true;
+        this.loggedInUser = responseUser;
+      })
     );
   }
 
@@ -25,11 +29,16 @@ export class AuthService {
   }
 
   logout() {
-    this.isAuthenticated = false; // Set authenticated to false on logout
-    this.router.navigate(['/login']); // Navigate to the login page
+    this.isAuthenticated = false;
+    this.loggedInUser = null;
+    this.router.navigate(['/login']);
   }
 
   isLoggedIn(): boolean {
-    return this.isAuthenticated; // Return the authentication status
+    return this.isAuthenticated;
+  }
+
+  isAdmin(): boolean {
+    return this.loggedInUser != null && this.loggedInUser.role === "ADMIN";
   }
 }
