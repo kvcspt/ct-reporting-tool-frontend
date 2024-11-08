@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ScanService} from "../services/scan.service";
 import {Scan} from "../models/scan";
 
@@ -6,7 +6,7 @@ import {Scan} from "../models/scan";
   selector: 'app-ct-studies',
   templateUrl: './ct-studies.component.html'
 })
-export class CtStudiesComponent {
+export class CtStudiesComponent implements OnInit{
   public notification: string | null = null;
   public scans: Array<Scan> = [];
   public filteredScans: Array<Scan> = [];

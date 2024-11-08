@@ -21,9 +21,9 @@
     </mat-form-field>
   </div>
   <div *ngIf="uploadScans">
-    <app-scan-upload></app-scan-upload>
+    <app-scan-upload (uploadComplete)="loadScans()"></app-scan-upload>
   </div>
   <div *ngIf="viewScans">
-    <app-scan-table [filteredScans]="filteredScans"></app-scan-table>
+    <app-scan-table [filteredScans]="filteredScans" (deleteComplete)="loadScans()"></app-scan-table>
   </div>
 </div>
