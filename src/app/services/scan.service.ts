@@ -7,7 +7,7 @@ import {Scan} from "../models/scan";
   providedIn: 'root'
 })
 export class ScanService {
-  private apiUrl = '/api/scans'; // Adjust to your API URL
+  private apiUrl = '/api/scans';
 
   constructor(private http: HttpClient) {}
 
@@ -19,5 +19,9 @@ export class ScanService {
     const formData = new FormData();
     Array.from(files).forEach(file => formData.append('files', file, file.name));
     return this.http.post(this.apiUrl, formData);
+  }
+
+  deleteScan(id: number){
+    return this.http.delete(this.apiUrl + "/" + encodeURIComponent(id));
   }
 }
