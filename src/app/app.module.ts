@@ -9,7 +9,7 @@ import { RegisterComponent } from './auth/register/register.component';
 import { MatError, MatFormField, MatLabel } from "@angular/material/form-field";
 import { MatCard } from "@angular/material/card";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
-import { MatButton } from "@angular/material/button";
+import {MatButton, MatIconButton} from "@angular/material/button";
 import { MatInput } from "@angular/material/input";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { ToastrModule } from "ngx-toastr";
@@ -30,6 +30,8 @@ import {
   MatTable
 } from "@angular/material/table";
 import { ScanUploadComponent } from './ct-studies/scan-upload/scan-upload.component';
+import {MatIcon} from "@angular/material/icon";
+import {MatPaginator} from "@angular/material/paginator";
 
 @NgModule({
   declarations: [
@@ -41,41 +43,44 @@ import { ScanUploadComponent } from './ct-studies/scan-upload/scan-upload.compon
     ScanTableComponent,
     ScanUploadComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    MatFormField,
-    MatCard,
-    ReactiveFormsModule,
-    MatButton,
-    MatInput,
-    BrowserAnimationsModule,
-    ToastrModule.forRoot({
-      timeOut: 3000,
-      positionClass: 'toast-bottom-right',
-      preventDuplicates: true,
-    }),
-    MatOption,
-    MatSelect,
-    MatLabel,
-    MatError,
-    HttpClientModule,
-    MatListItem,
-    MatList,
-    FormsModule,
-    MatDialogContent,
-    MatDialogTitle,
-    MatTable,
-    MatHeaderCellDef,
-    MatCellDef,
-    MatCell,
-    MatHeaderCell,
-    MatColumnDef,
-    MatHeaderRow,
-    MatRow,
-    MatRowDef,
-    MatHeaderRowDef
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        MatFormField,
+        MatCard,
+        ReactiveFormsModule,
+        MatButton,
+        MatInput,
+        BrowserAnimationsModule,
+        ToastrModule.forRoot({
+            timeOut: 3000,
+            positionClass: 'toast-bottom-right',
+            preventDuplicates: true,
+        }),
+        MatOption,
+        MatSelect,
+        MatLabel,
+        MatError,
+        HttpClientModule,
+        MatListItem,
+        MatList,
+        FormsModule,
+        MatDialogContent,
+        MatDialogTitle,
+        MatTable,
+        MatHeaderCellDef,
+        MatCellDef,
+        MatCell,
+        MatHeaderCell,
+        MatColumnDef,
+        MatHeaderRow,
+        MatRow,
+        MatRowDef,
+        MatHeaderRowDef,
+        MatIcon,
+        MatIconButton,
+        MatPaginator
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })
