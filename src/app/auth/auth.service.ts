@@ -1,31 +1,34 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from "@angular/common/http";
-import {User} from "./model/user";
-import {Router} from "@angular/router";
-import {tap} from "rxjs";
+import { HttpClient } from '@angular/common/http';
+import { User } from './model/user';
+import { Router } from '@angular/router';
+import { tap } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthService {
-  private readonly loginPath = "/api/auth/login";
-  private readonly registerPath: string = "/api/auth/register";
+  private readonly loginPath = '/api/auth/login';
+  private readonly registerPath: string = '/api/auth/register';
   private isAuthenticated = false;
   private loggedInUser: User | null | undefined;
 
-  constructor(private http: HttpClient, private router: Router) { }
+  constructor(
+    private http: HttpClient,
+    private router: Router,
+  ) {}
 
-  login(user: User){
+  login(user: User) {
     return this.http.post<User>(this.loginPath, user).pipe(
       tap((responseUser: User) => {
         this.isAuthenticated = true;
         this.loggedInUser = responseUser;
-      })
+      }),
     );
   }
 
-  register(user: User){
-    return  this.http.post(this.registerPath, user);
+  register(user: User) {
+    return this.http.post(this.registerPath, user);
   }
 
   logout() {
@@ -39,6 +42,6 @@ export class AuthService {
   }
 
   isAdmin(): boolean {
-    return this.loggedInUser != null && this.loggedInUser.role === "ADMIN";
+    return this.loggedInUser != null && this.loggedInUser.role === 'ADMIN';
   }
 }

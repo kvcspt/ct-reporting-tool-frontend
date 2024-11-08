@@ -1,37 +1,49 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import {AuthService} from "../auth.service";
-import {User} from "../model/user";
-import {ToastrService} from "ngx-toastr";
+import { AuthService } from '../auth.service';
+import { User } from '../model/user';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-login',
-  templateUrl: './login.component.html'
+  templateUrl: './login.component.html',
 })
 export class LoginComponent {
   loginForm: FormGroup;
   errorMessage: string | undefined;
 
-  constructor(private fb: FormBuilder, private router: Router, private toastr: ToastrService, private authService: AuthService) {
+  constructor(
+    private fb: FormBuilder,
+    private router: Router,
+    private toastr: ToastrService,
+    private authService: AuthService,
+  ) {
     this.loginForm = this.fb.group({
       username: ['', [Validators.required]],
-      password: ['', Validators.required]
+      password: ['', Validators.required],
     });
   }
 
   onSubmit() {
     if (this.loginForm.valid) {
-      let user = new User(0, this.loginForm.value.username, this.loginForm.value.password,"","","USER");
+      const user = new User(
+        0,
+        this.loginForm.value.username,
+        this.loginForm.value.password,
+        '',
+        '',
+        'USER',
+      );
       this.authService.login(user).subscribe({
-        next: (resp) => {
-          this.toastr.success("Successful login");
+        next: () => {
+          this.toastr.success('Successful login');
           this.router.navigate(['/ct-studies']);
         },
-        error: (error) => {
-          this.errorMessage = "Invalid username or password!";
-        }
-      })
+        error: () => {
+          this.errorMessage = 'Invalid username or password!';
+        },
+      });
     }
   }
 }

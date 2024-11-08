@@ -6,7 +6,14 @@ export class User {
   public title: string;
   public role: string;
 
-  constructor(id: number, userName: string, password: string, name: string, title: string, role: string) {
+  constructor(
+    id: number,
+    userName: string,
+    password: string,
+    name: string,
+    title: string,
+    role: string,
+  ) {
     this.id = id;
     this.userName = userName;
     this.password = password;
@@ -14,5 +21,4 @@ export class User {
     this.title = title;
     this.role = role;
   }
-
 }
