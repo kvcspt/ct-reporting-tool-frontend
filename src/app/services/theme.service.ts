@@ -6,12 +6,12 @@ import { Injectable } from '@angular/core';
 export class ThemeService {
   private isDarkTheme = true;
 
-  toggleTheme() {
+  public toggleTheme(): void {
     this.isDarkTheme = !this.isDarkTheme;
     this.applyTheme();
   }
 
-  private applyTheme() {
+  private applyTheme(): void {
     document.body.classList.remove(
       'bg-dark',
       'text-light',
@@ -26,7 +26,7 @@ export class ThemeService {
     }
   }
 
-  isDarkMode(): boolean {
+  public isDarkMode(): boolean {
     return this.isDarkTheme;
   }
 }

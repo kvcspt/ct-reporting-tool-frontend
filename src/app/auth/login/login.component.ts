@@ -10,10 +10,10 @@ import { ToastrService } from 'ngx-toastr';
   templateUrl: './login.component.html',
 })
 export class LoginComponent {
-  loginForm: FormGroup;
-  errorMessage: string | undefined;
+  public loginForm: FormGroup;
+  public errorMessage: string | undefined;
 
-  constructor(
+  public constructor(
     private fb: FormBuilder,
     private router: Router,
     private toastr: ToastrService,
@@ -25,7 +25,7 @@ export class LoginComponent {
     });
   }
 
-  onSubmit() {
+  public onSubmit(): void {
     if (this.loginForm.valid) {
       const user = new User(
         0,

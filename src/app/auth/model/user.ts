@@ -6,7 +6,7 @@ export class User {
   public title: string;
   public role: string;
 
-  constructor(
+  public constructor(
     id: number,
     userName: string,
     password: string,

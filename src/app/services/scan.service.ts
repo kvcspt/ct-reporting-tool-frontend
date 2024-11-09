@@ -9,25 +9,21 @@ import { Scan } from '../models/scan';
 export class ScanService {
   private apiUrl = '/api/scans';
 
-  constructor(private http: HttpClient) {}
+  public constructor(private http: HttpClient) {}
 
-  getScans(): Observable<Scan[]> {
+  public getScans(): Observable<Scan[]> {
     return this.http.get<Scan[]>(this.apiUrl);
   }
 
-  uploadDicomFiles(files: FileList): Observable<UploadResponse> {
+  public uploadDicomFiles(files: FileList): Observable<object> {
     const formData = new FormData();
     Array.from(files).forEach((file) =>
       formData.append('files', file, file.name),
     );
-    return this.http.post<UploadResponse>(this.apiUrl, formData);
+    return this.http.post<object>(this.apiUrl, formData);
   }
 
-  deleteScan(id: number) {
+  public deleteScan(id: number): Observable<object> {
     return this.http.delete(this.apiUrl + '/' + encodeURIComponent(id));
   }
-}
-interface UploadResponse {
-  createdScans: Scan[];
-  errors: string[];
 }

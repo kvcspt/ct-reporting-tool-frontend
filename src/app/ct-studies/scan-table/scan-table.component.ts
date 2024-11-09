@@ -19,10 +19,10 @@ import { MatPaginator } from '@angular/material/paginator';
   templateUrl: './scan-table.component.html',
 })
 export class ScanTableComponent implements AfterViewInit, AfterViewChecked {
+  @Output() private deleteComplete = new EventEmitter<void>();
   @Input()
   public filteredScans: Array<Scan> = [];
-  @Output() deleteComplete = new EventEmitter<void>();
-  displayedColumns: string[] = [
+  public displayedColumns: string[] = [
     'description',
     'modality',
     'scanDate',
@@ -30,24 +30,24 @@ export class ScanTableComponent implements AfterViewInit, AfterViewChecked {
     'patient',
     'delete',
   ];
-  dataSource = new MatTableDataSource<Scan>(this.filteredScans);
-  @ViewChild(MatPaginator) paginator!: MatPaginator;
-  constructor(
+  public dataSource = new MatTableDataSource<Scan>(this.filteredScans);
+  @ViewChild(MatPaginator) private paginator!: MatPaginator;
+  public constructor(
     private scanService: ScanService,
     private toastr: ToastrService,
     private changeDetectorRef: ChangeDetectorRef,
   ) {}
 
-  ngAfterViewInit() {
+  public ngAfterViewInit(): void {
     this.dataSource.data = [...this.filteredScans];
     this.dataSource.paginator = this.paginator;
   }
 
-  ngAfterViewChecked() {
+  public ngAfterViewChecked(): void {
     this.changeDetectorRef.detectChanges();
   }
 
-  deleteScan(scanId: number) {
+  public deleteScan(scanId: number): void {
     this.scanService.deleteScan(scanId).subscribe({
       next: () => {
         this.toastr.success('Scan deleted successfully');

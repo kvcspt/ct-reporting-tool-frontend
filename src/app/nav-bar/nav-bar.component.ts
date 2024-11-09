@@ -7,20 +7,20 @@ import { ThemeService } from '../services/theme.service';
   templateUrl: './nav-bar.component.html',
 })
 export class NavBarComponent {
-  constructor(
+  public constructor(
     public authService: AuthService,
     private themeService: ThemeService,
   ) {}
 
-  logout() {
+  public logout(): void {
     this.authService.logout();
   }
 
-  toggleTheme() {
+  public toggleTheme(): void {
     this.themeService.toggleTheme();
   }
 
-  isDarkMode(): boolean {
+  public isDarkMode(): boolean {
     return this.themeService.isDarkMode();
   }
 }

@@ -16,9 +16,9 @@ import { Router } from '@angular/router';
   templateUrl: './register.component.html',
 })
 export class RegisterComponent {
-  registrationForm: FormGroup;
+  public registrationForm: FormGroup;
 
-  constructor(
+  public constructor(
     private fb: FormBuilder,
     private router: Router,
     private authService: AuthService,
@@ -37,7 +37,7 @@ export class RegisterComponent {
     );
   }
 
-  matchValidator(
+  public matchValidator(
     controlName: string,
     matchingControlName: string,
   ): ValidatorFn {
@@ -62,7 +62,7 @@ export class RegisterComponent {
       }
     };
   }
-  onSubmit() {
+  public onSubmit(): void {
     if (this.registrationForm.valid) {
       const newUser: User = new User(
         0,

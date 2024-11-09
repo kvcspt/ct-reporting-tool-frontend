@@ -1,5 +1,5 @@
 export class Scan {
-  constructor(
+  public constructor(
     public id: number,
     public modality: string,
     public scanDate: Date,

@@ -14,13 +14,13 @@ export class CtStudiesComponent implements OnInit {
   public viewScans = false;
   public uploadScans = false;
 
-  constructor(private scanService: ScanService) {}
+  public constructor(private scanService: ScanService) {}
 
-  ngOnInit() {
+  public ngOnInit(): void {
     this.loadScans();
   }
 
-  loadScans() {
+  public loadScans(): void {
     this.scanService.getScans().subscribe({
       next: (data) => {
         this.scans = data;
@@ -32,7 +32,7 @@ export class CtStudiesComponent implements OnInit {
     });
   }
 
-  filterScans() {
+  public filterScans(): void {
     if (!this.searchTerm) {
       this.filteredScans = this.scans;
     } else {

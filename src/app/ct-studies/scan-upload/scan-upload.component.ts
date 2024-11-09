@@ -7,22 +7,22 @@ import { ToastrService } from 'ngx-toastr';
   templateUrl: './scan-upload.component.html',
 })
 export class ScanUploadComponent {
-  @Output() uploadComplete = new EventEmitter<void>();
-  selectedFiles: FileList | null = null;
+  @Output() public uploadComplete = new EventEmitter<void>();
+  public selectedFiles: FileList | null = null;
 
-  constructor(
+  public constructor(
     private scanService: ScanService,
     private toastr: ToastrService,
   ) {}
 
-  onFileSelected(event: Event): void {
+  public onFileSelected(event: Event): void {
     const input = event.target as HTMLInputElement;
     if (input.files) {
       this.selectedFiles = input.files;
     }
   }
 
-  onUpload(): void {
+  public onUpload(): void {
     if (this.selectedFiles) {
       this.scanService.uploadDicomFiles(this.selectedFiles).subscribe({
         next: () => {

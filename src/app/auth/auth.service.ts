@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { User } from './model/user';
 import { Router } from '@angular/router';
-import { tap } from 'rxjs';
+import { Observable, tap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -13,12 +13,12 @@ export class AuthService {
   private isAuthenticated = false;
   private loggedInUser: User | null | undefined;
 
-  constructor(
+  public constructor(
     private http: HttpClient,
     private router: Router,
   ) {}
 
-  login(user: User) {
+  public login(user: User): Observable<User> {
     return this.http.post<User>(this.loginPath, user).pipe(
       tap((responseUser: User) => {
         this.isAuthenticated = true;
@@ -27,21 +27,21 @@ export class AuthService {
     );
   }
 
-  register(user: User) {
+  public register(user: User): Observable<object> {
     return this.http.post(this.registerPath, user);
   }
 
-  logout() {
+  public logout(): void {
     this.isAuthenticated = false;
     this.loggedInUser = null;
     this.router.navigate(['/login']);
   }
 
-  isLoggedIn(): boolean {
+  public isLoggedIn(): boolean {
     return this.isAuthenticated;
   }
 
-  isAdmin(): boolean {
+  public isAdmin(): boolean {
     return this.loggedInUser != null && this.loggedInUser.role === 'ADMIN';
   }
 }
