@@ -18,7 +18,12 @@ import { MatSelect } from '@angular/material/select';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { CtStudiesComponent } from './ct-studies/ct-studies.component';
 import { MatList, MatListItem } from '@angular/material/list';
-import { MatDialogContent, MatDialogTitle } from '@angular/material/dialog';
+import {
+  MatDialogActions,
+  MatDialogClose,
+  MatDialogContent,
+  MatDialogTitle,
+} from '@angular/material/dialog';
 import { ScanTableComponent } from './ct-studies/scan-table/scan-table.component';
 import {
   MatCell,
@@ -35,6 +40,10 @@ import {
 import { ScanUploadComponent } from './ct-studies/scan-upload/scan-upload.component';
 import { MatIcon } from '@angular/material/icon';
 import { MatPaginator } from '@angular/material/paginator';
+import { TemplateManagementComponent } from './template-management/template-management.component';
+import { TemplateDialogComponent } from './template-management/template-dialog/template-dialog.component';
+import { DeleteDialogComponent } from './template-management/delete-dialog/delete-dialog.component';
+import { SectionDialogComponent } from './template-management/template-dialog/section-dialog/section-dialog.component';
 
 @NgModule({
   declarations: [
@@ -45,6 +54,10 @@ import { MatPaginator } from '@angular/material/paginator';
     CtStudiesComponent,
     ScanTableComponent,
     ScanUploadComponent,
+    TemplateManagementComponent,
+    TemplateDialogComponent,
+    DeleteDialogComponent,
+    SectionDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -83,6 +96,8 @@ import { MatPaginator } from '@angular/material/paginator';
     MatIcon,
     MatIconButton,
     MatPaginator,
+    MatDialogActions,
+    MatDialogClose,
   ],
   providers: [],
   bootstrap: [AppComponent],
