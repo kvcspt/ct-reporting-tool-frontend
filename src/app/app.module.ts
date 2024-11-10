@@ -42,7 +42,7 @@ import { MatIcon } from '@angular/material/icon';
 import { MatPaginator } from '@angular/material/paginator';
 import { TemplateManagementComponent } from './template-management/template-management.component';
 import { TemplateDialogComponent } from './template-management/template-dialog/template-dialog.component';
-import { DeleteDialogComponent } from './template-management/delete-dialog/delete-dialog.component';
+import { DeleteDialogComponent } from './template-management/template-dialog/delete-dialog/delete-dialog.component';
 import { SectionDialogComponent } from './template-management/template-dialog/section-dialog/section-dialog.component';
 
 @NgModule({
