@@ -1,0 +1,21 @@
+<h2 mat-dialog-title>{{ key ? 'Edit Section' : 'Add Section' }}</h2>
+
+<mat-dialog-content class="p-4">
+    <div class="mb-3 row">
+        <mat-form-field>
+            <mat-label>Section Name</mat-label>
+            <input matInput [(ngModel)]="key" />
+        </mat-form-field>
+    </div>
+    <div class="mb-3 row">
+        <mat-form-field>
+            <mat-label>Description</mat-label>
+          <textarea matInput placeholder="Description" [(ngModel)]="value"></textarea>
+        </mat-form-field>
+    </div>
+</mat-dialog-content>
+
+<mat-dialog-actions class="d-flex justify-content-center p-3">
+    <button mat-raised-button [mat-dialog-close]="{ key: this.key, value: this.value }" color="primary">Save</button>
+    <button mat-raised-button mat-dialog-close>Cancel</button>
+</mat-dialog-actions>
