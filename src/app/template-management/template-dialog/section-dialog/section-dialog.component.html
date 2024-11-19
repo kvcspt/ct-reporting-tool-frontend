@@ -8,10 +8,14 @@
         </mat-form-field>
     </div>
     <div class="mb-3 row">
-        <mat-form-field>
-            <mat-label>Description</mat-label>
-          <textarea matInput placeholder="Description" [(ngModel)]="value"></textarea>
-        </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Field</mat-label>
+        <mat-select [(value)]="value">
+          <mat-option *ngFor="let field of fields$ | async" [value]="field">
+            {{ field }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
     </div>
 </mat-dialog-content>
 
