@@ -39,6 +39,7 @@ export class LoginComponent {
         next: (response) => {
           this.toastr.success('Successful login');
           this.authService.saveToken(response.token);
+          this.authService.startTokenExpirationTimer(response.token);
           this.router.navigate(['/ct-studies']);
         },
         error: () => {
