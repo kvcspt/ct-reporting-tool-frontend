@@ -19,6 +19,10 @@ export class TemplateService {
     return this.http.get<Template[]>(`${this.apiUrl}`);
   }
 
+  public getFields(): Observable<string[]> {
+    return this.http.get<string[]>(`${this.apiUrl}/fields`);
+  }
+
   public updateTemplate(template: Template): Observable<Template> {
     return this.http.put<Template>(`${this.apiUrl}/${template.id}`, template);
   }
