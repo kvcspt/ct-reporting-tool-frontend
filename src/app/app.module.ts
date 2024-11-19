@@ -44,6 +44,7 @@ import { TemplateManagementComponent } from './template-management/template-mana
 import { TemplateDialogComponent } from './template-management/template-dialog/template-dialog.component';
 import { DeleteDialogComponent } from './template-management/template-dialog/delete-dialog/delete-dialog.component';
 import { SectionDialogComponent } from './template-management/template-dialog/section-dialog/section-dialog.component';
+import { JWT_OPTIONS, JwtHelperService } from '@auth0/angular-jwt';
 
 @NgModule({
   declarations: [
@@ -100,6 +101,12 @@ import { SectionDialogComponent } from './template-management/template-dialog/se
     MatDialogClose,
   ],
   providers: [],
+    {
+      provide: JWT_OPTIONS,
+      useValue: JWT_OPTIONS,
+    },
+    JwtHelperService,
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
