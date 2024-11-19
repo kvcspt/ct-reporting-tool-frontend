@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -44,6 +44,7 @@ import { TemplateManagementComponent } from './template-management/template-mana
 import { TemplateDialogComponent } from './template-management/template-dialog/template-dialog.component';
 import { DeleteDialogComponent } from './template-management/template-dialog/delete-dialog/delete-dialog.component';
 import { SectionDialogComponent } from './template-management/template-dialog/section-dialog/section-dialog.component';
+import { AuthInterceptor } from './auth/auth.interceptor';
 import { JWT_OPTIONS, JwtHelperService } from '@auth0/angular-jwt';
 
 @NgModule({
@@ -100,7 +101,12 @@ import { JWT_OPTIONS, JwtHelperService } from '@auth0/angular-jwt';
     MatDialogActions,
     MatDialogClose,
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true,
+    },
     {
       provide: JWT_OPTIONS,
       useValue: JWT_OPTIONS,
