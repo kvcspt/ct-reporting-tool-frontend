@@ -22,6 +22,7 @@
   "rules": {
     "camelcase": "error",
     "no-var": "error",
+    "@typescript-eslint/no-explicit-any": "warn",
     "@typescript-eslint/explicit-function-return-type": "error",
     "@typescript-eslint/explicit-member-accessibility": "error",
     "prettier/prettier": "error"
