@@ -4,7 +4,8 @@ import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
 import { CtStudiesComponent } from './ct-studies/ct-studies.component';
 import { AuthService } from './auth/auth.service';
-import { authGuard } from './auth/auth.guard';
+//import { authGuard } from './auth/auth.guard';
+import { TemplateManagementComponent } from './template-management/template-management.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -12,8 +13,9 @@ const routes: Routes = [
   {
     path: 'ct-studies',
     component: CtStudiesComponent,
-    canActivate: [authGuard],
+    //canActivate: [authGuard],
   },
+  { path: 'templates', component: TemplateManagementComponent },
   { path: '', redirectTo: 'login', pathMatch: 'full' },
   { path: '**', redirectTo: 'login' },
 ];

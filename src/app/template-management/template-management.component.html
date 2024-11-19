@@ -1,0 +1,32 @@
+<div class="container mt-4">
+  <h2 class="text-center mb-4">Template Management</h2>
+
+  <div class="d-flex justify-content-between mb-4">
+    <button mat-raised-button color="primary" (click)="createNewTemplate()" class="btn btn-primary">
+      Create New Template
+    </button>
+  </div>
+
+  <div class="mb-4">
+    <mat-form-field appearance="fill" class="w-100">
+      <mat-label>Select Template</mat-label>
+      <mat-select [(value)]="selectedTemplate">
+        <mat-option *ngFor="let template of templates" [value]="template" (click)="editTemplate(template)">
+          {{ template.name }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+
+  <div *ngIf="selectedTemplate" class="d-flex justify-content-between align-items-center">
+    <div class="ml-3 ms-auto">
+      <span class="badge badge-secondary">Selected Template: {{ selectedTemplate.name }}</span>
+    </div>
+  </div>
+
+  <div *ngIf="selectedTemplate" class="mt-4">
+    <div class="alert alert-info">
+      <strong>Note:</strong> You can edit or delete the selected template.
+    </div>
+  </div>
+</div>
