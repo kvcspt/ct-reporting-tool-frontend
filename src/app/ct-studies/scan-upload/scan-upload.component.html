@@ -3,6 +3,6 @@
   <form (ngSubmit)="onUpload()" enctype="multipart/form-data">
     <input hidden #fileInput type="file" (change)="onFileSelected($event)" multiple/> <!--accept=".dcm" -->
     <button class="mx-2" type="button" mat-raised-button (click)="fileInput.click()">Choose File</button>
-    <button type="submit" mat-flat-button color="primary" [hidden]="!selectedFiles">Upload</button>
+    <button type="submit" mat-flat-button color="primary" [hidden]="!selectedFiles" routerLink="/dicom-viewer">Upload</button>
   </form>
 </div>
