@@ -1,3 +1,5 @@
+import { Patient } from './patient';
+
 export class Scan {
   public constructor(
     public id: number,
@@ -5,7 +7,8 @@ export class Scan {
     public scanDate: Date,
     public description: string,
     public bodyPart: string,
-    public patientId: number,
-    public reportId: number | undefined,
+    public patient: Patient,
+    public performer: string,
+    public resultsInterpreter: string,
   ) {}
 }
