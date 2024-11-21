@@ -44,6 +44,7 @@ import { TemplateManagementComponent } from './template-management/template-mana
 import { TemplateDialogComponent } from './template-management/template-dialog/template-dialog.component';
 import { DeleteDialogComponent } from './template-management/template-dialog/delete-dialog/delete-dialog.component';
 import { SectionDialogComponent } from './template-management/template-dialog/section-dialog/section-dialog.component';
+import { DicomViewerComponent } from './dicom-viewer/dicom-viewer.component';
 import { AuthInterceptor } from './auth/auth.interceptor';
 import { JWT_OPTIONS, JwtHelperService } from '@auth0/angular-jwt';
 
@@ -60,6 +61,7 @@ import { JWT_OPTIONS, JwtHelperService } from '@auth0/angular-jwt';
     TemplateDialogComponent,
     DeleteDialogComponent,
     SectionDialogComponent,
+    DicomViewerComponent,
   ],
   imports: [
     BrowserModule,
