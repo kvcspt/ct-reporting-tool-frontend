@@ -10,5 +10,7 @@ export class Scan {
     public patient: Patient,
     public performer: string,
     public resultsInterpreter: string,
+    public studyUid: string,
+    public seriesUid: string,
   ) {}
 }

@@ -6,7 +6,7 @@ import { Scan } from '../models/scan';
   selector: 'app-ct-studies',
   templateUrl: './ct-studies.component.html',
 })
-export class CtStudiesComponent implements OnInit {
+export class CtStudiesComponent {
   public notification: string | null = null;
   public scans: Array<Scan> = [];
   public filteredScans: Array<Scan> = [];
@@ -16,21 +16,21 @@ export class CtStudiesComponent implements OnInit {
 
   public constructor(private scanService: ScanService) {}
 
-  public ngOnInit(): void {
-    this.loadScans();
-  }
+  //public ngOnInit(): void {
+  //  this.loadScans();
+  //}
 
-  public loadScans(): void {
-    this.scanService.getScans().subscribe({
-      next: (data) => {
-        this.scans = data;
-        this.filteredScans = data;
-      },
-      error: () => {
-        this.notification = 'Failed to load scans.';
-      },
-    });
-  }
+  //public loadScans(): void {
+  //  this.scanService.getScans().subscribe({
+  //    next: (data) => {
+  //      this.scans = data;
+  //      this.filteredScans = data;
+  //    },
+  //    error: () => {
+  //      this.notification = 'Failed to load scans.';
+  //    },
+  //  });
+  //}
 
   public filterScans(): void {
     if (!this.searchTerm) {

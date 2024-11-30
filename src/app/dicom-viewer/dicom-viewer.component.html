@@ -1,1 +1,16 @@
-<p>dicom-viewer works!</p>
+<div class="container-fluid">
+  <div class="row">
+    <!-- Viewer Section -->
+    <div class="col-md-8">
+      <div class="viewer-section">
+        <!-- Add DICOM viewer content here -->
+        <h3>DICOM Viewer</h3>
+      </div>
+    </div>
+
+    <!-- Report Section -->
+    <div class="col-md-4">
+      <app-report [scans]="scans"></app-report>
+    </div>
+  </div>
+</div>

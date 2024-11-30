@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { Scan } from '../models/scan';
 
 @Injectable({
@@ -8,22 +8,32 @@ import { Scan } from '../models/scan';
 })
 export class ScanService {
   private apiUrl = '/api/scans';
+  private scansSource = new BehaviorSubject<Scan[]>([]);
+  private _scans$ = this.scansSource.asObservable();
 
   public constructor(private http: HttpClient) {}
 
-  public getScans(): Observable<Scan[]> {
-    return this.http.get<Scan[]>(this.apiUrl);
+  //public getScans(): Observable<Scan[]> {
+  //  return this.http.get<Scan[]>(this.apiUrl);
+  //}
+
+  public get scans$(): Observable<Scan[]> {
+    return this._scans$;
   }
 
-  public uploadDicomFiles(files: FileList): Observable<object> {
+  public setScans(scans: Scan[]): void {
+    this.scansSource.next(scans);
+  }
+
+  public uploadDicomFiles(files: FileList): Observable<Scan[]> {
     const formData = new FormData();
-    Array.from(files).forEach((file) =>
+    Array.from(files).forEach((file: File) =>
       formData.append('files', file, file.name),
     );
-    return this.http.post<object>(this.apiUrl, formData);
+    return this.http.post<Scan[]>(this.apiUrl, formData);
   }
 
   public deleteScan(id: number): Observable<object> {
-    return this.http.delete(this.apiUrl + '/' + encodeURIComponent(id));
+    return this.http.delete(`${this.apiUrl}/${encodeURIComponent(id)}`);
   }
 }

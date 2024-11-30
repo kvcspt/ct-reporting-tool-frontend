@@ -47,6 +47,7 @@ import { SectionDialogComponent } from './template-management/template-dialog/se
 import { DicomViewerComponent } from './dicom-viewer/dicom-viewer.component';
 import { AuthInterceptor } from './auth/auth.interceptor';
 import { JWT_OPTIONS, JwtHelperService } from '@auth0/angular-jwt';
+import { ReportComponent } from './dicom-viewer/report/report.component';
 
 @NgModule({
   declarations: [
@@ -62,6 +63,7 @@ import { JWT_OPTIONS, JwtHelperService } from '@auth0/angular-jwt';
     DeleteDialogComponent,
     SectionDialogComponent,
     DicomViewerComponent,
+    ReportComponent,
   ],
   imports: [
     BrowserModule,

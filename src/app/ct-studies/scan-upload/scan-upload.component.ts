@@ -1,6 +1,8 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { ScanService } from '../../services/scan.service';
 import { ToastrService } from 'ngx-toastr';
+import { Scan } from '../../models/scan';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-scan-upload',
@@ -13,6 +15,7 @@ export class ScanUploadComponent {
   public constructor(
     private scanService: ScanService,
     private toastr: ToastrService,
+    private router: Router,
   ) {}
 
   public onFileSelected(event: Event): void {
@@ -25,9 +28,11 @@ export class ScanUploadComponent {
   public onUpload(): void {
     if (this.selectedFiles) {
       this.scanService.uploadDicomFiles(this.selectedFiles).subscribe({
-        next: () => {
+        next: (scans: Scan[]) => {
           this.toastr.success('Upload successful!');
           this.uploadComplete.emit();
+          this.scanService.setScans(scans);
+          this.router.navigate(['/dicom-viewer']);
         },
         error: () => this.toastr.error('Upload error!'),
       });
