@@ -32,7 +32,12 @@
             "tsConfig": "tsconfig.app.json",
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              {
+                "glob": "**/*",
+                "input": "./node_modules/ng-cornerstone/src/assets",
+                "output": "/assets/"
+              }
             ],
             "styles": [
               "@angular/material/prebuilt-themes/indigo-pink.css",
@@ -69,13 +74,20 @@
           "defaultConfiguration": "production"
         },
         "serve": {
+          "options": {
+            "host": "0.0.0.0",
+            "headers": {
+              "Cross-Origin-Embedder-Policy": "require-corp",
+              "Cross-Origin-Opener-Policy": "same-origin"
+            }
+          },
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "ct-reporting-tool-frontend:build:production"
+              "browserTarget": "ct-reporting-tool-frontend:build:production"
             },
             "development": {
-              "buildTarget": "ct-reporting-tool-frontend:build:development"
+              "browserTarget": "ct-reporting-tool-frontend:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -83,7 +95,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "buildTarget": "ct-reporting-tool-frontend:build"
+            "browserTarget": "ct-reporting-tool-frontend:build"
           }
         },
         "test": {
