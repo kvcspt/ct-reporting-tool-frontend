@@ -2,10 +2,16 @@
   <div class="row">
     <!-- Viewer Section -->
     <div class="col-md-8">
-      <div class="viewer-section">
-        <!-- Add DICOM viewer content here -->
-        <h3>DICOM Viewer</h3>
-      </div>
+      <h3>DICOM Viewer</h3>
+
+      <ng-container>
+        <nc-viewer
+          style="height: 400px"
+          class="w-100"
+          [toolList]="toolList"
+          [imageInfo]="imageInfos[0]"></nc-viewer>
+      </ng-container>
+
     </div>
 
     <!-- Report Section -->
@@ -14,3 +20,4 @@
     </div>
   </div>
 </div>
+
