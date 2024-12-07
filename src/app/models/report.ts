@@ -1,6 +1,8 @@
 import { Patient } from './patient';
 import { User } from '../auth/model/user';
 import { Template } from './template';
+import { Lesion } from './lesion';
+import { Scan } from './scan';
 
 export class Report {
   public constructor(
@@ -11,5 +13,7 @@ export class Report {
     public createdBy: User,
     public template: Template,
     public sections: { [p: string]: string },
+    public scans: Scan[],
+    public lesions: Lesion[],
   ) {}
 }

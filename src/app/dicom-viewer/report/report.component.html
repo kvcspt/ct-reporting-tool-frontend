@@ -37,8 +37,49 @@
         />
       </div>
     </div>
+    <div class="form-group mt-2">
+      <label *ngIf="lesions">Lesions</label>
 
-    <!-- Submit Button -->
+      <!-- Dynamic Lesion Inputs -->
+      <div formArrayName="lesions" *ngFor="let lesion of lesions.controls; let i = index" class="mb-3">
+        <div [formGroupName]="i">
+          <label for="diameterX-{{ i }}">Diameter X</label>
+          <input
+            id="diameterX-{{ i }}"
+            type="text"
+            class="form-control"
+            formControlName="diameterX"
+            placeholder="Enter lesion diameter X"
+          />
+
+          <label for="diameterY-{{ i }}" class="mt-2">Diameter Y</label>
+          <input
+            id="diameterY-{{ i }}"
+            type="text"
+            class="form-control"
+            formControlName="diameterY"
+            placeholder="Enter lesion diameter Y"
+          />
+
+          <label for="diameterZ-{{ i }}" class="mt-2">Diameter Z</label>
+          <input
+            id="diameterZ-{{ i }}"
+            type="text"
+            class="form-control"
+            formControlName="diameterZ"
+            placeholder="Enter lesion diameter Z"
+          />
+
+          <button type="button" class="btn btn-danger mt-2" (click)="removeLesion(i)">
+            Remove Lesion
+          </button>
+        </div>
+      </div>
+
+      <button mat-flat-button color="accent" type="button" class="btn my-2 w-100" (click)="addLesion()">Add Lesion</button>
+    </div>
+
+      <!-- Submit Button -->
     <button type="button" class="btn btn-primary m-1" (click)="handleAction('pdf')">Save as PDF</button>
     <button type="button" class="btn btn-primary m-1" (click)="handleAction('html')">Save as HTML</button>
     <button type="button" class="btn btn-primary m-1" (click)="handleAction('json')">Save as JSON</button>

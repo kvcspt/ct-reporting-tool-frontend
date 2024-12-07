@@ -4,7 +4,8 @@ import { TemplateService } from '../../services/template.service';
 import { Scan } from '../../models/scan';
 import { ReportService } from '../../services/report.service';
 import { Report } from '../../models/report';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Lesion } from '../../models/lesion';
 
 @Component({
   selector: 'app-report',
@@ -51,6 +52,7 @@ export class ReportComponent implements OnInit {
     // Initialize the form controls for title
     this.reportForm = this.fb.group({
       title: [report.title, Validators.required],
+      lesions: this.fb.array([]),
     });
 
     // Extract section keys and dynamically create form controls
@@ -62,6 +64,22 @@ export class ReportComponent implements OnInit {
       );
     });
   }
+  public get lesions(): FormArray {
+    return this.reportForm.get('lesions') as FormArray;
+  }
+
+  public addLesion(): void {
+    const lesionGroup = this.fb.group({
+      diameterX: [''],
+      diameterY: [''],
+      diameterZ: [''],
+    });
+    this.lesions.push(lesionGroup);
+  }
+
+  public removeLesion(index: number): void {
+    this.lesions.removeAt(index);
+  }
 
   public handleAction(action: string): void {
     if (this.reportForm.valid) {
@@ -72,6 +90,17 @@ export class ReportComponent implements OnInit {
           this.reportForm.value[`section_${index}`];
       });
     }
+    this.generatedReport!.lesions = this.lesions.controls.map((control) => {
+      const formValues = control.value;
+      return new Lesion(
+        formValues.diameterX,
+        formValues.diameterY,
+        formValues.diameterZ,
+      );
+    });
+
+    console.log(this.generatedReport);
+
     switch (action) {
       case 'pdf':
         this.reportService.saveAsPDF(this.generatedReport!).subscribe({
