@@ -32,6 +32,7 @@ export class ScanUploadComponent {
           this.toastr.success('Upload successful!');
           this.uploadComplete.emit();
           this.scanService.setScans(scans);
+          localStorage.setItem('scans', JSON.stringify(scans));
           this.router.navigate(['/dicom-viewer']);
         },
         error: () => this.toastr.error('Upload error!'),

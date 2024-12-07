@@ -13,3 +13,13 @@ export const authGuard: CanActivateFn = () => {
     return false;
   }
 };
+
+export const defaultRouteGuard: CanActivateFn = () => {
+  const authService = inject(AuthService);
+  const router = inject(Router);
+
+  const isLoggedIn = authService.isLoggedIn();
+  const targetRoute = isLoggedIn ? '/ct-studies' : '/login';
+  router.navigate([targetRoute]);
+  return false;
+};

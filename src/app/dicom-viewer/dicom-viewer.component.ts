@@ -36,17 +36,24 @@ export class DicomViewerComponent implements OnInit {
   public ngOnInit(): void {
     this.scanService.scans$.subscribe({
       next: (data) => {
-        this.scans = data;
-        this.imageInfos = [
-          {
-            studyInstanceUID: this.scans[0].studyUid,
-            seriesInstanceUID: this.scans[0].seriesUid,
-            urlRoot: 'http://localhost:8080/dicom-web',
-            viewportType: Enums.ViewportType.STACK,
-            schema: RequestSchema.wadoRs,
-          },
-        ];
+        this.scans = data.length
+          ? data
+          : JSON.parse(localStorage.getItem('scans') || '[]');
+
+        if (this.scans && this.scans.length > 0) {
+          this.imageInfos = [
+            {
+              studyInstanceUID: this.scans[0].studyUid,
+              seriesInstanceUID: this.scans[0].seriesUid,
+              urlRoot: DICOM_WEB_URL_ROOT,
+              viewportType: Enums.ViewportType.STACK,
+              schema: RequestSchema.wadoRs,
+            },
+          ];
+        }
       },
     });
   }
 }
+
+const DICOM_WEB_URL_ROOT = 'http://localhost:8080/dicom-web';

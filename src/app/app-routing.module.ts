@@ -5,7 +5,7 @@ import { RegisterComponent } from './auth/register/register.component';
 import { CtStudiesComponent } from './ct-studies/ct-studies.component';
 import { AuthService } from './auth/auth.service';
 import { TemplateManagementComponent } from './template-management/template-management.component';
-import { authGuard } from './auth/auth.guard';
+import { authGuard, defaultRouteGuard } from './auth/auth.guard';
 import { DicomViewerComponent } from './dicom-viewer/dicom-viewer.component';
 
 const routes: Routes = [
@@ -26,8 +26,12 @@ const routes: Routes = [
     component: TemplateManagementComponent,
     canActivate: [authGuard],
   },
-  { path: '', redirectTo: 'login', pathMatch: 'full' },
-  { path: '**', redirectTo: 'login' },
+  {
+    path: '',
+    children: [],
+    canActivate: [defaultRouteGuard],
+  },
+  { path: '**', redirectTo: '' },
 ];
 
 @NgModule({
