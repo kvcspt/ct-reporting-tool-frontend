@@ -6,6 +6,7 @@ import { ReportService } from '../../services/report.service';
 import { Report } from '../../models/report';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Lesion } from '../../models/lesion';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-report',
@@ -25,6 +26,7 @@ export class ReportComponent implements OnInit {
     private templateService: TemplateService,
     private reportService: ReportService,
     private fb: FormBuilder,
+    private toastr: ToastrService,
   ) {}
 
   public ngOnInit(): void {
@@ -158,16 +160,18 @@ export class ReportComponent implements OnInit {
         });
         break;
 
-      //case 'fhirCast':
-      //  this.reportService.uploadToFHIRCast().subscribe({
-      //    next: (response) => {
-      //      console.log('Uploaded to FHIRCast successfully', response);
-      //    },
-      //    error: () => {
-      //      console.error('Error uploading to FHIRCast', error);
-      //    },
-      //  });
-      //  break;
+      case 'fhirCast':
+        this.reportService.uploadToFHIRCast(this.generatedReport!).subscribe({
+          next: (response) => {
+            this.toastr.success('Uploaded to FHIR server successfully');
+            console.log('Uploaded to FHIRCast successfully', response);
+          },
+          error: (error) => {
+            this.toastr.error('Error uploading to FHIR server');
+            console.error('Error uploading to FHIRCast', error);
+          },
+        });
+        break;
 
       default:
         console.error('Unknown action:', action);

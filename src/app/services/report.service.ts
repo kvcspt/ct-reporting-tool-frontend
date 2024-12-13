@@ -44,7 +44,7 @@ export class ReportService {
     });
   }
 
-  //public uploadToFHIRCast(report: Report) {
-  //  return this.http.post(`${this.apiUrl}/fhir-cast`, report);
-  //}
+  public uploadToFHIRCast(report: Report): Observable<object> {
+    return this.http.post(`${this.apiUrl}/fhircast`, report);
+  }
 }
