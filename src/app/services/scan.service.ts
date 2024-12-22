@@ -13,9 +13,9 @@ export class ScanService {
 
   public constructor(private http: HttpClient) {}
 
-  //public getScans(): Observable<Scan[]> {
-  //  return this.http.get<Scan[]>(this.apiUrl);
-  //}
+  public getScans(): Observable<Scan[]> {
+    return this.http.get<Scan[]>(this.apiUrl);
+  }
 
   public get scans$(): Observable<Scan[]> {
     return this._scans$;

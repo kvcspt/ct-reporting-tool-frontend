@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { ScanService } from '../services/scan.service';
 import { Scan } from '../models/scan';
 
@@ -16,21 +16,21 @@ export class CtStudiesComponent {
 
   public constructor(private scanService: ScanService) {}
 
-  //public ngOnInit(): void {
-  //  this.loadScans();
-  //}
+  public ngOnInit(): void {
+    this.loadScans();
+  }
 
-  //public loadScans(): void {
-  //  this.scanService.getScans().subscribe({
-  //    next: (data) => {
-  //      this.scans = data;
-  //      this.filteredScans = data;
-  //    },
-  //    error: () => {
-  //      this.notification = 'Failed to load scans.';
-  //    },
-  //  });
-  //}
+  public loadScans(): void {
+    this.scanService.getScans().subscribe({
+      next: (data) => {
+        this.scans = data;
+        this.filteredScans = data;
+      },
+      error: () => {
+        this.notification = 'Failed to load scans.';
+      },
+    });
+  }
 
   public filterScans(): void {
     if (!this.searchTerm) {

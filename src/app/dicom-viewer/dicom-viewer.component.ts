@@ -9,6 +9,8 @@ import { Enums } from '@cornerstonejs/core';
   templateUrl: './dicom-viewer.component.html',
 })
 export class DicomViewerComponent implements OnInit {
+  private static readonly DICOM_WEB_URL_ROOT =
+    'http://localhost:8080/dicom-web';
   public scans: Scan[] | undefined;
   public toolList = [
     ToolEnum.StackScrollTool,
@@ -39,21 +41,20 @@ export class DicomViewerComponent implements OnInit {
         this.scans = data.length
           ? data
           : JSON.parse(localStorage.getItem('scans') || '[]');
+        this.imageInfos = [];
 
         if (this.scans && this.scans.length > 0) {
-          this.imageInfos = [
-            {
-              studyInstanceUID: this.scans[0].studyUid,
-              seriesInstanceUID: this.scans[0].seriesUid,
-              urlRoot: DICOM_WEB_URL_ROOT,
+          this.scans.forEach((scan) => {
+            this.imageInfos.push({
+              studyInstanceUID: scan.studyUid,
+              seriesInstanceUID: scan.seriesUid,
+              urlRoot: DicomViewerComponent.DICOM_WEB_URL_ROOT,
               viewportType: Enums.ViewportType.STACK,
               schema: RequestSchema.wadoRs,
-            },
-          ];
+            });
+          });
         }
       },
     });
   }
 }
-
-const DICOM_WEB_URL_ROOT = 'http://localhost:8080/dicom-web';

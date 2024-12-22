@@ -9,21 +9,21 @@
     <div class="col-md-6">
       <button mat-raised-button color="primary" class="w-100" (click)="this.uploadScans = !this.uploadScans">Upload New CT Study</button>
     </div>
-    <!--<div class="col-md-6">
+    <div class="col-md-6">
       <button mat-raised-button color="accent" class="w-100" (click)="this.viewScans = !this.viewScans">View Previous Scans</button>
-    </div>-->
+    </div>
   </div>
 
-  <!--<div class="mb-4">
+  <div class="mb-4">
     <mat-form-field appearance="fill" class="w-100">
       <mat-label>Search Previous Scans</mat-label>
       <input matInput [(ngModel)]="searchTerm" (input)="filterScans()" placeholder="Search by study name or date">
     </mat-form-field>
-  </div>-->
+  </div>
   <div *ngIf="uploadScans">
     <app-scan-upload></app-scan-upload>
   </div>
-<!--  <div *ngIf="viewScans">-->
-<!--    <app-scan-table [filteredScans]="filteredScans" (deleteComplete)="loadScans()"></app-scan-table>-->
-<!--  </div>-->
+  <div *ngIf="viewScans">
+    <app-scan-table [filteredScans]="filteredScans" (deleteComplete)="loadScans()"></app-scan-table>
+  </div>
 </div>

@@ -13,6 +13,7 @@ import { ScanService } from '../../services/scan.service';
 import { ToastrService } from 'ngx-toastr';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-scan-table',
@@ -28,14 +29,16 @@ export class ScanTableComponent implements AfterViewInit, AfterViewChecked {
     'scanDate',
     'bodyPart',
     'patient',
-    'delete',
+    'open',
   ];
   public dataSource = new MatTableDataSource<Scan>(this.filteredScans);
   @ViewChild(MatPaginator) private paginator!: MatPaginator;
+
   public constructor(
     private scanService: ScanService,
     private toastr: ToastrService,
     private changeDetectorRef: ChangeDetectorRef,
+    private router: Router,
   ) {}
 
   public ngAfterViewInit(): void {
@@ -61,5 +64,13 @@ export class ScanTableComponent implements AfterViewInit, AfterViewChecked {
         this.toastr.error('Failed to delete scan');
       },
     });
+  }
+
+  public openScanStudy(scan: Scan): void {
+    console.log('Opening scan:', scan);
+
+    const scans = [scan];
+    localStorage.setItem('scans', JSON.stringify(scans));
+    this.router.navigate(['/dicom-viewer']);
   }
 }
