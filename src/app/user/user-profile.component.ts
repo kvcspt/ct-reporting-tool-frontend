@@ -22,8 +22,8 @@ export class UserProfileComponent implements OnInit {
     this.userForm = this.fb.group(
       {
         username: ['', [Validators.required]],
-        password: ['', [Validators.required]],
-        confirmPassword: ['', [Validators.required]],
+        password: [''],
+        confirmPassword: [''],
         name: [''],
         title: [''],
       },
@@ -53,6 +53,21 @@ export class UserProfileComponent implements OnInit {
     return password === confirmPassword ? null : { passwordMismatch: true };
   }
 
+  public deleteUser(): void {
+    if (this.userId) {
+      this.userService.deleteUser(this.userId).subscribe({
+        next: () => {
+          console.log('User deleted successfully.');
+          this.authService.logout();
+        },
+        error: (err) => {
+          console.error('Error deleting user:', err);
+        },
+      });
+    } else {
+      console.error('No userId provided.');
+    }
+  }
   public onSubmit(): void {
     if (this.userForm.invalid) {
       alert('Please fix the errors in the form before submitting.');
@@ -69,12 +84,11 @@ export class UserProfileComponent implements OnInit {
     };
 
     this.userService.updateUser(updatedUser).subscribe({
-      next: (response: any) => {
-        console.log('User updated successfully', response);
+      next: () => {
         this.toastr.success('Your profile has been updated.');
       },
       error: (err: any) => {
-        console.error('Error updating user:', err);
+        console.error(err);
         this.toastr.error('An error occurred while updating your profile.');
       },
     });
