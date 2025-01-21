@@ -26,6 +26,15 @@ export class AuthService {
     return this.http.post(this.registerPath, user);
   }
 
+  public getUId(): number {
+    const token = this.getToken();
+    if (token) {
+      const decodedToken = this.jwtHelper.decodeToken(token);
+      return decodedToken.uid;
+    }
+    return 0;
+  }
+
   private getRole(): string {
     const token = this.getToken();
     if (token) {

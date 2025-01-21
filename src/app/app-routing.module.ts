@@ -7,6 +7,7 @@ import { AuthService } from './auth/auth.service';
 import { TemplateManagementComponent } from './template-management/template-management.component';
 import { authGuard, defaultRouteGuard } from './auth/auth.guard';
 import { DicomViewerComponent } from './dicom-viewer/dicom-viewer.component';
+import { UserProfileComponent } from './user/user-profile.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -24,6 +25,11 @@ const routes: Routes = [
   {
     path: 'templates',
     component: TemplateManagementComponent,
+    canActivate: [authGuard],
+  },
+  {
+    path: 'user-update',
+    component: UserProfileComponent,
     canActivate: [authGuard],
   },
   {

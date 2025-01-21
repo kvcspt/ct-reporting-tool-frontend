@@ -31,6 +31,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MatCardModule } from '@angular/material/card';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { ViewerModule } from 'ng-cornerstone';
+import { UserProfileComponent } from './user/user-profile.component';
 
 @NgModule({
   declarations: [
@@ -47,6 +48,7 @@ import { ViewerModule } from 'ng-cornerstone';
     SectionDialogComponent,
     DicomViewerComponent,
     ReportComponent,
+    UserProfileComponent,
   ],
   imports: [
     BrowserModule,

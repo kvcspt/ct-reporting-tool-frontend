@@ -1,0 +1,47 @@
+<div class="d-flex justify-content-center align-items-center vh-100">
+  <mat-card class="p-4 bg-light text-dark">
+    <h3 class="text-center mb-4">Update Profile</h3>
+    <form (ngSubmit)="onSubmit()" [formGroup]="userForm" class="px-3">
+      <mat-form-field appearance="fill" class="w-100 mb-3">
+        <mat-label>Username</mat-label>
+        <input matInput formControlName="username" placeholder="Enter your username" readonly>
+        <mat-error *ngIf="userForm.get('username')?.invalid">
+          Username is required
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="w-100 mb-3">
+        <mat-label>Password</mat-label>
+        <input matInput type="password" formControlName="password" placeholder="Enter your password">
+        <mat-error *ngIf="userForm.get('password')?.invalid">
+          Password is required
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="w-100 mb-3">
+        <mat-label>Confirm Password</mat-label>
+        <input matInput type="password" formControlName="confirmPassword" placeholder="Confirm your password">
+        <mat-error *ngIf="userForm.errors?.['passwordMismatch']">
+          Passwords do not match
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="w-100 mb-3">
+        <mat-label>Name</mat-label>
+        <input matInput formControlName="name" placeholder="Enter your name">
+        <mat-error *ngIf="userForm.get('name')?.invalid">
+          Name is required
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="w-100 mb-3">
+        <mat-label>Title</mat-label>
+        <input matInput formControlName="title" placeholder="Enter your title">
+      </mat-form-field>
+
+      <button mat-raised-button color="primary" type="submit" class="w-100 mt-3" [disabled]="userForm.invalid">
+        Update Profile
+      </button>
+    </form>
+  </mat-card>
+</div>

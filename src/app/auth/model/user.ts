@@ -1,6 +1,6 @@
 export class User {
   public id: number;
-  public userName: string;
+  public username: string;
   public password: string;
   public name: string;
   public title: string;
@@ -15,7 +15,7 @@ export class User {
     role: string,
   ) {
     this.id = id;
-    this.userName = userName;
+    this.username = userName;
     this.password = password;
     this.name = name;
     this.title = title;

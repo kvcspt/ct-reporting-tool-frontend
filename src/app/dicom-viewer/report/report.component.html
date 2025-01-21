@@ -36,7 +36,7 @@
       </div>
     </div>
     <div class="form-group mt-3">
-      <label class="fw-bold" *ngIf="lesions?.length > 0">Lesions</label>
+      <label class="fw-bold" *ngIf="lesions?.length ?? 0 > 0">Lesions</label>
 
       <div formArrayName="lesions" *ngFor="let lesion of lesions?.controls; let i = index" class="mb-3">
         <div [formGroupName]="i">

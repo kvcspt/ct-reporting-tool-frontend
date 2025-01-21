@@ -22,6 +22,7 @@ export class ReportComponent implements OnInit {
     title: ['', Validators.required],
   });
   public sectionKeys: string[] = [];
+
   public constructor(
     private templateService: TemplateService,
     private reportService: ReportService,
@@ -51,13 +52,11 @@ export class ReportComponent implements OnInit {
   }
 
   public initializeForm(report: Report): void {
-    // Initialize the form controls for title
     this.reportForm = this.fb.group({
       title: [report.title, Validators.required],
       lesions: this.fb.array([]),
     });
 
-    // Extract section keys and dynamically create form controls
     this.sectionKeys = Object.keys(report.sections);
     this.sectionKeys.forEach((key, index) => {
       this.reportForm.addControl(
@@ -66,6 +65,7 @@ export class ReportComponent implements OnInit {
       );
     });
   }
+
   public get lesions(): FormArray {
     return this.reportForm.get('lesions') as FormArray;
   }

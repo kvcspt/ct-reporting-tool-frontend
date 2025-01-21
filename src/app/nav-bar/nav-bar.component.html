@@ -22,6 +22,9 @@
           <a class="nav-link" routerLink="/logout" (click)="logout()">Logout</a>
         </li>
       </ul>
+      <button mat-icon-button style="color: black" *ngIf="this.authService.isLoggedIn()" (click)="openUserUpdate()">
+        <mat-icon>account_circle</mat-icon>
+      </button>
       <button class="btn btn-outline-secondary ms-auto" (click)="toggleTheme()">
         {{ isDarkMode() ? 'Light Mode' : 'Dark Mode' }}
       </button>
