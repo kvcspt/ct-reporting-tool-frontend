@@ -1,0 +1,1616 @@
+<form class="form-group bg-dark text-light" [formGroup]="abdomenForm">
+  <section
+    id="procedureInformation"
+    class="level1"
+    data-section-name="Procedure Information"
+  >
+    <header class="level1 fw-bold">Procedure Information</header>
+    <p title="">
+      <label for="procedureInformationText">Exam</label>
+      <textarea
+        rows="3"
+        class="d-flex w-100"
+        id="procedureInformationText"
+        formControlName="procedureInformationText"
+        name="procedureInformationText"
+        data-field-type="TEXTAREA"
+        data-field-completion-action="NONE"
+      ></textarea>
+    </p>
+    <p title="">
+      <label for="techniqueText">Technique</label>
+      <textarea
+        rows="3"
+        class="d-flex w-100"
+        id="techniqueText"
+        formControlName="techniqueText"
+        name="techniqueText"
+        data-field-type="TEXTAREA"
+        data-field-completion-action="NONE"
+      ></textarea>
+    </p>
+  </section>
+  <section
+    id="clinicalInformation"
+    class="level1"
+    data-section-name="Clinical Information"
+  >
+    <header class="level1 fw-bold">Clinical Information</header>
+    <p title="">
+      <label for="clinicalInformationText"></label>
+      <textarea
+        rows="3"
+        class="d-flex w-100"
+        id="clinicalInformationText"
+        formControlName="clinicalInformationText"
+        name="clinicalInformationText"
+        data-field-type="TEXTAREA"
+        data-field-completion-action="NONE"
+      ></textarea>
+    </p>
+  </section>
+  <section id="comparisons" class="level1" data-section-name="Comparison">
+    <header class="level1 fw-bold">Comparison</header>
+    <p title="">
+      <label for="comparisonsText"></label>
+      <textarea
+        rows="3"
+        class="d-flex w-100"
+        id="comparisonsText"
+        formControlName="comparisonsText"
+        name="comparisonsText"
+        data-field-type="TEXTAREA"
+        data-field-completion-action="NONE"
+      ></textarea>
+    </p>
+  </section>
+  <section id="findings" class="level1" data-section-name="Findings">
+    <header class="level1 fw-bold">Findings</header>
+    <section
+      id="SECTION_HEADER_1619606121252"
+      class="level2"
+      data-section-name="Lower chest"
+    >
+      <header class="level2">Lower chest</header>
+    </section>
+    <p title="">
+      <label for="findingsText">Lung bases / pleura</label>
+      <textarea
+        rows="3"
+        class="d-flex w-100"
+        id="findingsText"
+        formControlName="findingsText"
+        name="findingsText"
+        data-field-type="TEXTAREA"
+        data-field-completion-action="NONE"
+      ></textarea>
+    </p>
+    <p title="">
+      <label for="TEXT_1619606121253">Distal esophagus</label>
+      <textarea
+        rows="3"
+        class="d-flex w-100"
+        id="TEXT_1619606121253"
+        formControlName="distalEsophagus"
+        name="distalEsophagus"
+        data-field-type="TEXTAREA"
+        data-field-completion-action="NONE"
+      ></textarea>
+    </p>
+    <p title="">
+      <label for="TEXT_1619606121254">Heart / vessels</label>
+      <textarea
+        rows="3"
+        class="d-flex w-100"
+        id="TEXT_1619606121254"
+        formControlName="heartVessels"
+        name="heartVessels"
+        data-field-type="TEXTAREA"
+        data-field-completion-action="NONE"
+      ></textarea>
+    </p>
+    <p title="">
+      <label for="TEXT_1619606121255">Other</label>
+      <textarea
+        rows="3"
+        class="d-flex w-100"
+        id="TEXT_1619606121255"
+        formControlName="other"
+        name="other"
+        data-field-type="TEXTAREA"
+        data-field-completion-action="NONE"
+      ></textarea>
+    </p>
+    <section
+      id="SECTION_HEADER_1624994167702"
+      class="level2"
+      data-section-name="Abdomen"
+    >
+      <header class="level2">Abdomen</header>
+    </section>
+    <section
+      id="SECTION_HEADER_1624994167703"
+      class="level2"
+      data-section-name="Kidneys"
+    >
+      <header class="level2">Kidneys</header>
+    </section>
+    <section
+      id="SECTION_HEADER_1619606121263"
+      class="level2"
+      data-section-name="Renal mass"
+    >
+      <header class="level2">Renal mass</header>
+    </section>
+    <p title="">
+      <label for="TEXT_1619606121259">Brief description</label>
+      <textarea
+        rows="3"
+        class="d-flex w-100"
+        id="TEXT_1619606121259"
+        formControlName="briefDescription"
+        name="briefDescription"
+        data-field-type="TEXTAREA"
+        data-field-completion-action="NONE"
+      ></textarea>
+    </p>
+    <p title="">
+      <label for="RADIO_1619606121264">Location</label>
+      <span
+        id="RADIO_1619606121264"
+        data-field-type="RADIO"
+        data-field-completion-action="NONE"
+      >
+        <br />
+        <input
+          id="RADIO_1619606121264_0"
+          formControlName="location"
+          type="radio"
+          name="location"
+          value="right kidney"
+          checked=""
+        />
+        <label for="RADIO_1619606121264_0">right kidney</label>
+        <br />
+        <input
+          id="RADIO_1619606121264_1"
+          formControlName="location"
+          type="radio"
+          name="location"
+          value="left kidney"
+        />
+        <label for="RADIO_1619606121264_1">left kidney</label>
+      </span>
+    </p>
+    <p title="">
+      <label for="TEXT_1619606121261"
+        >Size in 3 orthogonal dimensions in cm</label
+      >
+      <textarea
+        rows="3"
+        class="d-flex w-100"
+        id="TEXT_1619606121261"
+        name="sizeInOrthogonalDimensionsInCm"
+        formControlName="sizeInOrthogonalDimensionsInCm"
+        data-field-type="TEXTAREA"
+        data-field-completion-action="NONE"
+      ></textarea>
+    </p>
+    <p title="">
+      <label for="RADIO_1619606121267">Composition</label>
+      <span
+        id="RADIO_1619606121267"
+        data-field-type="RADIO"
+        data-field-completion-action="NONE"
+      >
+        <br />
+        <input
+          id="RADIO_1619606121267_0"
+          type="radio"
+          formControlName="composition"
+          name="composition"
+          value="solid and homogeneous"
+          checked=""
+        />
+        <label for="RADIO_1619606121267_0">solid and homogeneous</label>
+        <br />
+        <input
+          id="RADIO_1619606121267_1"
+          type="radio"
+          formControlName="composition"
+          name="composition"
+          value="solid with &lt;50% nonenhancing"
+        />
+        <label for="RADIO_1619606121267_1"
+          >solid with &lt;50% nonenhancing</label
+        >
+
+        <br />
+        <input
+          id="RADIO_1619606121267_2"
+          type="radio"
+          formControlName="composition"
+          name="composition"
+          value="solid with &gt;=50% to 75% nonenhancing"
+        />
+        <label for="RADIO_1619606121267_2"
+          >solid with &gt;=50% to 75% nonenhancing</label
+        >
+
+        <br />
+        <input
+          id="RADIO_1619606121267_3"
+          type="radio"
+          formControlName="composition"
+          name="composition"
+          value="cystic with &gt;75% nonenhancing"
+        />
+        <label for="RADIO_1619606121267_3"
+          >cystic with &gt;75% nonenhancing</label
+        >
+      </span>
+    </p>
+    <p title="">
+      <label for="RADIO_1619606121278">Bosniak classification</label>
+      <span
+        id="RADIO_1619606121278"
+        data-field-type="RADIO"
+        data-field-completion-action="NONE"
+      >
+        <br />
+        <input
+          id="RADIO_1619606121278_0"
+          type="radio"
+          formControlName="bosniakClassification"
+          name="bosniakClassification"
+          value="not applicable"
+          checked=""
+        />
+        <label for="RADIO_1619606121278_0">not applicable</label>
+        <br />
+        <input
+          id="RADIO_1619606121278_1"
+          type="radio"
+          formControlName="bosniakClassification"
+          name="bosniakClassification"
+          value="I"
+        />
+        <label for="RADIO_1619606121278_0">I</label>
+        <br />
+        <input
+          id="RADIO_1619606121278_2"
+          type="radio"
+          formControlName="bosniakClassification"
+          name="bosniakClassification"
+          value="II"
+        />
+        <label for="RADIO_1619606121278_0">II</label>
+        <br />
+        <input
+          id="RADIO_1619606121278_3"
+          type="radio"
+          formControlName="bosniakClassification"
+          name="bosniakClassification"
+          value="IIF"
+        />
+        <label for="RADIO_1619606121278_0">IIF</label>
+        <br />
+        <input
+          id="RADIO_1619606121278_4"
+          type="radio"
+          formControlName="bosniakClassification"
+          name="bosniakClassification"
+          value="III"
+        />
+        <label for="RADIO_1619606121278_0">III</label>
+        <br />
+        <input
+          id="RADIO_1619606121278_5"
+          type="radio"
+          formControlName="bosniakClassification"
+          name="bosniakClassification"
+          value="IV"
+        />
+        <label for="RADIO_1619606121278_0">IV</label>
+      </span>
+    </p>
+    <p title="">
+      <label for="RADIO_1619606121285">Margins</label>
+      <span
+        id="RADIO_1619606121285"
+        data-field-type="RADIO"
+        data-field-completion-action="NONE"
+        value=""
+      >
+        <br />
+        <input
+          id="RADIO_1619606121285_0"
+          type="radio"
+          formControlName="margins"
+          name="margins"
+          value="well-defined"
+          checked=""
+        />
+        <label for="RADIO_1619606121285_0">well-defined</label>
+        <br />
+        <input
+          id="RADIO_1619606121285_1"
+          type="radio"
+          formControlName="margins"
+          name="margins"
+          value="partially ill-defined"
+        />
+        <label for="RADIO_1619606121285_1">partially ill-defined</label>
+
+        <br />
+        <input
+          id="RADIO_1619606121285_2"
+          type="radio"
+          formControlName="margins"
+          name="margins"
+          value="diffusely ill-defined"
+        />
+        <label for="RADIO_1619606121285_2">diffusely ill-defined</label>
+      </span>
+    </p>
+    <p title="">
+      <label for="TEXT_1619606121289">Enhancement</label>
+      <textarea
+        rows="3"
+        class="d-flex w-100"
+        id="TEXT_1619606121289"
+        name="enhancement"
+        formControlName="enhancement"
+        data-field-type="TEXTAREA"
+        data-field-completion-action="NONE"
+      ></textarea>
+    </p>
+    <p title="">
+      <label for="NUMBER_1619606121290">Nonenhanced phase attenuation</label>
+      <span>
+        <input
+          type="number"
+          step="1.0"
+          formControlName="nonenhancedPhaseAttenuation"
+          data-field-units="HU"
+          id="NUMBER_1619606121290"
+          name="nonenhancedPhaseAttenuation"
+          data-field-type="NUMBER"
+          data-field-completion-action="NONE"
+          value=""
+        />
+        HU
+      </span>
+    </p>
+    <p title="">
+      <label for="NUMBER_1619606121291"
+        >Corticomedullary phase attenuation</label
+      >
+      <span>
+        <input
+          type="number"
+          step="1.0"
+          formControlName="corticomedullaryPhaseAttenuation"
+          data-field-units="HU"
+          id="NUMBER_1619606121291"
+          name="corticomedullaryPhaseAttenuation"
+          data-field-type="NUMBER"
+          data-field-completion-action="NONE"
+          value=""
+        />
+        HU
+      </span>
+    </p>
+    <p title="">
+      <label for="NUMBER_1619606121292">Nephrographic phase attenuation</label>
+      <span>
+        <input
+          type="number"
+          step="1.0"
+          formControlName="nephrographicPhaseAttenuation"
+          data-field-units="HU"
+          id="NUMBER_1619606121292"
+          name="nephrographicPhaseAttenuation"
+          data-field-type="NUMBER"
+          data-field-completion-action="NONE"
+          value=""
+        />
+        HU
+      </span>
+    </p>
+    <section
+      id="SECTION_HEADER_1619606121293"
+      class="level2"
+      data-section-name="Nephrometry score"
+    >
+      <header class="level2">Nephrometry score</header>
+    </section>
+    <p
+      title="&lt;= 4.0 cm (1 point)  &gt;4 cm to 7 cm (2 points)  &gt;=7 cm (3 points)"
+    >
+      <label for="RADIO_1619606121294">Radius</label>
+      <span
+        id="RADIO_1619606121294"
+        data-field-type="RADIO"
+        data-field-completion-action="NONE"
+        value=""
+      >
+        <br />
+        <input
+          id="RADIO_1619606121294_0"
+          type="radio"
+          formControlName="radius"
+          name="radius"
+          value="&lt;= 4.0 cm"
+          checked=""
+        />
+        <label for="RADIO_1619606121294_0">&lt;= 4.0 cm</label>
+        <br />
+        <input
+          id="RADIO_1619606121294_1"
+          type="radio"
+          formControlName="radius"
+          name="radius"
+          value="&gt;4 cm to 7 cm"
+        />
+        <label for="RADIO_1619606121294_1">&gt;4 cm to 7 cm</label>
+        <br />
+        <input
+          id="RADIO_1619606121294_2"
+          type="radio"
+          formControlName="radius"
+          name="radius"
+          value="&gt;=7 cm"
+        />
+        <label for="RADIO_1619606121294_2">&gt;=7 cm</label>
+      </span>
+    </p>
+    <p
+      title="&gt;=50% exophytic (1 point)  &lt;50% exophytic (2 points)  entirely endophytic (3 points)"
+    >
+      <label for="RADIO_1619606121298">Exophytic extent</label>
+      <span
+        id="RADIO_1619606121298"
+        data-field-type="RADIO"
+        data-field-completion-action="NONE"
+      >
+        <br />
+        <input
+          id="RADIO_1619606121298_0"
+          type="radio"
+          name="exophyticExtent"
+          value="&gt;50% endophytic"
+          formControlName="exophyticExtent"
+        />
+        <label for="RADIO_1619606121298_0">&gt;50% Endophytic</label>
+        <br />
+        <input
+          id="RADIO_1619606121298_1"
+          type="radio"
+          name="exophyticExtent"
+          value="&lt;50% endophytic"
+          formControlName="exophyticExtent"
+        />
+        <label for="RADIO_1619606121298_1">&lt;50% Endophytic</label>
+        <br />
+        <input
+          id="RADIO_1619606121298_2"
+          type="radio"
+          name="exophyticExtent"
+          value="entirely endophytic"
+          formControlName="exophyticExtent"
+        />
+        <label for="RADIO_1619606121298_2">Entirely Endophytic</label>
+      </span>
+    </p>
+    <p
+      title="&gt;=7 mm (1 point)  &gt;4 mm but &lt;7 mm (2 points)  &lt;= 4 mm (3 points)"
+    >
+      <label for="RADIO_1619606121302">Nearness to Sinus</label>
+      <span
+        id="RADIO_1619606121302"
+        data-field-type="RADIO"
+        data-field-completion-action="NONE"
+      >
+        <br />
+        <input
+          id="RADIO_1619606121302_0"
+          type="radio"
+          name="nearnessToSinus"
+          value="&gt;=7 mm"
+          formControlName="nearnessToSinus"
+        />
+        <label for="RADIO_1619606121302_0">&gt;=7 mm</label>
+        <br />
+        <input
+          id="RADIO_1619606121302_1"
+          type="radio"
+          name="nearnessToSinus"
+          value="&gt;4 mm but &lt;7 mm"
+          formControlName="nearnessToSinus"
+        />
+        <label for="RADIO_1619606121302_1">&gt;4 mm but &lt;7 mm</label>
+        <br />
+        <input
+          id="RADIO_1619606121302_2"
+          type="radio"
+          name="nearnessToSinus"
+          value="&lt;= 4 mm"
+          formControlName="nearnessToSinus"
+        />
+        <label for="RADIO_1619606121302_2">&lt;= 4 mm</label>
+      </span>
+    </p>
+    <p
+      title="&gt;50% upper pole (2 points)  &gt;50% central (3 points)  &gt;50% lower pole (2 points)  100% lower pole (1 point)"
+    >
+      <label for="RADIO_1619606121306">Polar location of mass</label>
+      <span
+        id="RADIO_1619606121306"
+        data-field-type="RADIO"
+        data-field-completion-action="NONE"
+      >
+        <br />
+        <input
+          id="RADIO_1619606121306_0"
+          type="radio"
+          name="polarLocation"
+          value="&gt;50% upper pole"
+          formControlName="polarLocation"
+        />
+        <label for="RADIO_1619606121306_0">&gt;50% upper pole</label>
+        <br />
+        <input
+          id="RADIO_1619606121306_1"
+          type="radio"
+          name="polarLocation"
+          value="&gt;50% central"
+          formControlName="polarLocation"
+        />
+        <label for="RADIO_1619606121306_1">&gt;50% central</label>
+        <br />
+        <input
+          id="RADIO_1619606121306_2"
+          type="radio"
+          name="polarLocation"
+          value="&gt;50% lower pole"
+          formControlName="polarLocation"
+        />
+        <label for="RADIO_1619606121306_2">&gt;50% lower pole</label>
+        <br />
+        <input
+          id="RADIO_1619606121306_3"
+          type="radio"
+          name="polarLocation"
+          value="100% lower pole"
+          formControlName="polarLocation"
+        />
+        <label for="RADIO_1619606121306_3">100% lower pole</label>
+      </span>
+    </p>
+    <p title="">
+      <label for="RADIO_1619606121311">Axial location</label>
+      <span
+        id="RADIO_1619606121311"
+        data-field-type="RADIO"
+        data-field-completion-action="NONE"
+      >
+        <br />
+        <input
+          id="RADIO_1619606121311_0"
+          type="radio"
+          name="axialLocation"
+          value="anterior"
+          formControlName="axialLocation"
+        />
+        <label for="RADIO_1619606121311_0">anterior</label>
+        <br />
+        <input
+          id="RADIO_1619606121311_1"
+          type="radio"
+          name="axialLocation"
+          value="anterior and lateral"
+          formControlName="axialLocation"
+        />
+        <label for="RADIO_1619606121311_1">anterior and lateral</label>
+        <br />
+        <input
+          id="RADIO_1619606121311_2"
+          type="radio"
+          name="axialLocation"
+          value="lateral"
+          formControlName="axialLocation"
+        />
+        <label for="RADIO_1619606121311_2">lateral</label>
+        <br />
+        <input
+          id="RADIO_1619606121311_3"
+          type="radio"
+          name="axialLocation"
+          value="posterior and lateral"
+          formControlName="axialLocation"
+        />
+        <label for="RADIO_1619606121311_3">posterior and lateral</label>
+        <br />
+        <input
+          id="RADIO_1619606121311_4"
+          type="radio"
+          name="axialLocation"
+          value="posterior"
+          formControlName="axialLocation"
+        />
+        <label for="RADIO_1619606121311_4">posterior</label>
+        <br />
+        <input
+          id="RADIO_1619606121311_5"
+          type="radio"
+          name="axialLocation"
+          value="posterior and medial"
+          formControlName="axialLocation"
+        />
+        <label for="RADIO_1619606121311_5">posterior and medial</label>
+        <br />
+        <input
+          id="RADIO_1619606121311_6"
+          type="radio"
+          name="axialLocation"
+          value="medial"
+          formControlName="axialLocation"
+        />
+        <label for="RADIO_1619606121311_6">medial</label>
+        <br />
+        <input
+          id="RADIO_1619606121311_7"
+          type="radio"
+          name="axialLocation"
+          value="anterior and medial"
+          formControlName="axialLocation"
+        />
+        <label for="RADIO_1619606121311_7">anterior and medial</label>
+      </span>
+    </p>
+    <p title="">
+      <label for="RADIO_1619606121320">Hilar extent</label>
+      <span
+        id="RADIO_1619606121320"
+        data-field-type="RADIO"
+        data-field-completion-action="NONE"
+      >
+        <br />
+        <input
+          id="RADIO_1619606121320_0"
+          type="radio"
+          name="hilarExtent"
+          value="no hilar invasion"
+          formControlName="hilarExtent"
+        />
+        <label for="RADIO_1619606121320_0">no hilar invasion</label>
+        <br />
+        <input
+          id="RADIO_1619606121320_1"
+          type="radio"
+          name="hilarExtent"
+          value="hilar invasion but no contact of major vessel"
+          formControlName="hilarExtent"
+        />
+        <label for="RADIO_1619606121320_1">hilar invasion but no contact of major vessel</label>
+        <br />
+        <input
+          id="RADIO_1619606121320_2"
+          type="radio"
+          name="hilarExtent"
+          value="hilar invasion and contacts major vessel (h)"
+          formControlName="hilarExtent"
+        />
+        <label for="RADIO_1619606121320_2">hilar invasion and contacts major vessel (h)</label>
+      </span>
+    </p>
+    <p title="">
+      <label for="NUMBER_1619606121324">Nephrometry score (points)</label>
+      <span>
+        <input
+          type="number"
+          step="1.0"
+          data-field-units=""
+          id="NUMBER_1619606121324"
+          name="nephrometryScore"
+          data-field-type="NUMBER"
+          data-field-completion-action="NONE"
+          value=""
+          formControlName="nephrometryScore"
+        />
+      </span>
+    </p>
+    <section
+      id="SECTION_HEADER_1619606121325"
+      class="level2"
+      data-section-name="Local extent of disease"
+    >
+      <header class="level2">Local extent of disease</header>
+    </section>
+    <p title="">
+      <label for="RADIO_1619606121326">Invades perirenal fat</label>
+      <span
+        id="RADIO_1619606121326"
+        data-field-type="RADIO"
+        data-field-completion-action="NONE"
+      >
+        <br />
+        <input
+          id="RADIO_1619606121326_0"
+          type="radio"
+          name="invadesPerirenalFat"
+          value="no"
+          formControlName="invadesPerirenalFat"
+        />
+        <label for="RADIO_1619606121326_0">No</label>
+        <br />
+        <input
+          id="RADIO_1619606121326_1"
+          type="radio"
+          name="invadesPerirenalFat"
+          value="indeterminate"
+          formControlName="invadesPerirenalFat"
+        />
+        <label for="RADIO_1619606121326_1">Indeterminate</label>
+        <br />
+        <input
+          id="RADIO_1619606121326_2"
+          type="radio"
+          name="invadesPerirenalFat"
+          value="yes"
+          formControlName="invadesPerirenalFat"
+        />
+        <label for="RADIO_1619606121326_2">Yes</label>
+      </span>
+    </p>
+    <p title="">
+      <label for="RADIO_1619606121330">Contacts the perirenal fascia</label>
+      <span
+        id="RADIO_1619606121330"
+        data-field-type="RADIO"
+        data-field-completion-action="NONE"
+      >
+        <br />
+        <input
+          id="RADIO_1619606121330_0"
+          type="radio"
+          name="contactsPerirenalFascia"
+          value="no"
+          formControlName="contactsPerirenalFascia"
+        />
+        <label for="RADIO_1619606121330_0">No</label>
+        <br />
+        <input
+          id="RADIO_1619606121330_1"
+          type="radio"
+          name="contactsPerirenalFascia"
+          value="indeterminate"
+          formControlName="contactsPerirenalFascia"
+        />
+        <label for="RADIO_1619606121330_1">Indeterminate</label>
+        <br />
+        <input
+          id="RADIO_1619606121330_2"
+          type="radio"
+          name="contactsPerirenalFascia"
+          value="yes"
+          formControlName="contactsPerirenalFascia"
+        />
+        <label for="RADIO_1619606121330_2">Yes</label>
+      </span>
+    </p>
+    <p title="">
+      <label for="RADIO_1619606121335"
+        >Invades through the perirenal fascia</label
+      >
+      <span
+        id="RADIO_1619606121335"
+        data-field-type="RADIO"
+        data-field-completion-action="NONE"
+      >
+        <br />
+        <input
+          id="RADIO_1619606121335_0"
+          type="radio"
+          name="invadesThroughPerirenalFascia"
+          value="no"
+          formControlName="invadesThroughPerirenalFascia"
+        />
+        <label for="RADIO_1619606121335_0">No</label>
+        <br />
+        <input
+          id="RADIO_1619606121335_1"
+          type="radio"
+          name="invadesThroughPerirenalFascia"
+          value="indeterminate"
+          formControlName="invadesThroughPerirenalFascia"
+        />
+        <label for="RADIO_1619606121335_1">Indeterminate</label>
+        <br />
+        <input
+          id="RADIO_1619606121335_2"
+          type="radio"
+          name="invadesThroughPerirenalFascia"
+          value="yes"
+          formControlName="invadesThroughPerirenalFascia"
+        />
+        <label for="RADIO_1619606121335_2">Yes</label>
+      </span>
+    </p>
+    <p title="">
+      <label for="RADIO_1619606121339">Invades central sinus fat</label>
+      <span
+        id="RADIO_1619606121339"
+        data-field-type="RADIO"
+        data-field-completion-action="NONE"
+      >
+        <br />
+        <input
+          id="RADIO_1619606121339_0"
+          type="radio"
+          name="invadesCentralSinusFat"
+          value="no"
+          formControlName="invadesCentralSinusFat"
+        />
+        <label for="RADIO_1619606121339_0">No</label>
+        <br />
+        <input
+          id="RADIO_1619606121339_1"
+          type="radio"
+          name="invadesCentralSinusFat"
+          value="indeterminate"
+          formControlName="invadesCentralSinusFat"
+        />
+        <label for="RADIO_1619606121339_1">Indeterminate</label>
+        <br />
+        <input
+          id="RADIO_1619606121339_2"
+          type="radio"
+          name="invadesCentralSinusFat"
+          value="yes"
+          formControlName="invadesCentralSinusFat"
+        />
+        <label for="RADIO_1619606121339_2">Yes</label>
+      </span>
+    </p>
+    <p title="">
+      <label for="RADIO_1619606121343">Invades collecting system</label>
+      <span
+        id="RADIO_1619606121343"
+        data-field-type="RADIO"
+        data-field-completion-action="NONE"
+      >
+        <br />
+        <input
+          id="RADIO_1619606121343_0"
+          type="radio"
+          name="invadesCollectingSystem"
+          value="no"
+          formControlName="invadesCollectingSystem"
+        />
+        <label for="RADIO_1619606121343_0">No</label>
+        <br />
+        <input
+          id="RADIO_1619606121343_1"
+          type="radio"
+          name="invadesCollectingSystem"
+          value="indeterminate"
+          formControlName="invadesCollectingSystem"
+        />
+        <label for="RADIO_1619606121343_1">Indeterminate</label>
+        <br />
+        <input
+          id="RADIO_1619606121343_2"
+          type="radio"
+          name="invadesCollectingSystem"
+          value="yes"
+          formControlName="invadesCollectingSystem"
+        />
+        <label for="RADIO_1619606121343_2">Yes</label>
+      </span>
+    </p>
+    <p title="">
+      <label for="RADIO_1619606121347">Invades ipsilateral adrenal</label>
+      <span
+        id="RADIO_1619606121347"
+        data-field-type="RADIO"
+        data-field-completion-action="NONE"
+      >
+        <br />
+        <input
+          id="RADIO_1619606121347_0"
+          type="radio"
+          name="invadesIpsilateralAdrenal"
+          value="no"
+          formControlName="invadesIpsilateralAdrenal"
+        />
+        <label for="RADIO_1619606121347_0">No</label>
+        <br />
+        <input
+          id="RADIO_1619606121347_1"
+          type="radio"
+          name="invadesIpsilateralAdrenal"
+          value="indeterminate"
+          formControlName="invadesIpsilateralAdrenal"
+        />
+        <label for="RADIO_1619606121347_1">Indeterminate</label>
+        <br />
+        <input
+          id="RADIO_1619606121347_2"
+          type="radio"
+          name="invadesIpsilateralAdrenal"
+          value="yes"
+          formControlName="invadesIpsilateralAdrenal"
+        />
+        <label for="RADIO_1619606121347_2">Yes</label>
+      </span>
+    </p>
+    <p title="">
+      <label for="RADIO_1619606121351"
+        >Invades adjacent organs or structures</label
+      >
+      <span
+        id="RADIO_1619606121351"
+        data-field-type="RADIO"
+        data-field-completion-action="NONE"
+      >
+        <br />
+        <input
+          id="RADIO_1619606121351_0"
+          type="radio"
+          name="invadesAdjacentOrgans"
+          value="no"
+          formControlName="invadesAdjacentOrgans"
+        />
+        <label for="RADIO_1619606121351_0">No</label>
+        <br />
+        <input
+          id="RADIO_1619606121351_1"
+          type="radio"
+          name="invadesAdjacentOrgans"
+          value="indeterminate"
+          formControlName="invadesAdjacentOrgans"
+        />
+        <label for="RADIO_1619606121351_1">Indeterminate</label>
+        <br />
+        <input
+          id="RADIO_1619606121351_2"
+          type="radio"
+          name="invadesAdjacentOrgans"
+          value="yes"
+          formControlName="invadesAdjacentOrgans"
+        />
+        <label for="RADIO_1619606121351_2">Yes</label>
+      </span>
+    </p>
+    <section
+      id="SECTION_HEADER_1619606121355"
+      class="level2"
+      data-section-name="Ipsilateral vessels"
+    >
+      <header class="level2">Ipsilateral vessels</header>
+    </section>
+    <p title="">
+      <label for="TEXT_1619606121356">Renal artery</label>
+      <textarea
+        rows="3"
+        class="d-flex w-100"
+        id="TEXT_1619606121356"
+        name="renalArtery"
+        formControlName="renalArtery"
+        data-field-type="TEXTAREA"
+        data-field-completion-action="NONE"
+      ></textarea>
+    </p>
+    <p title="">
+      <label for="RADIO_1619606121357"
+        >Significant renal artery stenosis &gt;70%</label
+      >
+      <span
+        id="RADIO_1619606121357"
+        data-field-type="RADIO"
+        data-field-completion-action="NONE"
+      >
+        <br />
+        <input
+          id="RADIO_1619606121357_0"
+          type="radio"
+          name="renalArteryStenosis"
+          value="none"
+          formControlName="renalArteryStenosis"
+        />
+        <label for="RADIO_1619606121357_0">None</label>
+        <br />
+        <input
+          id="RADIO_1619606121357_1"
+          type="radio"
+          name="renalArteryStenosis"
+          value="positive ipsilateral"
+          formControlName="renalArteryStenosis"
+        />
+        <label for="RADIO_1619606121357_1">Positive ipsilateral</label>
+        <br />
+        <input
+          id="RADIO_1619606121357_2"
+          type="radio"
+          name="renalArteryStenosis"
+          value="positive contralateral"
+          formControlName="renalArteryStenosis"
+        />
+        <label for="RADIO_1619606121357_2">Positive contralateral</label>
+        <br />
+        <input
+          id="RADIO_1619606121357_3"
+          type="radio"
+          name="renalArteryStenosis"
+          value="positive bilateral"
+          formControlName="renalArteryStenosis"
+        />
+        <label for="RADIO_1619606121357_3">Positive bilateral</label>
+      </span>
+    </p>
+    <p title="">
+      <label for="TEXT_1619606121362">Renal vein anatomy</label>
+      <textarea
+        rows="3"
+        class="d-flex w-100"
+        id="TEXT_1619606121362"
+        name="renalVeinAnatomy"
+        formControlName="renalVeinAnatomy"
+        data-field-type="TEXTAREA"
+        data-field-completion-action="NONE"
+      ></textarea>
+    </p>
+    <p title="">
+      <label for="RADIO_1619606121363">Renal vein thrombus</label>
+      <span
+        id="RADIO_1619606121363"
+        data-field-type="RADIO"
+        data-field-completion-action="NONE"
+      >
+        <br />
+        <input
+          id="RADIO_1619606121363_0"
+          type="radio"
+          name="renalVeinThrombus"
+          value="no"
+          formControlName="renalVeinThrombus"
+        />
+        <label for="RADIO_1619606121363_0">No</label>
+        <br />
+        <input
+          id="RADIO_1619606121363_1"
+          type="radio"
+          name="renalVeinThrombus"
+          value="indeterminate"
+          formControlName="renalVeinThrombus"
+        />
+        <label for="RADIO_1619606121363_1">Indeterminate</label>
+        <br />
+        <input
+          id="RADIO_1619606121363_2"
+          type="radio"
+          name="renalVeinThrombus"
+          value="yes"
+          formControlName="renalVeinThrombus"
+        />
+        <label for="RADIO_1619606121363_2">Yes</label>
+      </span>
+    </p>
+    <p title="Describe extent of tumor and bland thrombus.">
+      <label for="TEXT_1624994167707">Renal vein thrombus</label>
+      <textarea
+        rows="3"
+        class="d-flex w-100"
+        id="TEXT_1624994167707"
+        name="renalVeinThrombusText"
+        formControlName="renalVeinThrombusText"
+        data-field-type="TEXTAREA"
+        data-field-completion-action="NONE"
+      ></textarea>
+    </p>
+    <p title="">
+      <label for="RADIO_1619606121367">IVC thrombus</label>
+      <span
+        id="RADIO_1619606121367"
+        data-field-type="RADIO"
+        data-field-completion-action="NONE"
+      >
+        <br />
+        <input
+          id="RADIO_1619606121367_0"
+          type="radio"
+          name="ivcThrombus"
+          value="no"
+          formControlName="ivcThrombus"
+        />
+        <label for="RADIO_1619606121367_0">No</label>
+        <br />
+        <input
+          id="RADIO_1619606121367_1"
+          type="radio"
+          name="ivcThrombus"
+          value="indeterminate"
+          formControlName="ivcThrombus"
+        />
+        <label for="RADIO_1619606121367_1">Indeterminate</label>
+        <br />
+        <input
+          id="RADIO_1619606121367_2"
+          type="radio"
+          name="ivcThrombus"
+          value="yes"
+          formControlName="ivcThrombus"
+        />
+        <label for="RADIO_1619606121367_2">Yes</label>
+      </span>
+    </p>
+    <p title="Describe anatomy and extent of tumor and bland thrombus.">
+      <label for="TEXT_1624994167711">IVC thrombus</label>
+      <textarea
+        rows="3"
+        class="d-flex w-100"
+        id="TEXT_1624994167711"
+        name="ivcThrombusText"
+        formControlName="ivcThrombusText"
+        data-field-type="TEXTAREA"
+        data-field-completion-action="NONE"
+      ></textarea>
+    </p>
+    <p title="">
+      <label for="TEXT_1619606121371">Other renal findings</label>
+      <textarea
+        rows="3"
+        class="d-flex w-100"
+        id="TEXT_1619606121371"
+        name="otherRenalFindings"
+        formControlName="otherRenalFindings"
+        data-field-type="TEXTAREA"
+        data-field-completion-action="NONE"
+      ></textarea>
+    </p>
+    <section
+      id="SECTION_HEADER_1619606121372"
+      class="level2"
+      data-section-name="Adrenals"
+    >
+      <header class="level2">Adrenals</header>
+    </section>
+    <p title="">
+      <label for="RADIO_1619606121373">Direct invasions by renal mass</label>
+      <span
+        id="RADIO_1619606121373"
+        data-field-type="RADIO"
+        data-field-completion-action="NONE"
+      >
+        <br />
+        <input
+          id="RADIO_1619606121373_0"
+          type="radio"
+          name="directInvasionsByRenalMass"
+          value="no"
+          formControlName="directInvasionsByRenalMass"
+        />
+        <label for="RADIO_1619606121373_0">No</label>
+        <br />
+        <input
+          id="RADIO_1619606121373_1"
+          type="radio"
+          name="directInvasionsByRenalMass"
+          value="indeterminate"
+          formControlName="directInvasionsByRenalMass"
+        />
+        <label for="RADIO_1619606121373_1">Indeterminate</label>
+        <br />
+        <input
+          id="RADIO_1619606121373_2"
+          type="radio"
+          name="directInvasionsByRenalMass"
+          value="yes"
+          formControlName="directInvasionsByRenalMass"
+        />
+        <label for="RADIO_1619606121373_2">Yes</label>
+      </span>
+    </p>
+    <p title="">
+      <label for="RADIO_1619606121377">Adrenal nodule</label>
+      <span
+        id="RADIO_1619606121377"
+        data-field-type="RADIO"
+        data-field-completion-action="NONE"
+      >
+        <br />
+        <input
+          id="RADIO_1619606121377_0"
+          type="radio"
+          name="adrenalNodule"
+          value="no"
+          formControlName="adrenalNodule"
+        />
+        <label for="RADIO_1619606121377_0">No</label>
+        <br />
+        <input
+          id="RADIO_1619606121377_1"
+          type="radio"
+          name="adrenalNodule"
+          value="indeterminate"
+          formControlName="adrenalNodule"
+        />
+        <label for="RADIO_1619606121377_1">Indeterminate</label>
+        <br />
+        <input
+          id="RADIO_1619606121377_2"
+          type="radio"
+          name="adrenalNodule"
+          value="yes"
+          formControlName="adrenalNodule"
+        />
+        <label for="RADIO_1619606121377_2">Yes</label>
+      </span>
+    </p>
+    <p title="">
+      <label for="TEXT_1619606121381">Other findings</label>
+      <textarea
+        rows="3"
+        class="d-flex w-100"
+        id="TEXT_1619606121381"
+        name="otherFindings"
+        formControlName="otherFindings"
+        data-field-type="TEXTAREA"
+        data-field-completion-action="NONE"
+      ></textarea>
+    </p>
+    <section
+      id="SECTION_HEADER_1619606121382"
+      class="level2"
+      data-section-name="Lymph Nodes"
+    >
+      <header class="level2">Lymph Nodes</header>
+    </section>
+    <p title="">
+      <label for="TEXT_1619606121383"
+        >Retroperitoneal and pararenal lymph nodes</label
+      >
+      <textarea
+        rows="3"
+        class="d-flex w-100"
+        id="TEXT_1619606121383"
+        name="retroperitonealAndPararenalLymphNodes"
+        formControlName="retroperitonealAndPararenalLymphNodes"
+        data-field-type="TEXTAREA"
+        data-field-completion-action="NONE"
+      ></textarea>
+    </p>
+    <p title="">
+      <label for="TEXT_1619606121384">Other lymph nodes</label>
+      <textarea
+        rows="3"
+        class="d-flex w-100"
+        id="TEXT_1619606121384"
+        name="otherLymphNodes"
+        formControlName="otherLymphNodes"
+        data-field-type="TEXTAREA"
+        data-field-completion-action="NONE"
+      ></textarea>
+    </p>
+    <p title="">
+      <label for="TEXT_1619606121385">Liver</label>
+      <textarea
+        rows="3"
+        class="d-flex w-100"
+        id="TEXT_1619606121385"
+        name="liver"
+        formControlName="liver"
+        data-field-type="TEXTAREA"
+        data-field-completion-action="NONE"
+      ></textarea>
+    </p>
+    <p title="">
+      <label for="TEXT_1619606121386">Billiary tract</label>
+      <textarea
+        rows="3"
+        class="d-flex w-100"
+        id="TEXT_1619606121386"
+        name="billiaryTract"
+        formControlName="billiaryTract"
+        data-field-type="TEXTAREA"
+        data-field-completion-action="NONE"
+      ></textarea>
+    </p>
+    <p title="">
+      <label for="TEXT_1619606121387">Gallbladder</label>
+      <textarea
+        rows="3"
+        class="d-flex w-100"
+        id="TEXT_1619606121387"
+        name="gallbladder"
+        formControlName="gallbladder"
+        data-field-type="TEXTAREA"
+        data-field-completion-action="NONE"
+      ></textarea>
+    </p>
+    <p title="">
+      <label for="TEXT_1619606121388">Pancreas</label>
+      <textarea
+        rows="3"
+        class="d-flex w-100"
+        id="TEXT_1619606121388"
+        name="pancreas"
+        formControlName="pancreas"
+        data-field-type="TEXTAREA"
+        data-field-completion-action="NONE"
+      ></textarea>
+    </p>
+    <p title="">
+      <label for="TEXT_1619606121389">Spleen</label>
+      <textarea
+        rows="3"
+        class="d-flex w-100"
+        id="TEXT_1619606121389"
+        name="spleen"
+        formControlName="spleen"
+        data-field-type="TEXTAREA"
+        data-field-completion-action="NONE"
+      ></textarea>
+    </p>
+    <p title="">
+      <label for="TEXT_1619606121390">Stomach and small bowel</label>
+      <textarea
+        rows="3"
+        class="d-flex w-100"
+        id="TEXT_1619606121390"
+        name="stomachAndAmallBowel"
+        formControlName="stomachAndAmallBowel"
+        data-field-type="TEXTAREA"
+        data-field-completion-action="NONE"
+      ></textarea>
+    </p>
+    <p title="">
+      <label for="TEXT_1619606121391">Colon and appendix</label>
+      <textarea
+        rows="3"
+        class="d-flex w-100"
+        id="TEXT_1619606121391"
+        name="colonAndAppendix"
+        formControlName="colonAndAppendix"
+        data-field-type="TEXTAREA"
+        data-field-completion-action="NONE"
+      ></textarea>
+    </p>
+    <p title="">
+      <label for="TEXT_1619606121392">Peritoneum and mesentery</label>
+      <textarea
+        rows="3"
+        class="d-flex w-100"
+        id="TEXT_1619606121392"
+        name="peritoneumAndMesentery"
+        formControlName="peritoneumAndMesentery"
+        data-field-type="TEXTAREA"
+        data-field-completion-action="NONE"
+      ></textarea>
+    </p>
+    <p title="">
+      <label for="TEXT_1619606121393">Retroperitoneum</label>
+      <textarea
+        rows="3"
+        class="d-flex w-100"
+        id="TEXT_1619606121393"
+        name="retroperitoneum"
+        formControlName="retroperitoneum"
+        data-field-type="TEXTAREA"
+        data-field-completion-action="NONE"
+      ></textarea>
+    </p>
+    <p title="">
+      <label for="TEXT_1619606121394">Other vessels</label>
+      <textarea
+        rows="3"
+        class="d-flex w-100"
+        id="TEXT_1619606121394"
+        name="otherVessels"
+        formControlName="otherVessels"
+        data-field-type="TEXTAREA"
+        data-field-completion-action="NONE"
+      ></textarea>
+    </p>
+    <p title="">
+      <label for="TEXT_1619606121395">Body wall</label>
+      <textarea
+        rows="3"
+        class="d-flex w-100"
+        id="TEXT_1619606121395"
+        name="bodyWall"
+        formControlName="bodyWall"
+        data-field-type="TEXTAREA"
+        data-field-completion-action="NONE"
+      ></textarea>
+    </p>
+    <p title="">
+      <label for="TEXT_1619606121396">Musculoskeletal</label>
+      <textarea
+        rows="3"
+        class="d-flex w-100"
+        id="TEXT_1619606121396"
+        name="musculoskeletal"
+        formControlName="musculoskeletal"
+        data-field-type="TEXTAREA"
+        data-field-completion-action="NONE"
+      ></textarea>
+    </p>
+    <section
+      id="SECTION_HEADER_1624994167715"
+      class="level2"
+      data-section-name="TNM Stage"
+    >
+      <header class="level2">TNM Stage</header>
+    </section>
+    <p title="">
+      <label for="RADIO_1619606121398">Tumor (T)</label>
+      <span
+        id="RADIO_1619606121398"
+        data-field-type="RADIO"
+        data-field-completion-action="NONE"
+      >
+        <br />
+        <input
+          id="RADIO_1619606121398_0"
+          type="radio"
+          name="tumorT"
+          value="cT1a"
+          checked=""
+          formControlName="tumorT"
+        />
+        <label for="RADIO_1619606121398_0">cT1a</label>
+        <br />
+        <input
+          id="RADIO_1619606121398_1"
+          type="radio"
+          name="tumorT"
+          value="cT1b"
+          formControlName="tumorT"
+        />
+        <label for="RADIO_1619606121398_1">cT1b</label>
+        <br />
+        <input
+          id="RADIO_1619606121398_2"
+          type="radio"
+          name="tumorT"
+          value="cT2a"
+          formControlName="tumorT"
+        />
+        <label for="RADIO_1619606121398_2">cT2a</label>
+        <br />
+        <input
+          id="RADIO_1619606121398_3"
+          type="radio"
+          name="tumorT"
+          value="cT2b"
+          formControlName="tumorT"
+        />
+        <label for="RADIO_1619606121398_3">cT2b</label>
+        <br />
+        <input
+          id="RADIO_1619606121398_4"
+          type="radio"
+          name="tumorT"
+          value="cT3a"
+          formControlName="tumorT"
+        />
+        <label for="RADIO_1619606121398_4">cT3a</label>
+        <br />
+        <input
+          id="RADIO_1619606121398_5"
+          type="radio"
+          name="tumorT"
+          value="cT3b"
+          formControlName="tumorT"
+        />
+        <label for="RADIO_1619606121398_5">cT3b</label>
+        <br />
+        <input
+          id="RADIO_1619606121398_6"
+          type="radio"
+          name="tumorT"
+          value="cT3c"
+          formControlName="tumorT"
+        />
+        <label for="RADIO_1619606121398_6">cT3c</label>
+        <br />
+        <input
+          id="RADIO_1619606121398_7"
+          type="radio"
+          name="tumorT"
+          value="cT4"
+          formControlName="tumorT"
+        />
+        <label for="RADIO_1619606121398_7">cT4</label>
+      </span>
+    </p>
+    <p title="">
+      <label for="RADIO_1619606121407">Node (N)</label>
+      <span
+        id="RADIO_1619606121407"
+        data-field-type="RADIO"
+        data-field-completion-action="NONE"
+      >
+        <br />
+        <input
+          id="RADIO_1619606121407_0"
+          type="radio"
+          name="nodeN"
+          value="cN0"
+          checked=""
+          formControlName="nodeN"
+        />
+        <label for="RADIO_1619606121407_0">cN0</label>
+        <br />
+        <input
+          id="RADIO_1619606121407_1"
+          type="radio"
+          name="nodeN"
+          value="cN1"
+          formControlName="nodeN"
+        />
+        <label for="RADIO_1619606121407_1">cN1</label>
+      </span>
+    </p>
+    <p title="">
+      <label for="RADIO_1619606121410">Metastasis (M)</label>
+      <span
+        id="RADIO_1619606121410"
+        data-field-type="RADIO"
+        data-field-completion-action="NONE"
+      >
+        <br />
+        <input
+          id="RADIO_1619606121410_0"
+          type="radio"
+          name="metastasisM"
+          value="cM0"
+          checked=""
+          formControlName="metastasisM"
+        />
+        <label for="RADIO_1619606121410_0">cM0</label>
+        <br />
+        <input
+          id="RADIO_1619606121410_1"
+          type="radio"
+          name="metastasisM"
+          value="cM1"
+          formControlName="metastasisM"
+        />
+        <label for="RADIO_1619606121410_1">cM1</label>
+      </span>
+    </p>
+  </section>
+  <section id="impression" class="level1" data-section-name="Impression">
+    <header class="level1">Impression</header>
+    <p title="">
+      <label for="TEXT_1624994167716">Impression</label>
+      <input
+        type="text"
+        id="TEXT_1624994167716"
+        name="impression"
+        formControlName="impression"
+        data-field-type="TEXT"
+        data-field-completion-action="NONE"
+        value=""
+      />
+    </p>
+  </section>
+  <button
+    (click)="handleAction('pdf')"
+    class="btn btn-primary m-1"
+    type="button"
+  >
+    Save as PDF
+  </button>
+  <button
+    (click)="handleAction('html')"
+    class="btn btn-primary m-1"
+    type="button"
+  >
+    Save as HTML
+  </button>
+</form>

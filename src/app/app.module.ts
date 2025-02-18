@@ -34,6 +34,7 @@ import { ViewerModule } from 'ng-cornerstone';
 import { UserProfileComponent } from './user/user-profile.component';
 import { BodyReportComponent } from './dicom-viewer/report/body-report/body-report.component';
 import { KneeComponent } from './dicom-viewer/report/body-report/body-components/knee/knee.component';
+import { AbdomenComponent } from './dicom-viewer/report/body-report/body-components/abdomen/abdomen.component';
 
 @NgModule({
   declarations: [
@@ -53,6 +54,7 @@ import { KneeComponent } from './dicom-viewer/report/body-report/body-components
     UserProfileComponent,
     BodyReportComponent,
     KneeComponent,
+    AbdomenComponent,
   ],
   imports: [
     BrowserModule,
