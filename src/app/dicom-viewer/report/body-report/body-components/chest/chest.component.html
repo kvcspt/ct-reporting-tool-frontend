@@ -1,0 +1,914 @@
+<form [formGroup]="chestForm" class="form-group bg-dark text-light">
+  <section
+    id="procedureInformation"
+    class="level1"
+    data-section-name="Procedure Information"
+  >
+    <header class="level1 fw-bold">Procedure Information</header>
+    <p title="">
+      <label for="procedureInformationText">Exam</label>
+      <textarea
+        rows="3"
+        class="d-flex w-100"
+        id="procedureInformationText"
+        name="procedureInformationText"
+        formControlName="procedureInformationText"
+        data-field-type="TEXTAREA"
+        data-field-completion-action="NONE"
+      ></textarea>
+    </p>
+    <p title="">
+      <label for="techniqueText">Technique</label>
+      <textarea
+        rows="3"
+        class="d-flex w-100"
+        id="techniqueText"
+        name="techniqueText"
+        formControlName="techniqueText"
+        data-field-type="TEXTAREA"
+        data-field-completion-action="NONE"
+      ></textarea>
+    </p>
+  </section>
+  <section
+    id="clinicalInformation"
+    class="level1"
+    data-section-name="Clinical Information"
+  >
+    <header class="level1 fw-bold">Clinical Information</header>
+    <p title="">
+      <label for="clinicalInformationText"></label>
+      <textarea
+        rows="3"
+        class="d-flex w-100"
+        id="clinicalInformationText"
+        name="clinicalInformationText"
+        formControlName="clinicalInformationText"
+        data-field-type="TEXTAREA"
+        data-field-completion-action="NONE"
+      ></textarea>
+    </p>
+  </section>
+  <section id="comparisons" class="level1" data-section-name="Comparison">
+    <header class="level1 fw-bold">Comparison</header>
+    <p title="">
+      <label for="comparisonsText"></label>
+      <textarea
+        rows="3"
+        class="d-flex w-100"
+        id="comparisonsText"
+        name="comparisonsText"
+        formControlName="comparisonsText"
+        data-field-type="TEXTAREA"
+        data-field-completion-action="NONE"
+      ></textarea>
+    </p>
+  </section>
+  <section id="findings" class="level1" data-section-name="Findings">
+    <header class="level1 fw-bold">Findings</header>
+    <section
+      id="SECTION_HEADER_1586812603298"
+      class="level2"
+      data-section-name="Ground glass opacity (GGO)"
+    >
+      <header class="level2">Ground glass opacity (GGO)</header>
+    </section>
+    <p title="">
+      <label for="RADIO_1586550682438"
+        >Presence of ground glass opacity (GGO)
+      </label>
+      <span
+        id="RADIO_1586550682438"
+        data-field-type="RADIO"
+        data-field-completion-action="NONE"
+      >
+        <br />
+        <input
+          id="RADIO_1586550682438_0"
+          type="radio"
+          name="presenceOfGroundGlassOpacity"
+          formControlName="presenceOfGroundGlassOpacity"
+          value="Present"
+          checked=""
+        />
+        <label for="RADIO_1586550682438_0">Present</label>
+        <br />
+        <input
+          id="RADIO_1586550682438_1"
+          type="radio"
+          name="presenceOfGroundGlassOpacity"
+          formControlName="presenceOfGroundGlassOpacity"
+          value="Absent"
+        />
+        <label for="RADIO_1586550682438_1">Absent</label>
+      </span>
+    </p>
+    <p title="">
+      <label for="RADIO_1586550682441"
+        >Laterality of ground glass opacity (GGO)</label
+      >
+      <span
+        id="RADIO_1586550682441"
+        data-field-type="RADIO"
+        data-field-completion-action="NONE"
+      >
+        <br />
+        <input
+          id="RADIO_1586550682441_0"
+          type="radio"
+          name="lateralityOfGroundGlassOpacity"
+          formControlName="lateralityOfGroundGlassOpacity"
+          value="Right"
+          checked=""
+        />
+        <label for="RADIO_1586550682441_0">Right</label>
+        <br />
+        <input
+          id="RADIO_1586550682441_1"
+          type="radio"
+          name="lateralityOfGroundGlassOpacity"
+          formControlName="lateralityOfGroundGlassOpacity"
+          value="Left"
+        />
+        <label for="RADIO_1586550682441_1">Left</label>
+        <br />
+        <input
+          id="RADIO_1586550682441_2"
+          type="radio"
+          name="lateralityOfGroundGlassOpacity"
+          formControlName="lateralityOfGroundGlassOpacity"
+          value="Bilateral"
+        />
+        <label for="RADIO_1586550682441_2">Bilateral</label>
+      </span>
+    </p>
+    <p title="">
+      <label for="RADIO_1586550682447"
+        >Location of ground glass opacity (GGO)</label
+      >
+      <span
+        id="RADIO_1586550682447"
+        data-field-type="RADIO"
+        data-field-completion-action="NONE"
+      >
+        <br />
+        <input
+          id="RADIO_1586550682447_0"
+          type="radio"
+          name="locationOfGroundGlassOpacity"
+          formControlName="locationOfGroundGlassOpacity"
+          value="Peripheral"
+          checked=""
+        />
+        <label for="RADIO_1586550682447_0">Peripheral</label>
+        <br />
+        <input
+          id="RADIO_1586550682447_1"
+          type="radio"
+          name="locationOfGroundGlassOpacity"
+          formControlName="locationOfGroundGlassOpacity"
+          value="Central"
+        />
+        <label for="RADIO_1586550682447_1">Central</label>
+        <br />
+        <input
+          id="RADIO_1586550682447_2"
+          type="radio"
+          name="locationOfGroundGlassOpacity"
+          formControlName="locationOfGroundGlassOpacity"
+          value="Diffuse"
+        />
+        <label for="RADIO_1586550682447_2">Diffuse</label>
+      </span>
+    </p>
+    <p title="">
+      <label for="RADIO_1586550682451"
+        >Predominant distribution of ground glass opacity (GGO)</label
+      >
+      <span
+        id="RADIO_1586550682451"
+        data-field-type="RADIO"
+        data-field-completion-action="NONE"
+      >
+        <br />
+        <input
+          id="RADIO_1586550682451_0"
+          type="radio"
+          name="predominantDistributionOfGroundGlassOpacity"
+          formControlName="predominantDistributionOfGroundGlassOpacity"
+          value="Upper"
+          checked=""
+        />
+        <label for="RADIO_1586550682451_0">Upper</label>
+        <br />
+        <input
+          id="RADIO_1586550682451_1"
+          type="radio"
+          name="predominantDistributionOfGroundGlassOpacity"
+          formControlName="predominantDistributionOfGroundGlassOpacity"
+          value="Mid"
+        />
+        <label for="RADIO_1586550682451_1">Mid</label>
+        <br />
+        <input
+          id="RADIO_1586550682451_2"
+          type="radio"
+          name="predominantDistributionOfGroundGlassOpacity"
+          formControlName="predominantDistributionOfGroundGlassOpacity"
+          value="Lower"
+        />
+        <label for="RADIO_1586550682451_2">Lower</label>
+      </span>
+    </p>
+    <p title="">
+      <label for="RADIO_1586550682455"
+        >Quantity of ground glass opacity (GGO)</label
+      >
+      <span
+        id="RADIO_1586550682455"
+        data-field-type="RADIO"
+        data-field-completion-action="NONE"
+      >
+        <br />
+        <input
+          id="RADIO_1586550682455_0"
+          type="radio"
+          name="quantityOfGroundGlassOpacity"
+          formControlName="quantityOfGroundGlassOpacity"
+          value="Single"
+          checked=""
+        />
+        <label for="RADIO_1586550682455_0">Single</label>
+        <br />
+        <input
+          id="RADIO_1586550682455_1"
+          type="radio"
+          name="quantityOfGroundGlassOpacity"
+          formControlName="quantityOfGroundGlassOpacity"
+          value="Multiple"
+        />
+        <label for="RADIO_1586550682455_1">Multiple</label>
+      </span>
+    </p>
+    <p title="">
+      <label for="CHECKBOX_1586884758272"
+        >Pattern of ground glass opacity (GGO)</label
+      >
+      <span
+        id="CHECKBOX_1586884758272"
+        data-field-type="CHECKBOX"
+        data-field-completion-action="NONE"
+        formGroupName="patternOfGroundGlassOpacity"
+      >
+        <br />
+        <input
+          id="CHECKBOX_1586884758272_0"
+          type="checkbox"
+          name="CHECKBOX_1586884758272"
+          value="Mosaic attenuation"
+          checked=""
+          formControlName="mosaicAttenuation"
+        />
+        <label for="CHECKBOX_1586884758272_0">Mosaic attenuation</label>
+        <br />
+        <input
+          id="CHECKBOX_1586884758272_1"
+          type="checkbox"
+          name="CHECKBOX_1586884758272"
+          value="Crazy paving"
+          formControlName="crazyPaving"
+        />
+        <label for="CHECKBOX_1586884758272_1">Crazy paving</label>
+
+        <br />
+        <input
+          id="CHECKBOX_1586884758272_2"
+          type="checkbox"
+          name="CHECKBOX_1586884758272"
+          value="With consolidation"
+          formControlName="withConsolidation"
+        />
+        <label for="CHECKBOX_1586884758272_2">With consolidation</label>
+        <br />
+        <input
+          id="CHECKBOX_1586884758272_3"
+          type="checkbox"
+          name="CHECKBOX_1586884758272"
+          value="Reverse halo/atoll sign"
+          formControlName="reverseHaloAtollSign"
+        />
+        <label for="CHECKBOX_1586884758272_3">Reverse halo/atoll sign</label>
+      </span>
+    </p>
+    <p title="">
+      <label for="RADIO_1586550682474"
+        >Morphology of ground glass opacity (GGO)</label
+      >
+      <span
+        id="RADIO_1586550682474"
+        data-field-type="RADIO"
+        data-field-completion-action="NONE"
+      >
+        <br />
+        <input
+          id="RADIO_1586550682474_0"
+          type="radio"
+          name="morphologyOfGroundGlassOpacity"
+          formControlName="morphologyOfGroundGlassOpacity"
+          value="Rounded"
+          checked=""
+        />
+        <label for="RADIO_1586550682474_0">Rounded</label>
+        <br />
+        <input
+          id="RADIO_1586550682474_1"
+          type="radio"
+          name="morphologyOfGroundGlassOpacity"
+          formControlName="morphologyOfGroundGlassOpacity"
+          value="Not rounded"
+        />
+        <label for="RADIO_1586550682474_1">Not rounded</label>
+      </span>
+    </p>
+    <p title="">
+      <label for="RADIO_1587066441136"
+        >Centrilobular nodules/Tree-in-bud sign</label
+      >
+      <span
+        id="RADIO_1587066441136"
+        data-field-type="RADIO"
+        data-field-completion-action="NONE"
+      >
+        <br />
+        <input
+          id="RADIO_1587066441136_0"
+          type="radio"
+          name="centrilobularNodules"
+          formControlName="centrilobularNodules"
+          value="Present"
+          checked=""
+        />
+        <label for="RADIO_1587066441136_0">Present</label>
+        <br />
+        <input
+          id="RADIO_1587066441136_1"
+          type="radio"
+          name="centrilobularNodules"
+          formControlName="centrilobularNodules"
+          value="Absent"
+        />
+        <label for="RADIO_1587066441136_1">Absent</label>
+      </span>
+    </p>
+    <p title="">
+      <label for="RADIO_1587066441139">Solid nodules</label>
+      <span
+        id="RADIO_1587066441139"
+        data-field-type="RADIO"
+        data-field-completion-action="NONE"
+      >
+        <br />
+        <input
+          id="RADIO_1587066441139_0"
+          type="radio"
+          name="solidNodules"
+          formControlName="solidNodules"
+          value="Present"
+          checked=""
+        />
+        <label for="RADIO_1587066441139_0">Present</label>
+        <br />
+        <input
+          id="RADIO_1587066441139_1"
+          type="radio"
+          name="solidNodules"
+          formControlName="solidNodules"
+          value="Absent"
+        />
+        <label for="RADIO_1587066441139_1">Absent</label>
+      </span>
+    </p>
+    <p title="">
+      <label for="RADIO_1587066441142">Air space consolidation</label>
+      <span
+        id="RADIO_1587066441142"
+        data-field-type="RADIO"
+        data-field-completion-action="NONE"
+      >
+        <br />
+        <input
+          id="RADIO_1587066441142_0"
+          type="radio"
+          name="airSpaceConsolidation"
+          formControlName="airSpaceConsolidation"
+          value="Absent"
+          checked=""
+        />
+        <label for="RADIO_1587066441142_0">Absent</label>
+        <br />
+        <input
+          id="RADIO_1587066441142_1"
+          type="radio"
+          name="airSpaceConsolidation"
+          formControlName="airSpaceConsolidation"
+          value="Present"
+        />
+        <label for="RADIO_1587066441142_1">Present</label>
+      </span>
+    </p>
+    <section
+      id="SECTION_HEADER_1586812603297"
+      class="level2"
+      data-section-name="Lymphadenopathy"
+    >
+      <header class="level2">Lymphadenopathy</header>
+    </section>
+    <p title="">
+      <label for="RADIO_1586550682477">Presence of lymphadenopathy</label>
+      <span
+        id="RADIO_1586550682477"
+        data-field-type="RADIO"
+        data-field-completion-action="NONE"
+      >
+        <br />
+        <input
+          id="RADIO_1586550682477_0"
+          type="radio"
+          name="presenceOfLymphadenopathy"
+          formControlName="presenceOfLymphadenopathy"
+          value="Present"
+          checked=""
+        />
+        <label for="RADIO_1586550682477_0">Present</label>
+        <br />
+        <input
+          id="RADIO_1586550682477_1"
+          type="radio"
+          name="presenceOfLymphadenopathy"
+          formControlName="presenceOfLymphadenopathy"
+          value="Absent"
+        />
+        <label for="RADIO_1586550682477_1">Absent</label>
+      </span>
+    </p>
+    <p title="">
+      <label for="CHECKBOX_1587066441153">Location of lymphadenopathy</label>
+      <span
+        id="CHECKBOX_1587066441153"
+        data-field-type="CHECKBOX"
+        data-field-completion-action="NONE"
+        formGroupName="locationOfLymphadenopathy"
+      >
+        <br />
+        <input
+          id="CHECKBOX_1587066441153_0"
+          type="checkbox"
+          name="hilar"
+          formControlName="hilar"
+          value="Hilar"
+          checked=""
+        />
+        <label for="CHECKBOX_1587066441153_0">Hilar</label>
+        <br />
+        <input
+          id="CHECKBOX_1587066441153_1"
+          type="checkbox"
+          name="mediastinal"
+          formControlName="mediastinal"
+          value="Mediastinal"
+        />
+        <label for="CHECKBOX_1587066441153_1">Mediastinal</label>
+        <br />
+        <input
+          id="CHECKBOX_1587066441153_2"
+          type="checkbox"
+          name="other"
+          formControlName="other"
+          value="Other"
+        />
+        <label for="CHECKBOX_1587066441153_2">Other</label>
+      </span>
+    </p>
+    <p title="">
+      <label for="RADIO_1586550682484">Pleural effusion size</label>
+      <span
+        id="RADIO_1586550682484"
+        data-field-type="RADIO"
+        data-field-completion-action="NONE"
+      >
+        <br />
+        <input
+          id="RADIO_1586550682484_0"
+          type="radio"
+          name="pleuralEffusionSize"
+          formControlName="pleuralEffusionSize"
+          value="None"
+          checked=""
+        />
+        <label for="RADIO_1586550682484_0">None</label>
+
+        <br />
+        <input
+          id="RADIO_1586550682484_1"
+          type="radio"
+          name="pleuralEffusionSize"
+          formControlName="pleuralEffusionSize"
+          value="Small"
+        />
+        <label for="RADIO_1586550682484_1">Small</label>
+
+        <br />
+        <input
+          id="RADIO_1586550682484_2"
+          type="radio"
+          name="pleuralEffusionSize"
+          formControlName="pleuralEffusionSize"
+          value="Medium"
+        />
+        <label for="RADIO_1586550682484_2">Medium</label>
+
+        <br />
+        <input
+          id="RADIO_1586550682484_3"
+          type="radio"
+          name="pleuralEffusionSize"
+          formControlName="pleuralEffusionSize"
+          value="Large"
+        />
+        <label for="RADIO_1586550682484_3">Large</label>
+      </span>
+    </p>
+    <p title="">
+      <label for="RADIO_1586550682489">Presence of mucoid impaction</label>
+      <span
+        id="RADIO_1586550682489"
+        data-field-type="RADIO"
+        data-field-completion-action="NONE"
+      >
+        <br />
+        <input
+          id="RADIO_1586550682489_0"
+          type="radio"
+          name="presenceOfMucoidImpaction"
+          formControlName="presenceOfMucoidImpaction"
+          value="Present"
+          checked=""
+        />
+        <label for="RADIO_1586550682489_0">Present</label>
+        <br />
+        <input
+          id="RADIO_1586550682489_1"
+          type="radio"
+          name="presenceOfMucoidImpaction"
+          formControlName="presenceOfMucoidImpaction"
+          value="Absent"
+        />
+        <label for="RADIO_1586550682489_1">Absent</label>
+      </span>
+    </p>
+    <p title="">
+      <label for="RADIO_1586550682492"
+        >Presence of bronchial wall thickening</label
+      >
+      <span
+        id="RADIO_1586550682492"
+        data-field-type="RADIO"
+        data-field-completion-action="NONE"
+      >
+        <br />
+        <input
+          id="RADIO_1586550682492_0"
+          type="radio"
+          name="presenceOfBronchialWallThickening"
+          formControlName="presenceOfBronchialWallThickening"
+          value="Present"
+          checked=""
+        />
+        <label for="RADIO_1586550682492_0">Present</label>
+        <br />
+        <input
+          id="RADIO_1586550682492_1"
+          type="radio"
+          name="presenceOfBronchialWallThickening"
+          formControlName="presenceOfBronchialWallThickening"
+          value="Absent"
+        />
+        <label for="RADIO_1586550682492_1">Absent</label>
+      </span>
+    </p>
+    <p title="">
+      <label for="RADIO_1586550682497"
+        >Smooth interlobular septal thickening severity</label
+      >
+      <span
+        id="RADIO_1586550682497"
+        data-field-type="RADIO"
+        data-field-completion-action="NONE"
+      >
+        <br />
+        <input
+          id="RADIO_1586550682497_0"
+          type="radio"
+          name="smoothInterlobularSeptalThickeningSeverity"
+          formControlName="smoothInterlobularSeptalThickeningSeverity"
+          value="None"
+          checked=""
+        />
+        <label for="RADIO_1586550682497_0">None</label>
+        <br />
+        <input
+          id="RADIO_1586550682497_1"
+          type="radio"
+          name="smoothInterlobularSeptalThickeningSeverity"
+          formControlName="smoothInterlobularSeptalThickeningSeverity"
+          value="Mild"
+        />
+        <label for="RADIO_1586550682497_1">Mild</label>
+        <br />
+        <input
+          id="RADIO_1586550682497_2"
+          type="radio"
+          name="smoothInterlobularSeptalThickeningSeverity"
+          formControlName="smoothInterlobularSeptalThickeningSeverity"
+          value="Moderate"
+        />
+        <label for="RADIO_1586550682497_2">Moderate</label>
+        <br />
+        <input
+          id="RADIO_1586550682497_3"
+          type="radio"
+          name="smoothInterlobularSeptalThickeningSeverity"
+          formControlName="smoothInterlobularSeptalThickeningSeverity"
+          value="Severe"
+        />
+        <label for="RADIO_1586550682497_3">Severe</label>
+      </span>
+    </p>
+    <p title="">
+      <label for="RADIO_1586550682502">Presence of pulmonary cavities</label>
+      <span
+        id="RADIO_1586550682502"
+        data-field-type="RADIO"
+        data-field-completion-action="NONE"
+      >
+        <br />
+        <input
+          id="RADIO_1586550682502_0"
+          type="radio"
+          name="presenceOfPulmonaryCavities"
+          formControlName="presenceOfPulmonaryCavities"
+          value="Present"
+          checked=""
+        />
+        <label for="RADIO_1586550682502_0">Present</label>
+        <br />
+        <input
+          id="RADIO_1586550682502_1"
+          type="radio"
+          name="presenceOfPulmonaryCavities"
+          formControlName="presenceOfPulmonaryCavities"
+          value="Absent"
+        />
+        <label for="RADIO_1586550682502_1">Absent</label>
+      </span>
+    </p>
+    <p title="">
+      <label for="RADIO_1586550682505">Endotracheal tube</label>
+      <span
+        id="RADIO_1586550682505"
+        data-field-type="RADIO"
+        data-field-completion-action="NONE"
+      >
+        <br />
+        <input
+          id="RADIO_1586550682505_0"
+          type="radio"
+          name="endotrachealTube"
+          formControlName="endotrachealTube"
+          value="None"
+          checked=""
+        />
+        <label for="RADIO_1586550682505_0">None</label>
+        <br />
+        <input
+          id="RADIO_1586550682505_1"
+          type="radio"
+          name="endotrachealTube"
+          formControlName="endotrachealTube"
+          value="Appropriate position"
+        />
+        <label for="RADIO_1586550682505_1">Appropriate position</label>
+        <br />
+        <input
+          id="RADIO_1586550682505_2"
+          type="radio"
+          name="endotrachealTube"
+          formControlName="endotrachealTube"
+          value="Inappropriate position"
+        />
+        <label for="RADIO_1586550682505_2">Inappropriate position</label>
+      </span>
+    </p>
+    <p title="">
+      <label for="RADIO_1586550682509">Study quality</label>
+      <span
+        id="RADIO_1586550682509"
+        data-field-type="RADIO"
+        data-field-completion-action="NONE"
+      >
+        <br />
+        <input
+          id="RADIO_1586550682509_0"
+          type="radio"
+          name="studyQuality"
+          formControlName="studyQuality"
+          value="Adequate"
+          checked=""
+        />
+        <label for="RADIO_1586550682509_0">Adequate</label>
+        <br />
+        <input
+          id="RADIO_1586550682509_1"
+          type="radio"
+          name="studyQuality"
+          formControlName="studyQuality"
+          value="Motion artifact"
+        />
+        <label for="RADIO_1586550682509_1">Motion artifact</label>
+        <br />
+        <input
+          id="RADIO_1586550682509_2"
+          type="radio"
+          name="studyQuality"
+          formControlName="studyQuality"
+          value="Incomplete"
+        />
+        <label for="RADIO_1586550682509_2">Incomplete</label>
+      </span>
+    </p>
+  </section>
+  <section id="impression" class="level1" data-section-name="Impression">
+    <header class="level1">Impression</header>
+    <p title="">
+      <label for="impressionText"></label>
+      <textarea
+        rows="3"
+        class="d-flex w-100"
+        id="impressionText"
+        name="impressionText"
+        formControlName="impressionText"
+        data-field-type="TEXTAREA"
+        data-field-completion-action="NONE"
+      ></textarea>
+    </p>
+    <p title="">
+      <label for="RADIO_1586884758277">COVID-19 Classification</label>
+      <span
+        id="RADIO_1586884758277"
+        data-field-type="RADIO"
+        data-field-completion-action="NONE"
+      >
+        <br />
+        <input
+          id="RADIO_1586884758277_0"
+          type="radio"
+          name="covidClassification"
+          formControlName="covidClassification"
+          value="1 - Negative for Pneumonia"
+          checked=""
+        />
+        <label for="RADIO_1586884758277_0">1 - Negative for Pneumonia</label>
+        <br />
+        <input
+          id="RADIO_1586884758277_1"
+          type="radio"
+          name="covidClassification"
+          formControlName="covidClassification"
+          value="2 - Indeterminate for COVID-19"
+        />
+        <label for="RADIO_1586884758277_1"
+          >2 - Indeterminate for COVID-19</label
+        >
+        <br />
+        <input
+          id="RADIO_1586884758277_2"
+          type="radio"
+          name="covidClassification"
+          formControlName="covidClassification"
+          value="3 - Typical pattern of COVID-19"
+        />
+        <label for="RADIO_1586884758277_2"
+          >3 - Typical pattern of COVID-19</label
+        >
+        <br />
+        <input
+          id="RADIO_1586884758277_3"
+          type="radio"
+          name="covidClassification"
+          formControlName="covidClassification"
+          value="4 - Atypical for COVID-19"
+        />
+        <label for="RADIO_1586884758277_3">4 - Atypical for COVID-19</label>
+      </span>
+    </p>
+    <section
+      id="SECTION_HEADER_1586550682531"
+      class="level2"
+      data-section-name="1 - Negative for Pneumonia"
+    >
+      <header class="level2">1 - Negative for Pneumonia</header>
+    </section>
+    <section
+      id="SECTION_HEADER_1586550682532"
+      class="level2"
+      data-section-name="No CT findings present to indicate pneumonia. (Note: CT may be negative in the early stages of COVID-19.) [Cov19Neg]^  No CT features to suggest pneumonia."
+    >
+      <header class="level2">
+        No CT findings present to indicate pneumonia. (Note: CT may be negative
+        in the early stages of COVID-19.) [Cov19Neg]^ No CT features to suggest
+        pneumonia.
+      </header>
+    </section>
+    <section
+      id="SECTION_HEADER_1586550682540"
+      class="level2"
+      data-section-name="2 - Indeterminate for COVID-19"
+    >
+      <header class="level2">2 - Indeterminate for COVID-19</header>
+    </section>
+    <section
+      id="SECTION_HEADER_1586550682534"
+      class="level2"
+      data-section-name="Imaging features can be seen with (COVID-19) pneumonia, though are nonspecific and can occur with a variety of infectious and noninfectious processes.” [Cov19Ind]^ Absence of typical features AND Presence of: Multifocal, diffuse, perihilar, or unilateral GGO with or without consolidation lacking a specific distribution and are non-rounded or non-peripheral. Few very small GGO with a non-rounded and non-peripheral distribution"
+    >
+      <header class="level2">
+        Imaging features can be seen with (COVID-19) pneumonia, though are
+        nonspecific and can occur with a variety of infectious and noninfectious
+        processes.” [Cov19Ind]^ Absence of typical features AND Presence of:
+        Multifocal, diffuse, perihilar, or unilateral GGO with or without
+        consolidation lacking a specific distribution and are non-rounded or
+        non-peripheral. Few very small GGO with a non-rounded and non-peripheral
+        distribution
+      </header>
+    </section>
+    <section
+      id="SECTION_HEADER_1586550682535"
+      class="level2"
+      data-section-name="3 - Typical pattern of COVID-19"
+    >
+      <header class="level2">3 - Typical pattern of COVID-19</header>
+    </section>
+    <section
+      id="SECTION_HEADER_1586550682536"
+      class="level2"
+      data-section-name="Commonly reported imaging features of (COVID-19) pneumonia are present. Other processes such as influenza pneumonia and organizing pneumonia, as can be seen with drug toxicity and connective tissue disease,  can cause a similar imaging pattern.” [Cov19Typ] Peripheral, bilateral , GGO* with or without consolidation or visible intralobular lines (“crazy-paving”) Multifocal GGO of rounded morphology with or without consolidation or visible intralobular lines (“crazy-paving”) Reverse halo sign or other findings of organizing pneumonia (seen later in the disease)"
+    >
+      <header class="level2">
+        Commonly reported imaging features of (COVID-19) pneumonia are present.
+        Other processes such as influenza pneumonia and organizing pneumonia, as
+        can be seen with drug toxicity and connective tissue disease, can cause
+        a similar imaging pattern.” [Cov19Typ] Peripheral, bilateral , GGO* with
+        or without consolidation or visible intralobular lines (“crazy-paving”)
+        Multifocal GGO of rounded morphology with or without consolidation or
+        visible intralobular lines (“crazy-paving”) Reverse halo sign or other
+        findings of organizing pneumonia (seen later in the disease)
+      </header>
+    </section>
+    <section
+      id="SECTION_HEADER_1586550682538"
+      class="level2"
+      data-section-name="4 - Atypical for COVID-19"
+    >
+      <header class="level2">4 - Atypical for COVID-19</header>
+    </section>
+    <section
+      id="SECTION_HEADER_1586550682539"
+      class="level2"
+      data-section-name="Imaging features are atypical or uncommonly reported for (COVID-19) pneumonia. Alternative diagnoses should be considered.” [Cov19Aty]^ Absence of typical or indeterminate features AND Presence of: Isolated lobar or segmental consolidation without GGO Discrete small nodules (centrilobular, “treein-bud”) Lung cavitation Smooth interlobular septal thickening with pleural effusion"
+    >
+      <header class="level2">
+        Imaging features are atypical or uncommonly reported for (COVID-19)
+        pneumonia. Alternative diagnoses should be considered.” [Cov19Aty]^
+        Absence of typical or indeterminate features AND Presence of: Isolated
+        lobar or segmental consolidation without GGO Discrete small nodules
+        (centrilobular, “treein-bud”) Lung cavitation Smooth interlobular septal
+        thickening with pleural effusion
+      </header>
+    </section>
+  </section>
+
+  <button
+    (click)="handleAction('pdf')"
+    class="btn btn-primary m-1"
+    type="button"
+  >
+    Save as PDF
+  </button>
+  <button
+    (click)="handleAction('html')"
+    class="btn btn-primary m-1"
+    type="button"
+  >
+    Save as HTML
+  </button>
+</form>

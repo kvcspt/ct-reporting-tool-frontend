@@ -1,22 +1,27 @@
 <div class="mt-3">
-    <!-- Template Selection -->
-    <label for="templateBodySelect" class="form-label">Select Body Specific Template</label>
-    <select
-            id="templateBodySelect"
-            class="form-select mb-3"
-            [(ngModel)]="selectedBodyTemplate">
-        <option *ngFor="let file of templateFiles" [value]="file">
-            {{ file.split('.')[0] | titlecase }}
-        </option>
-    </select>
+  <!-- Template Selection -->
+  <label for="templateBodySelect" class="form-label"
+    >Select Body Specific Template</label
+  >
+  <select
+    id="templateBodySelect"
+    class="form-select mb-3"
+    [(ngModel)]="selectedBodyTemplate"
+  >
+    <option *ngFor="let file of templateFiles" [value]="file">
+      {{ file.split(".")[0] | titlecase }}
+    </option>
+  </select>
 
-    <div *ngIf="selectedBodyTemplate">
-        <div *ngIf="selectedBodyTemplate === 'knee.html'">
-            <app-knee></app-knee>
-        </div>
-        <div *ngIf="selectedBodyTemplate === 'abdomen.html'">
-          <app-abdomen></app-abdomen>
-        </div>
+  <div *ngIf="selectedBodyTemplate">
+    <div *ngIf="selectedBodyTemplate === 'knee.html'">
+      <app-knee></app-knee>
     </div>
-
+    <div *ngIf="selectedBodyTemplate === 'abdomen.html'">
+      <app-abdomen></app-abdomen>
+    </div>
+    <div *ngIf="selectedBodyTemplate === 'chest.html'">
+      <app-chest></app-chest>
+    </div>
+  </div>
 </div>

@@ -35,6 +35,7 @@ import { UserProfileComponent } from './user/user-profile.component';
 import { BodyReportComponent } from './dicom-viewer/report/body-report/body-report.component';
 import { KneeComponent } from './dicom-viewer/report/body-report/body-components/knee/knee.component';
 import { AbdomenComponent } from './dicom-viewer/report/body-report/body-components/abdomen/abdomen.component';
+import { ChestComponent } from './dicom-viewer/report/body-report/body-components/chest/chest.component';
 
 @NgModule({
   declarations: [
@@ -55,6 +56,7 @@ import { AbdomenComponent } from './dicom-viewer/report/body-report/body-compone
     BodyReportComponent,
     KneeComponent,
     AbdomenComponent,
+    ChestComponent,
   ],
   imports: [
     BrowserModule,
