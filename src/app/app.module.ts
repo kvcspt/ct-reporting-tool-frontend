@@ -32,6 +32,8 @@ import { MatCardModule } from '@angular/material/card';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { ViewerModule } from 'ng-cornerstone';
 import { UserProfileComponent } from './user/user-profile.component';
+import { BodyReportComponent } from './dicom-viewer/report/body-report/body-report.component';
+import { KneeComponent } from './dicom-viewer/report/body-report/body-components/knee/knee.component';
 
 @NgModule({
   declarations: [
@@ -49,6 +51,8 @@ import { UserProfileComponent } from './user/user-profile.component';
     DicomViewerComponent,
     ReportComponent,
     UserProfileComponent,
+    BodyReportComponent,
+    KneeComponent,
   ],
   imports: [
     BrowserModule,

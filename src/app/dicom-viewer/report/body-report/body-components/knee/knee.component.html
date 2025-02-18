@@ -1,0 +1,580 @@
+<form [formGroup]="kneeForm" class="form-group bg-dark text-light">
+  <section
+    class="level1"
+    data-section-name="Procedure Information"
+    id="procedureInformation"
+  >
+    <header class="level1 fw-bold">Procedure Information</header>
+    <p title="">
+      <label for="procedureInformationText">Technique</label>
+      <textarea
+        class="d-flex w-100"
+        data-field-completion-action="NONE"
+        data-field-type="TEXTAREA"
+        formControlName="procedureInformationText"
+        id="procedureInformationText"
+        rows="3"
+      >
+Thin section transaxial computed tomographic imaging of the knee was performed without intravenous contrast. Sagittal and coronal reconstructions were also created.</textarea
+      >
+    </p>
+  </section>
+  <section
+    class="level1"
+    data-section-name="Clinical Information"
+    id="clinicalInformation"
+  >
+    <header class="level1 fw-bold">Clinical Information</header>
+    <p title="">
+      <label for="clinicalInformationText">History</label>
+      <textarea
+        class="d-flex w-100"
+        data-field-completion-action="NONE"
+        data-field-type="TEXTAREA"
+        formControlName="clinicalInformationText"
+        id="clinicalInformationText"
+        name=""
+        rows="3"
+      >
+Knee pain.</textarea
+      >
+    </p>
+  </section>
+  <section class="level1" data-section-name="Comparison" id="comparisons">
+    <header class="level1 fw-bold">Comparison</header>
+    <p title="">
+      <label for="comparisonsText"></label>
+      <textarea
+        class="d-flex w-100"
+        data-field-completion-action="NONE"
+        data-field-type="TEXTAREA"
+        formControlName="comparisonsText"
+        id="comparisonsText"
+        name=""
+        rows="3"
+      ></textarea>
+    </p>
+  </section>
+  <section class="level1" data-section-name="Findings" id="findings">
+    <header class="level1 fw-bold">Findings</header>
+    <p title="">
+      <label for="findingsText">Fracture</label>
+      <textarea
+        class="d-flex w-100"
+        data-field-completion-action="NONE"
+        data-field-type="TEXTAREA"
+        formControlName="findingsText"
+        id="findingsText"
+        name=""
+        rows="3"
+      ></textarea>
+    </p>
+    <p title="">
+      <label for="CHECKBOX_1601480313577">Type of fracture</label>
+      <span
+        data-field-completion-action="NONE"
+        data-field-type="CHECKBOX"
+        formGroupName="fractureType"
+        id="CHECKBOX_1601480313577"
+        name=""
+        value=""
+      >
+        <br />
+        <input
+          formControlName="femoralCondyle"
+          id="CHECKBOX_1601480313577_0"
+          name="CHECKBOX_1601480313577"
+          type="checkbox"
+          value="femoral condyle"
+        />
+        <label for="CHECKBOX_1601480313577_0">Femoral Condyle</label>
+        <br />
+        <input
+          formControlName="tibialPlateau"
+          id="CHECKBOX_1601480313577_1"
+          name="CHECKBOX_1601480313577"
+          type="checkbox"
+          value="tibial plateau"
+        />
+        <label for="CHECKBOX_1601480313577_1">Tibial Plateau</label>
+        <br />
+        <input
+          formControlName="proximalFibula"
+          id="CHECKBOX_1601480313577_2"
+          name="CHECKBOX_1601480313577"
+          type="checkbox"
+          value="proximal fibula"
+        />
+        <label for="CHECKBOX_1601480313577_2">Proximal Fibula</label>
+        <br />
+        <input
+          formControlName="patella"
+          id="CHECKBOX_1601480313577_3"
+          name="CHECKBOX_1601480313577"
+          type="checkbox"
+          value="patella"
+        />
+        <label for="CHECKBOX_1601480313577_3">Patella</label>
+        <br />
+        <input
+          formControlName="other"
+          id="CHECKBOX_1601480313577_4"
+          name="CHECKBOX_1601480313577"
+          type="checkbox"
+          value="other"
+        />
+        <label for="CHECKBOX_1601480313577_4">Other</label>
+      </span>
+    </p>
+    <p title="">
+      <label for="CHECKBOX_1601992445339">Fracture features</label>
+      <span
+        data-field-completion-action="NONE"
+        data-field-type="CHECKBOX"
+        formGroupName="fractureFeatures"
+        id="CHECKBOX_1601992445339"
+        name=""
+        value=""
+      >
+        <br />
+        <input
+          formControlName="articularDepression"
+          id="CHECKBOX_1601992445339_0"
+          name="CHECKBOX_1601992445339"
+          type="checkbox"
+          value="articular depression"
+        />
+        <label for="CHECKBOX_1601992445339_0">Articular depression</label>
+        <br />
+        <input
+          formControlName="displacement"
+          id="CHECKBOX_1601992445339_1"
+          name="CHECKBOX_1601992445339"
+          type="checkbox"
+          value="displacement"
+        />
+        <label for="CHECKBOX_1601992445339_1">Displacement</label>
+        <br />
+        <input
+          formControlName="angulation"
+          id="CHECKBOX_1601992445339_2"
+          name="CHECKBOX_1601992445339"
+          type="checkbox"
+          value="angulation"
+        />
+        <label for="CHECKBOX_1601992445339_2">Angulation</label>
+        <br />
+        <input
+          formControlName="openFracture"
+          id="CHECKBOX_1601992445339_3"
+          name="CHECKBOX_1601992445339"
+          type="checkbox"
+          value="open fracture"
+        />
+        <label for="CHECKBOX_1601992445339_3">Open fracture</label>
+      </span>
+    </p>
+    <p title="">
+      <label for="CHECKBOX_1601992445344"
+        >Associated soft tissue injuries</label
+      >
+      <span
+        data-field-completion-action="NONE"
+        data-field-type="CHECKBOX"
+        formGroupName="softTissueInjuries"
+        id="CHECKBOX_1601992445344"
+        name=""
+        value=""
+      >
+        <br />
+        <input
+          formControlName="woundBlister"
+          id="CHECKBOX_1601992445344_0"
+          name="CHECKBOX_1601992445344"
+          type="checkbox"
+          value="wound or blister"
+        />
+        <label for="CHECKBOX_1601992445344_0">Wound or blister</label>
+        <br />
+        <input
+          formControlName="ligamentInjury"
+          id="CHECKBOX_1601992445344_1"
+          name="CHECKBOX_1601992445344"
+          type="checkbox"
+          value="ligament injury"
+        />
+        <label for="CHECKBOX_1601992445344_1">Ligament injury</label>
+        <br />
+        <input
+          formControlName="meniscusInjury"
+          id="CHECKBOX_1601992445344_2"
+          name="CHECKBOX_1601992445344"
+          type="checkbox"
+          value="meniscus injury"
+        />
+        <label for="CHECKBOX_1601992445344_2">Meniscus injury</label>
+        <br />
+        <input
+          formControlName="neurovascularInjury"
+          id="CHECKBOX_1601992445344_3"
+          name="CHECKBOX_1601992445344"
+          type="checkbox"
+          value="neurovascular injury"
+        />
+        <label for="CHECKBOX_1601992445344_3">Neurovascular injury</label>
+        <br />
+        <input
+          formControlName="compartmentSyndrome"
+          id="CHECKBOX_1601992445344_4"
+          name="CHECKBOX_1601992445344"
+          type="checkbox"
+          value="compartment syndrome"
+        />
+        <label for="CHECKBOX_1601992445344_4">Compartment syndrome</label>
+      </span>
+    </p>
+    <p title="">
+      <label for="CHECKBOX_1601992445350"
+        >Columns involved if tibial plateau fracture</label
+      >
+      <span
+        data-field-completion-action="NONE"
+        data-field-type="CHECKBOX"
+        formGroupName="tibialPlateauColumns"
+        id="CHECKBOX_1601992445350"
+      >
+        <br />
+        <input
+          formControlName="none"
+          id="CHECKBOX_1601992445350_0"
+          name="CHECKBOX_1601992445350"
+          type="checkbox"
+          value="none"
+        />
+        <label for="CHECKBOX_1601992445350_0">None</label>
+        <br />
+        <input
+          formControlName="anteromedial"
+          id="CHECKBOX_1601992445350_1"
+          name="CHECKBOX_1601992445350"
+          type="checkbox"
+          value="anteromedial (medial column)"
+        />
+        <label for="CHECKBOX_1601992445350_1"
+          >Anteromedial (medial column)</label
+        >
+        <br />
+        <input
+          formControlName="anterolateral"
+          id="CHECKBOX_1601992445350_2"
+          name="CHECKBOX_1601992445350"
+          type="checkbox"
+          value="anterolateral (lateral column)"
+        />
+        <label for="CHECKBOX_1601992445350_2"
+          >Anterolateral (lateral column)</label
+        >
+        <br />
+        <input
+          formControlName="posterolateral"
+          id="CHECKBOX_1601992445350_3"
+          name="CHECKBOX_1601992445350"
+          type="checkbox"
+          value="posterolateral (posterior column)"
+        />
+        <label for="CHECKBOX_1601992445350_3"
+          >Posterolateral (posterior column)</label
+        >
+        <br />
+        <input
+          formControlName="posteromedial"
+          id="CHECKBOX_1601992445350_4"
+          name="CHECKBOX_1601992445350"
+          type="checkbox"
+          value="posteromedial (posterior column)"
+        />
+        <label for="CHECKBOX_1601992445350_4"
+          >Posteromedial (posterior column)</label
+        >
+      </span>
+    </p>
+    <p title="">
+      <label for="CHECKBOX_1601992445356"
+        >Three column classification if tibial plateau fracture</label
+      >
+      <span
+        data-field-completion-action="NONE"
+        data-field-type="CHECKBOX"
+        formGroupName="threeColumnClassification"
+        id="CHECKBOX_1601992445356"
+      >
+        <br />
+        <input
+          formControlName="zeroColumn"
+          id="CHECKBOX_1601992445356_0"
+          name="CHECKBOX_1601992445356"
+          type="checkbox"
+          value="zero column"
+        />
+        <label for="CHECKBOX_1601992445356_0">Zero column</label>
+        <br />
+        <input
+          formControlName="oneColumn"
+          id="CHECKBOX_1601992445356_1"
+          name="CHECKBOX_1601992445356"
+          type="checkbox"
+          value="one column"
+        />
+        <label for="CHECKBOX_1601992445356_1">One column</label>
+        <br />
+        <input
+          formControlName="twoColumn"
+          id="CHECKBOX_1601992445356_2"
+          name="CHECKBOX_1601992445356"
+          type="checkbox"
+          value="two column"
+        />
+        <label for="CHECKBOX_1601992445356_2">Two column</label>
+        <br />
+        <input
+          formControlName="threeColumn"
+          id="CHECKBOX_1601992445356_3"
+          name="CHECKBOX_1601992445356"
+          type="checkbox"
+          value="three column"
+        />
+        <label for="CHECKBOX_1601992445356_3">Three column</label>
+      </span>
+    </p>
+    <p title="">
+      <label for="TEXT_1601992445361">Additional bone findings</label>
+      <textarea
+        class="d-flex w-100"
+        data-field-completion-action="NONE"
+        data-field-type="TEXTAREA"
+        formControlName="boneFindings"
+        id="TEXT_1601992445361"
+        name="boneFindings"
+        rows="3"
+      ></textarea>
+    </p>
+    <p title="">
+      <label for="TEXT_1601992445362">Alignment</label>
+      <textarea
+        class="d-flex w-100"
+        data-field-completion-action="NONE"
+        data-field-type="TEXTAREA"
+        formControlName="alignment"
+        id="TEXT_1601992445362"
+        name="alignment"
+        rows="3"
+      >
+Normal</textarea
+      >
+    </p>
+    <p title="">
+      <label for="TEXT_1601992445363">Joint spaces</label>
+      <textarea
+        class="d-flex w-100"
+        data-field-completion-action="NONE"
+        data-field-type="TEXTAREA"
+        formControlName="jointSpaces"
+        id="TEXT_1601992445363"
+        name="jointSpaces"
+        rows="3"
+      >
+Normal</textarea
+      >
+    </p>
+    <p title="">
+      <label for="RADIO_1601992445364">Knee joint effusion</label>
+      <span
+        data-field-completion-action="NONE"
+        data-field-type="RADIO"
+        id="RADIO_1601992445364"
+      >
+        <br />
+        <input
+          checked
+          formControlName="kneeJointEffusion"
+          id="RADIO_1601992445364_0"
+          name="kneeJointEffusion"
+          type="radio"
+          value="none"
+        />
+        <label for="RADIO_1601992445364_0">None</label>
+        <br />
+        <input
+          formControlName="kneeJointEffusion"
+          id="RADIO_1601992445364_1"
+          name="kneeJointEffusion"
+          type="radio"
+          value="small"
+        />
+        <label for="RADIO_1601992445364_1">Small</label>
+        <br />
+        <input
+          formControlName="kneeJointEffusion"
+          id="RADIO_1601992445364_2"
+          name="kneeJointEffusion"
+          type="radio"
+          value="moderate"
+        />
+        <label for="RADIO_1601992445364_2">Moderate</label>
+        <br />
+        <input
+          formControlName="kneeJointEffusion"
+          id="RADIO_1601992445364_3"
+          name="kneeJointEffusion"
+          type="radio"
+          value="large"
+        />
+        <label for="RADIO_1601992445364_3">Large</label>
+      </span>
+    </p>
+    <p title="">
+      <label for="RADIO_1601992445379">Lipohemarthrosis</label>
+      <span
+        data-field-completion-action="NONE"
+        data-field-type="RADIO"
+        id="RADIO_1601992445379"
+      >
+        <br />
+        <input
+          checked=""
+          formControlName="lipohemarthrosis"
+          id="RADIO_1601992445379_0"
+          name="lipohemarthrosis"
+          type="radio"
+          value="present"
+        />
+        <label for="RADIO_1601992445379_0">Present</label>
+        <br />
+        <input
+          formControlName="lipohemarthrosis"
+          id="RADIO_1601992445379_1"
+          name="lipohemarthrosis"
+          type="radio"
+          value="absent"
+        />
+        <label for="RADIO_1601992445379_1">Absent</label>
+      </span>
+    </p>
+    <p title="">
+      <label for="TEXT_1601992445382">Extensor mechanism</label>
+      <textarea
+        class="d-flex w-100"
+        data-field-completion-action="NONE"
+        data-field-type="TEXTAREA"
+        formControlName="extensorMechanism"
+        id="TEXT_1601992445382"
+        name=""
+        rows="3"
+      >
+Intact</textarea
+      >
+    </p>
+    <p title="">
+      <label for="TEXT_1601992445383">Ligaments</label>
+      <textarea
+        class="d-flex w-100"
+        data-field-completion-action="NONE"
+        data-field-type="TEXTAREA"
+        formControlName="ligaments"
+        id="TEXT_1601992445383"
+        name=""
+        rows="3"
+      >
+Normal</textarea
+      >
+    </p>
+    <p title="">
+      <label for="RADIO_1601992445384">Baker’s cyst</label>
+      <span
+        data-field-completion-action="NONE"
+        data-field-type="RADIO"
+        id="RADIO_1601992445384"
+      >
+        <br />
+        <input
+          formControlName="bakersCyst"
+          id="RADIO_1601992445384_0"
+          name="bakersCyst"
+          type="radio"
+          value="none"
+        />
+        <label for="RADIO_1601992445384_0">None</label>
+        <br />
+        <input
+          formControlName="bakersCyst"
+          id="RADIO_1601992445384_1"
+          name="bakersCyst"
+          type="radio"
+          value="small"
+        />
+        <label for="RADIO_1601992445384_1">Small</label>
+        <br />
+        <input
+          formControlName="bakersCyst"
+          id="RADIO_1601992445384_2"
+          name="bakersCyst"
+          type="radio"
+          value="moderate"
+        />
+        <label for="RADIO_1601992445384_2">Moderate</label>
+        <br />
+        <input
+          formControlName="bakersCyst"
+          id="RADIO_1601992445384_3"
+          name="bakersCyst"
+          type="radio"
+          value="large"
+        />
+        <label for="RADIO_1601992445384_3">Large</label>
+      </span>
+    </p>
+    <p title="">
+      <label for="TEXT_1601992445389">Soft tissue</label>
+      <textarea
+        class="d-flex w-100"
+        data-field-completion-action="NONE"
+        data-field-type="TEXTAREA"
+        formControlName="softTissue"
+        id="TEXT_1601992445389"
+        name=""
+        rows="3"
+      ></textarea>
+    </p>
+  </section>
+  <section class="level1" data-section-name="Impression" id="impression">
+    <header class="level1">Impression</header>
+    <p title="">
+      <label for="impressionText"></label>
+      <textarea
+        class="d-flex w-100"
+        data-field-completion-action="NONE"
+        data-field-type="TEXTAREA"
+        formControlName="impression"
+        id="impressionText"
+        name=""
+        rows="3"
+      >
+Normal CT examination of the knee.</textarea
+      >
+    </p>
+  </section>
+  <button
+    (click)="handleAction('pdf')"
+    class="btn btn-primary m-1"
+    type="button"
+  >
+    Save as PDF
+  </button>
+  <button
+    (click)="handleAction('html')"
+    class="btn btn-primary m-1"
+    type="button"
+  >
+    Save as HTML
+  </button>
+</form>
