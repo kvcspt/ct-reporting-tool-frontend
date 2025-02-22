@@ -18,4 +18,19 @@ export class BodyService {
   public getBodyTemplates(): Observable<BodyTemplate[]> {
     return this.http.get<BodyTemplate[]>(`${this.apiUrl}/templates`);
   }
+
+  public updateBodyTemplate(
+    bodyTemplate: BodyTemplate,
+  ): Observable<BodyTemplate> {
+    return this.http.put<BodyTemplate>(
+      `${this.apiUrl}/templates`,
+      bodyTemplate,
+    );
+  }
+
+  public deleteBodyTemplate(title: string): Observable<any> {
+    return this.http.delete(
+      `${this.apiUrl}/templates/${encodeURIComponent(title)}`,
+    );
+  }
 }

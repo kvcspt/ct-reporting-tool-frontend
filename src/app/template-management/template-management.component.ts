@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { TemplateService } from '../services/template.service';
-import { Template } from '../models/template';
+import { BodyTemplate, Template } from '../models/template';
 import { MatDialog } from '@angular/material/dialog';
 import { TemplateDialogComponent } from './template-dialog/template-dialog.component';
 import { BodyTemplateDialogComponent } from './body-template-dialog/body-template-dialog.component';
+import { BodyService } from '../services/body/body.service';
 
 @Component({
   selector: 'app-template-management',
@@ -12,9 +13,12 @@ import { BodyTemplateDialogComponent } from './body-template-dialog/body-templat
 export class TemplateManagementComponent implements OnInit {
   public selectedTemplate: Template | null = null;
   public templates: Template[] = [];
+  public bodyTemplates: BodyTemplate[] = [];
+  public selectedBodyTemplate: BodyTemplate | null = null;
 
   public constructor(
     private templateService: TemplateService,
+    private bodyService: BodyService,
     private dialog: MatDialog,
   ) {}
 
@@ -27,6 +31,12 @@ export class TemplateManagementComponent implements OnInit {
       .getAllTemplates()
       .subscribe((templates: Template[]) => {
         this.templates = templates;
+      });
+
+    this.bodyService
+      .getBodyTemplates()
+      .subscribe((bodyTemplates1: BodyTemplate[]) => {
+        this.bodyTemplates = bodyTemplates1;
       });
   }
 
@@ -71,6 +81,36 @@ export class TemplateManagementComponent implements OnInit {
           });
         }
       }
+    });
+  }
+
+  public editBodyTemplate(template: BodyTemplate): void {
+    const dialogRef = this.dialog.open(BodyTemplateDialogComponent, {
+      data: {
+        template: template,
+        isNew: false,
+      },
+      width: '600px',
+      height: 'auto',
+    });
+
+    dialogRef.afterClosed().subscribe(() => {
+      this.loadTemplates();
+    });
+  }
+
+  public createNewBodyTemplate(): void {
+    const dialogRef = this.dialog.open(BodyTemplateDialogComponent, {
+      data: {
+        template: new BodyTemplate('', []),
+        isNew: true,
+      },
+      width: '600px',
+      height: 'auto',
+    });
+
+    dialogRef.afterClosed().subscribe(() => {
+      this.loadTemplates();
     });
   }
 }

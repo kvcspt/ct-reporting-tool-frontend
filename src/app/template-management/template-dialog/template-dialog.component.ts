@@ -63,7 +63,7 @@ export class TemplateDialogComponent {
 
   public confirmDelete(): void {
     const dialogRef = this.dialog.open(DeleteDialogComponent, {
-      data: this.template,
+      data: this.template.name,
     });
 
     dialogRef.afterClosed().subscribe((confirmed) => {

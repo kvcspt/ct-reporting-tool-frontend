@@ -50,24 +50,26 @@
     </mat-dialog-actions>
   </form>
 
-  <!-- Dynamic Form -->
   <form
     *ngIf="formFields.length > 0"
     [formGroup]="dynamicForm"
     (ngSubmit)="onSubmit()"
   >
+    <mat-form-field class="w-100 mb-3">
+      <mat-label>Title</mat-label>
+      <input matInput required type="text" [disabled]="!isNew" formControlName="title" />
+    </mat-form-field>
     <div *ngFor="let field of formFields" class="form-group border p-3 mb-3 rounded bg-light">
       <div class="row align-items-center">
-
         <div class="col-md-9">
           <mat-form-field class="w-100" *ngIf="field.type === 'text'">
             <mat-label>{{ field.label }}</mat-label>
-            <input matInput type="text" formControlName="{{ field.name }}" />
+            <input matInput type="text"/>
           </mat-form-field>
 
           <mat-form-field class="w-100" *ngIf="field.type === 'textarea'">
             <mat-label>{{ field.label }}</mat-label>
-            <textarea matInput formControlName="{{ field.name }}"></textarea>
+            <textarea matInput></textarea>
           </mat-form-field>
 
           <div *ngIf="field.type === 'radio'" class="radio-group">
@@ -82,7 +84,7 @@
           <div *ngIf="field.type === 'checkbox'" class="checkbox-group">
             <mat-label class="d-block">{{ field.label }}</mat-label>
             <div class="d-flex flex-wrap">
-              <mat-checkbox *ngFor="let option of field.options" (change)="onCheckboxChange($event, field.name)" [value]="option" class="me-3">
+              <mat-checkbox *ngFor="let option of field.options" [value]="option" class="me-3">
                 {{ option }}
               </mat-checkbox>
             </div>
@@ -97,8 +99,14 @@
       </div>
     </div>
     <mat-dialog-actions class="d-flex justify-content-center p-3">
-      <button mat-raised-button color="primary" type="submit">
+      <button *ngIf="isNew" mat-raised-button mat-dialog-close color="primary" type="submit">
         Submit
+      </button>
+      <button *ngIf="!isNew" mat-raised-button mat-dialog-close color="primary" type="button" (click)="updateBodyTemplate()">
+        Update
+      </button>
+      <button *ngIf="!isNew" mat-raised-button mat-dialog-close color="warn" type="button" (click)="deleteBodyTemplate()">
+        Delete
       </button>
       <button mat-raised-button mat-dialog-close>Cancel</button>
     </mat-dialog-actions>

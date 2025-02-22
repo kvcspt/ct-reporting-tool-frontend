@@ -16,7 +16,10 @@ export class BodyTemplateElement {
 }
 
 export class BodyTemplate {
-  public constructor(public bodyTemplateElementDTOs: BodyTemplateElement[]) {}
+  public constructor(
+    public title: string,
+    public bodyTemplateElementDTOs: BodyTemplateElement[],
+  ) {}
 }
 
 export class FormMetadata {

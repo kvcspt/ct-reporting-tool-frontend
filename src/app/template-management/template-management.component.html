@@ -24,6 +24,17 @@
     </mat-form-field>
   </div>
 
+  <div class="mb-4">
+    <mat-form-field appearance="fill" class="w-100">
+      <mat-label>Select Body Template</mat-label>
+      <mat-select [(value)]="selectedBodyTemplate">
+        <mat-option *ngFor="let bodyTemplate of bodyTemplates" [value]="bodyTemplate" (click)="editBodyTemplate(bodyTemplate)">
+          {{ bodyTemplate.title }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+
   <div *ngIf="selectedTemplate" class="d-flex justify-content-between align-items-center">
     <div class="ml-3 ms-auto">
       <span class="badge badge-secondary">Selected Template: {{ selectedTemplate.name }}</span>
