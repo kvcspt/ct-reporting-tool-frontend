@@ -36,6 +36,11 @@ import { BodyReportComponent } from './dicom-viewer/report/body-report/body-repo
 import { KneeComponent } from './dicom-viewer/report/body-report/body-components/knee/knee.component';
 import { AbdomenComponent } from './dicom-viewer/report/body-report/body-components/abdomen/abdomen.component';
 import { ChestComponent } from './dicom-viewer/report/body-report/body-components/chest/chest.component';
+import { LiverComponent } from './dicom-viewer/report/body-report/body-components/liver/liver.component';
+import { BodyTemplateDialogComponent } from './template-management/body-template-dialog/body-template-dialog.component';
+import { MatListModule } from '@angular/material/list';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatRadioModule } from '@angular/material/radio';
 
 @NgModule({
   declarations: [
@@ -57,6 +62,8 @@ import { ChestComponent } from './dicom-viewer/report/body-report/body-component
     KneeComponent,
     AbdomenComponent,
     ChestComponent,
+    LiverComponent,
+    BodyTemplateDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -80,6 +87,9 @@ import { ChestComponent } from './dicom-viewer/report/body-report/body-component
     MatCardModule,
     MatPaginatorModule,
     ViewerModule.forRoot(),
+    MatListModule,
+    MatCheckboxModule,
+    MatRadioModule,
   ],
   providers: [
     {

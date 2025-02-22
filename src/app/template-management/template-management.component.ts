@@ -3,6 +3,7 @@ import { TemplateService } from '../services/template.service';
 import { Template } from '../models/template';
 import { MatDialog } from '@angular/material/dialog';
 import { TemplateDialogComponent } from './template-dialog/template-dialog.component';
+import { BodyTemplateDialogComponent } from './body-template-dialog/body-template-dialog.component';
 
 @Component({
   selector: 'app-template-management',

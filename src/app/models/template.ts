@@ -6,6 +6,19 @@ export class Template {
   ) {}
 }
 
+export class BodyTemplateElement {
+  public constructor(
+    public label: string,
+    public name: string,
+    public type: string,
+    public options?: string[],
+  ) {}
+}
+
+export class BodyTemplate {
+  public constructor(public bodyTemplateElementDTOs: BodyTemplateElement[]) {}
+}
+
 export class FormMetadata {
   public constructor(
     public name: string,
