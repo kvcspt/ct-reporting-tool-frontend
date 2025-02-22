@@ -17,3 +17,12 @@ export class Report {
     public lesions: Lesion[],
   ) {}
 }
+
+export class BodyReport {
+  public constructor(
+    public name: string,
+    public label: string,
+    public type: string,
+    public value: any,
+  ) {}
+}

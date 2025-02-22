@@ -11,7 +11,7 @@ export class ChestService {
   public constructor(private http: HttpClient) {}
 
   public saveAsHTML(form: object): Observable<Blob> {
-    return this.http.post(`${this.apiUrl}/html?body=chest`, form, {
+    return this.http.post(`${this.apiUrl}/dynamic/html`, form, {
       responseType: 'blob',
     });
   }

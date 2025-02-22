@@ -11,13 +11,13 @@ export class AbdomenService {
   public constructor(private http: HttpClient) {}
 
   public saveAsHTML(form: object): Observable<Blob> {
-    return this.http.post(`${this.apiUrl}/html?body=abdomen`, form, {
+    return this.http.post(`${this.apiUrl}/dynamic/html`, form, {
       responseType: 'blob',
     });
   }
 
   public saveAsPdf(form: object): Observable<Blob> {
-    return this.http.post(`${this.apiUrl}/pdf?body=abdomen`, form, {
+    return this.http.post(`${this.apiUrl}/dynamic/pdf`, form, {
       responseType: 'blob',
     });
   }

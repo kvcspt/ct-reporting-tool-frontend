@@ -11,13 +11,13 @@ export class KneeService {
   public constructor(private http: HttpClient) {}
 
   public saveAsHTML(form: object): Observable<Blob> {
-    return this.http.post(`${this.apiUrl}/html?body=knee`, form, {
+    return this.http.post(`${this.apiUrl}/dynamic/html`, form, {
       responseType: 'blob',
     });
   }
 
   public saveAsPdf(form: object): Observable<Blob> {
-    return this.http.post(`${this.apiUrl}/pdf?body=knee`, form, {
+    return this.http.post(`${this.apiUrl}/dynamic/pdf`, form, {
       responseType: 'blob',
     });
   }

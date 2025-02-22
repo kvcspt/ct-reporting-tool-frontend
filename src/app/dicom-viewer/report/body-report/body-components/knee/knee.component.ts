@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { KneeService } from '../../../../../services/body/knee.service';
+import { FormMetadata } from '../../../../../models/template';
+import { BodyReport } from '../../../../../models/report';
+import { Utils } from '../../../../../utils/utils';
 
 @Component({
   selector: 'app-knee',
@@ -8,7 +11,7 @@ import { KneeService } from '../../../../../services/body/knee.service';
 })
 export class KneeComponent {
   public kneeForm: FormGroup;
-
+  private formMetadata: FormMetadata[];
   public constructor(
     private fb: FormBuilder,
     private kneeService: KneeService,
@@ -64,11 +67,84 @@ export class KneeComponent {
       softTissue: [''],
       impression: ['Normal CT examination of the knee.'],
     });
+
+    this.formMetadata = [
+      {
+        name: '',
+        label: 'Procedure Information',
+        type: 'text',
+      },
+      { name: 'procedureInformationText', label: 'Technique', type: 'text' },
+      { name: 'clinicalInformationText', label: 'History', type: 'text' },
+      { name: 'comparisonsText', label: 'Comparison', type: 'text' },
+      { name: '', label: 'Findings', type: 'text' },
+
+      { name: 'findingsText', label: 'Fracture', type: 'text' },
+      { name: 'fractureType', label: 'Type of fracture', type: 'checkbox' },
+      {
+        name: 'fractureFeatures',
+        label: 'Fracture features',
+        type: 'checkbox',
+      },
+      {
+        name: 'softTissueInjuries',
+        label: 'Associated soft tissue injuries',
+        type: 'checkbox',
+      },
+      {
+        name: 'tibialPlateauColumns',
+        label: 'Columns involved if tibial plateau fracture',
+        type: 'checkbox',
+      },
+      {
+        name: 'threeColumnClassification',
+        label: 'Three column classification if tibial plateau fracture',
+        type: 'checkbox',
+      },
+      { name: 'boneFindings', label: 'Additional bone findings', type: 'text' },
+      { name: 'alignment', label: 'Alignment', type: 'text' },
+      { name: 'jointSpaces', label: 'Joint spaces', type: 'text' },
+      { name: 'kneeJointEffusion', label: 'Knee joint effusion', type: 'text' },
+      { name: 'lipohemarthrosis', label: 'Lipohemarthrosis', type: 'text' },
+      { name: 'extensorMechanism', label: 'Extensor mechanism', type: 'text' },
+      { name: 'ligaments', label: 'Ligaments', type: 'text' },
+      { name: 'bakersCyst', label: 'Baker’s cyst', type: 'text' },
+      { name: 'softTissue', label: 'Soft tissue', type: 'text' },
+      { name: 'impression', label: 'Impression', type: 'text' },
+    ];
   }
 
   public handleAction(type: string): void {
+    const formData: BodyReport[] = [];
+    this.formMetadata.forEach((field) => {
+      if (field.type === 'checkbox') {
+        const selectedValuesObj = this.kneeForm.get(field.name)?.value;
+
+        if (selectedValuesObj) {
+          const selected = Object.entries(selectedValuesObj)
+            .filter(([, value]) => value)
+            .map(([key]) => Utils.camelToTitleCase(key))
+            .join(', ');
+
+          formData.push({
+            name: field.name,
+            label: field.label,
+            type: field.type,
+            value: selected,
+          });
+        }
+      } else {
+        formData.push({
+          name: field.name,
+          label: field.label,
+          type: field.type,
+          value: this.kneeForm.get(field.name)?.value,
+        });
+      }
+    });
+
     if (type === 'html') {
-      this.kneeService.saveAsHTML(this.kneeForm.value).subscribe({
+      this.kneeService.saveAsHTML(formData).subscribe({
         next: (response) => {
           const blob = new Blob([response], { type: 'text/html' });
           const url = window.URL.createObjectURL(blob);
@@ -83,7 +159,7 @@ export class KneeComponent {
         },
       });
     } else if (type === 'pdf') {
-      this.kneeService.saveAsPdf(this.kneeForm.value).subscribe({
+      this.kneeService.saveAsPdf(formData).subscribe({
         next: (response) => {
           const blob = new Blob([response], { type: 'text/pdf' });
           const url = window.URL.createObjectURL(blob);
