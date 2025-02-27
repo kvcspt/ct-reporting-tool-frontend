@@ -1,0 +1,1657 @@
+<form [formGroup]="liverForm" class="form-group bg-dark text-light">
+  <section
+    id="procedureInformation"
+    class="level1"
+    data-section-name="Procedure Information"
+  >
+    <header class="level1">Procedure Information</header>
+    <p title="">
+      <label for="RADIO_1626100865748">Modality</label>
+      <span
+        id="RADIO_1626100865748"
+        data-field-type="RADIO"
+        data-field-completion-action="NONE"
+      >
+        <br />
+        <input
+          id="RADIO_1626100865748_0"
+          type="radio"
+          name="modality"
+          formControlName="modality"
+          value="CT"
+          checked=""
+        />
+        <label for="RADIO_1626100865748_0">CT</label>
+        <br />
+        <input
+          id="RADIO_1626100865748_1"
+          type="radio"
+          name="modality"
+          formControlName="modality"
+          value="MRI"
+        />
+        <label for="RADIO_1626100865748_1">MRI</label>
+      </span>
+    </p>
+    <p title="If applicable.">
+      <label for="NUMBER_1626100865742">Number of CT detectors</label>
+      <span>
+        <input
+          type="number"
+          step="1.0"
+          data-field-units=""
+          id="NUMBER_1626100865742"
+          name="numberOfCtDetectors"
+          formControlName="numberOfCtDetectors"
+          data-field-type="NUMBER"
+          data-field-completion-action="NONE"
+          value=""
+        />
+      </span>
+    </p>
+    <p title="">
+      <label for="RADIO_1626878201560">MRI field strength</label>
+      <span
+        id="RADIO_1626878201560"
+        data-field-type="RADIO"
+        data-field-completion-action="NONE"
+      >
+        <br />
+        <input
+          id="RADIO_1626878201560_0"
+          type="radio"
+          name="mriFieldStrength"
+          formControlName="mriFieldStrength"
+          value="1.5T"
+          checked=""
+        />
+        <label for="RADIO_1626878201560_0">1.5T</label>
+        <br />
+        <input
+          id="RADIO_1626878201560_1"
+          type="radio"
+          name="mriFieldStrength"
+          formControlName="mriFieldStrength"
+          value="3T"
+        />
+        <label for="RADIO_1626878201560_1">3T</label>
+      </span>
+    </p>
+    <p
+      title="If modality is CT, radiation dose is required in the United States."
+    >
+      <label for="NUMBER_1626100865744">Radiation dose</label>
+      <span>
+        <input
+          type="number"
+          step="1.0"
+          data-field-units=""
+          id="NUMBER_1626100865744"
+          name="radiationDose"
+          formControlName="radiationDose"
+          data-field-type="NUMBER"
+          data-field-completion-action="NONE"
+          value=""
+        />
+      </span>
+    </p>
+    <p title="">
+      <label for="RADIO_1626100865751">Type of contrast agent</label>
+      <span
+        id="RADIO_1626100865751"
+        data-field-type="RADIO"
+        data-field-completion-action="NONE"
+      >
+        <br />
+        <input
+          id="RADIO_1626100865751_0"
+          type="radio"
+          name="typeOfContrastAgent"
+          formControlName="typeOfContrastAgent"
+          value="iodinated (CT)"
+          checked=""
+        />
+        <label for="RADIO_1626100865751_0">iodinated (CT)</label>
+        <br />
+        <input
+          id="RADIO_1626100865751_1"
+          type="radio"
+          name="typeOfContrastAgent"
+          formControlName="typeOfContrastAgent"
+          value="extracellular (MRI)"
+        />
+        <label for="RADIO_1626100865751_0">extracellular (MRI)</label>
+        <br />
+        <input
+          id="RADIO_1626100865751_2"
+          type="radio"
+          name="typeOfContrastAgent"
+          formControlName="typeOfContrastAgent"
+          value="hepatobiliary agent (MRI)"
+        />
+        <label for="RADIO_1626100865751_0">hepatobiliary agent (MRI)</label>
+      </span>
+    </p>
+    <p
+      title="Optional. Describe all that apply; e.g. injection dose, injection rate, volume and rate of saline flush, scan delay to arterial phase, timing method."
+    >
+      <label for="TEXT_1626100865755">Other technical details</label>
+      <textarea
+        rows="3"
+        class="d-flex w-100"
+        id="TEXT_1626100865755"
+        name="otherTechnicalDetails"
+        formControlName="otherTechnicalDetails"
+        data-field-type="TEXTAREA"
+        data-field-completion-action="NONE"
+      ></textarea>
+    </p>
+    <p
+      title="Exam is technically adequate and meets minimum LI-RADS technical recommendations."
+    >
+      <label for="RADIO_1626100865756">Technical quality adequate</label>
+      <span
+        id="RADIO_1626100865756"
+        data-field-type="RADIO"
+        data-field-completion-action="NONE"
+      >
+        <br />
+        <input
+          id="RADIO_1626100865756_0"
+          type="radio"
+          name="technicalQualityAdequate"
+          formControlName="technicalQualityAdequate"
+          value="yes"
+          checked=""
+        />
+        <label for="RADIO_1626100865756_0">yes</label>
+        <br />
+        <input
+          id="RADIO_1626100865756_1"
+          type="radio"
+          name="technicalQualityAdequate"
+          formControlName="technicalQualityAdequate"
+          value="no"
+        />
+        <label for="RADIO_1626100865756_1">no</label>
+      </span>
+    </p>
+    <p title="">
+      <label for="TEXT_1626100865760">If no, describe reason</label>
+      <textarea
+        rows="3"
+        class="d-flex w-100"
+        id="TEXT_1626100865760"
+        name="reasonNo"
+        formControlName="reasonNo"
+        data-field-type="TEXTAREA"
+        data-field-completion-action="NONE"
+      ></textarea>
+    </p>
+    <p
+      title='Optional. Subtraction images were used to assess APHE or "washout".'
+    >
+      <label for="RADIO_1626100865761">Use of vascular subtraction</label>
+      <span
+        id="RADIO_1626100865761"
+        data-field-type="RADIO"
+        data-field-completion-action="NONE"
+      >
+        <br />
+        <input
+          id="RADIO_1626100865761_0"
+          type="radio"
+          name="useOfVascularSubtraction"
+          formControlName="useOfVascularSubtraction"
+          value="yes"
+          checked=""
+        />
+        <label for="RADIO_1626100865761_0">yes</label>
+        <br />
+        <input
+          id="RADIO_1626100865761_1"
+          type="radio"
+          name="useOfVascularSubtraction"
+          formControlName="useOfVascularSubtraction"
+          value="no"
+        />
+        <label for="RADIO_1626100865761_1">no</label>
+      </span>
+    </p>
+    <p
+      title="Optional. If subtraction images were used, clarify what is was used for. "
+    >
+      <label for="RADIO_1626100865766">Purpose of vascular subtraction</label>
+      <span
+        id="RADIO_1626100865766"
+        data-field-type="RADIO"
+        data-field-completion-action="NONE"
+      >
+        <br />
+        <input
+          id="RADIO_1626100865766_0"
+          type="radio"
+          name="purposeOfVascularSubtraction"
+          formControlName="purposeOfVascularSubtraction"
+          value="APHE"
+          checked=""
+        />
+        <label for="RADIO_1626100865766_0">APHE</label>
+        <br />
+        <input
+          id="RADIO_1626100865766_1"
+          type="radio"
+          name="purposeOfVascularSubtraction"
+          formControlName="purposeOfVascularSubtraction"
+          value="washout"
+        />
+        <label for="RADIO_1626100865766_1">washout</label>
+        <br />
+        <input
+          id="RADIO_1626100865766_2"
+          type="radio"
+          name="purposeOfVascularSubtraction"
+          formControlName="purposeOfVascularSubtraction"
+          value="APHE and washout"
+        />
+        <label for="RADIO_1626100865766_2">APHE and washout</label>
+      </span>
+    </p>
+  </section>
+  <section
+    id="clinicalInformation"
+    class="level1"
+    data-section-name="Clinical Information"
+  >
+    <header class="level1">Clinical Information</header>
+    <p title=" i.e. criteria for LI-RADS population">
+      <label for="CHECKBOX_1626100865721">Risk factors for HCC</label>
+      <span
+        id="CHECKBOX_1626100865721"
+        data-field-type="CHECKBOX"
+        data-field-completion-action="NONE"
+        formGroupName="riskFactorsForHhc"
+      >
+        <br />
+        <input
+          id="CHECKBOX_1626100865721_0"
+          type="checkbox"
+          name="cirrhosis"
+          formControlName="cirrhosis"
+          value="cirrhosis"
+          checked=""
+        />
+        <label for="CHECKBOX_1626100865721_0">cirrhosis</label>
+        <br />
+        <input
+          id="CHECKBOX_1626100865721_1"
+          type="checkbox"
+          name="HBV"
+          formControlName="hbv"
+          value="hbv"
+        />
+        <label for="CHECKBOX_1626100865721_1">HBV</label>
+        <br />
+        <input
+          id="CHECKBOX_1626100865721_2"
+          type="checkbox"
+          name="current HCC"
+          formControlName="currentHcc"
+          value="currentHcc"
+        />
+        <label for="CHECKBOX_1626100865721_2">current HCC</label>
+      </span>
+    </p>
+    <p title="">
+      <label for="clinicalInformationText">Etiology of liver disease</label>
+      <textarea
+        rows="3"
+        class="d-flex w-100"
+        id="clinicalInformationText"
+        name="etiologyOfLiverDisease"
+        formControlName="etiologyOfLiverDisease"
+        data-field-type="TEXTAREA"
+        data-field-completion-action="NONE"
+      >
+List all that apply.</textarea
+      >
+    </p>
+    <section
+      id="SECTION_HEADER_1626100865726"
+      class="level2"
+      data-section-name="Treatment History"
+    >
+      <header class="level2">Treatment History</header>
+    </section>
+    <p title="List all that apply.">
+      <label for="TEXT_1626100865729">Treatment modality</label>
+      <input
+        type="text"
+        id="TEXT_1626100865729"
+        name="treatmentModalityHistory"
+        formControlName="treatmentModalityHistory"
+        data-field-type="TEXT"
+        data-field-completion-action="NONE"
+        value=""
+      />
+    </p>
+    <p title="">
+      <label for="TEXT_1626100865730">Treatment date(s)</label>
+      <input
+        type="text"
+        id="TEXT_1626100865730"
+        name="treatmentDate"
+        formControlName="treatmentDate"
+        data-field-type="TEXT"
+        data-field-completion-action="NONE"
+        value=""
+      />
+    </p>
+    <section
+      id="SECTION_HEADER_1626100865731"
+      class="level2"
+      data-section-name="Pathology"
+    >
+      <header class="level2">Pathology</header>
+    </section>
+    <p title="">
+      <label for="TEXT_1626878201566">Diagnosis</label>
+      <input
+        type="text"
+        id="TEXT_1626878201566"
+        name="diagnosis"
+        formControlName="diagnosis"
+        data-field-type="TEXT"
+        data-field-completion-action="NONE"
+        value=""
+      />
+    </p>
+    <p title="">
+      <label for="TEXT_1626100865732">Date of pathology</label>
+      <textarea
+        rows="3"
+        class="d-flex w-100"
+        id="TEXT_1626100865732"
+        name="dateOfPathology"
+        formControlName="dateOfPathology"
+        data-field-type="TEXTAREA"
+        data-field-completion-action="NONE"
+      ></textarea>
+    </p>
+  </section>
+  <section id="comparisons" class="level1" data-section-name="Comparison">
+    <header class="level1">Comparison</header>
+    <p title="">
+      <label for="comparisonsText">Text:</label>
+      <textarea
+        rows="3"
+        class="d-flex w-100"
+        id="comparisonsText"
+        name="comparisonsText"
+        formControlName="comparisonsText"
+        data-field-type="TEXTAREA"
+        data-field-completion-action="NONE"
+      ></textarea>
+    </p>
+    <p title="">
+      <label for="CHECKBOX_1626100865734">Exam modality</label>
+      <span
+        id="CHECKBOX_1626100865734"
+        data-field-type="CHECKBOX"
+        data-field-completion-action="NONE"
+        formGroupName="examModality"
+      >
+        <br />
+        <input
+          id="CHECKBOX_1626100865734_0"
+          type="checkbox"
+          name="ct"
+          formControlName="ct"
+          value="CT"
+          checked=""
+        />
+        <label for="CHECKBOX_1626100865734_0">CT</label>
+        <br />
+        <input
+          id="CHECKBOX_1626100865734_1"
+          type="checkbox"
+          name="mri"
+          formControlName="mri"
+          value="MRI"
+        />
+        <label for="CHECKBOX_1626100865734_1">MRI</label>
+      </span>
+    </p>
+    <p title="">
+      <label for="TEXT_1626100865737">Type of contrast</label>
+      <textarea
+        rows="3"
+        class="d-flex w-100"
+        id="TEXT_1626100865737"
+        name="typeOfContrast"
+        formControlName="typeOfContrast"
+        data-field-type="TEXTAREA"
+        data-field-completion-action="NONE"
+      ></textarea>
+    </p>
+    <p title="">
+      <label for="TEXT_1626100865738">Date of prior exam</label>
+      <textarea
+        rows="3"
+        class="d-flex w-100"
+        id="TEXT_1626100865738"
+        name="dateOfPriorExam"
+        formControlName="dateOfPriorExam"
+        data-field-type="TEXTAREA"
+        data-field-completion-action="NONE"
+      ></textarea>
+    </p>
+  </section>
+  <section id="findings" class="level1" data-section-name="Findings">
+    <header class="level1">Findings</header>
+    <section
+      id="SECTION_HEADER_1626100865770"
+      class="level2"
+      data-section-name="Background Liver"
+    >
+      <header class="level2">Background Liver</header>
+    </section>
+    <p title="">
+      <label for="RADIO_1626100865771">Features of cirrhosis</label>
+      <span
+        id="RADIO_1626100865771"
+        data-field-type="RADIO"
+        data-field-completion-action="NONE"
+      >
+        <br />
+        <input
+          id="RADIO_1626100865771_0"
+          type="radio"
+          name="featuresOfCirrhosis"
+          formControlName="featuresOfCirrhosis"
+          value="yes"
+          checked=""
+        />
+        <label for="RADIO_1626100865771_0">yes</label>
+        <br />
+        <input
+          id="RADIO_1626100865771_1"
+          type="radio"
+          name="featuresOfCirrhosis"
+          formControlName="featuresOfCirrhosis"
+          value="no"
+        />
+        <label for="RADIO_1626100865771_1">no</label>
+      </span>
+    </p>
+    <p title="">
+      <label for="RADIO_1626100865774">Steatosis</label>
+      <span
+        id="RADIO_1626100865774"
+        data-field-type="RADIO"
+        data-field-completion-action="NONE"
+      >
+        <br />
+        <input
+          id="RADIO_1626100865774_0"
+          type="radio"
+          name="steatosis"
+          formControlName="steatosis"
+          value="yes"
+          checked=""
+        />
+        <label for="RADIO_1626100865774_0">yes</label>
+        <br />
+        <input
+          id="RADIO_1626100865774_1"
+          type="radio"
+          name="steatosis"
+          formControlName="steatosis"
+          value="no"
+        />
+        <label for="RADIO_1626100865774_1">no</label>
+      </span>
+    </p>
+    <p title="">
+      <label for="RADIO_1626100865777">Siderosis</label>
+      <span
+        id="RADIO_1626100865777"
+        data-field-type="RADIO"
+        data-field-completion-action="NONE"
+      >
+        <br />
+        <input
+          id="RADIO_1626100865777_0"
+          type="radio"
+          name="siderosis"
+          formControlName="siderosis"
+          value="yes"
+          checked=""
+        />
+        <label for="RADIO_1626100865777_0">yes</label>
+        <br />
+        <input
+          id="RADIO_1626100865777_1"
+          type="radio"
+          name="siderosis"
+          formControlName="siderosis"
+          value="no"
+        />
+        <label for="RADIO_1626100865777_1">no</label>
+      </span>
+    </p>
+    <p title="">
+      <label for="RADIO_1626100865780">Postsurgical changes</label>
+      <span
+        id="RADIO_1626100865780"
+        data-field-type="RADIO"
+        data-field-completion-action="NONE"
+      >
+        <br />
+        <input
+          id="RADIO_1626100865780_0"
+          type="radio"
+          name="postsurgicalChanges"
+          formControlName="postsurgicalChanges"
+          value="yes"
+          checked=""
+        />
+        <label for="RADIO_1626100865780_0">yes</label>
+        <br />
+        <input
+          id="RADIO_1626100865780_1"
+          type="radio"
+          name="postsurgicalChanges"
+          formControlName="postsurgicalChanges"
+          value="no"
+        />
+        <label for="RADIO_1626100865780_1">no</label>
+      </span>
+    </p>
+    <p title="">
+      <label for="TEXT_1626100865783">Postsurgical changes description</label>
+      <textarea
+        rows="3"
+        class="d-flex w-100"
+        id="TEXT_1626100865783"
+        name="postsurgicalChangesDescription"
+        formControlName="postsurgicalChangesDescription"
+        data-field-type="TEXTAREA"
+        data-field-completion-action="NONE"
+      ></textarea>
+    </p>
+    <p title="">
+      <label for="RADIO_1626100865784">Observation</label>
+      <span
+        id="RADIO_1626100865784"
+        data-field-type="RADIO"
+        data-field-completion-action="NONE"
+      >
+        <br />
+        <input
+          id="RADIO_1626100865784_0"
+          type="radio"
+          name="observation"
+          formControlName="observation"
+          value="individually"
+          checked=""
+        />
+        <label for="RADIO_1626100865784_0">individually</label>
+        <br />
+        <input
+          id="RADIO_1626100865784_1"
+          type="radio"
+          name="observation"
+          formControlName="observation"
+          value="in agregate"
+        />
+        <label for="RADIO_1626100865784_1">in agregate</label>
+        <br />
+        <input
+          id="RADIO_1626100865784_2"
+          type="radio"
+          name="observation"
+          formControlName="observation"
+          value="individually and in aggregate"
+        />
+        <label for="RADIO_1626100865784_2">individually and in aggregate</label>
+      </span>
+    </p>
+    <p title="">
+      <label for="NUMBER_1626100865788">Observation number</label>
+      <span>
+        <input
+          type="number"
+          step="1.0"
+          data-field-units=""
+          id="NUMBER_1626100865788"
+          name="observationNumber"
+          formControlName="observationNumber"
+          data-field-type="NUMBER"
+          data-field-completion-action="NONE"
+          value=""
+        />
+      </span>
+    </p>
+    <p title="">
+      <label for="CHECKBOX_1626100865789">Segment location</label>
+      <span
+        id="CHECKBOX_1626100865789"
+        data-field-type="CHECKBOX"
+        data-field-completion-action="NONE"
+        formGroupName="segmentLocation"
+      >
+        <br />
+        <input
+          id="CHECKBOX_1626100865789_0"
+          type="checkbox"
+          name="i"
+          formControlName="i"
+          value="I"
+          checked=""
+        />
+        <label for="CHECKBOX_1626100865789_0">I</label>
+        <br />
+        <input
+          id="CHECKBOX_1626100865789_1"
+          type="checkbox"
+          name="ii"
+          formControlName="ii"
+          value="II"
+        />
+        <label for="CHECKBOX_1626100865789_1">II</label>
+        <br />
+        <input
+          id="CHECKBOX_1626100865789_2"
+          type="checkbox"
+          name="iii"
+          formControlName="iii"
+          value="III"
+        />
+        <label for="CHECKBOX_1626100865789_2">III</label>
+
+        <br />
+        <input
+          id="CHECKBOX_1626100865789_3"
+          type="checkbox"
+          name="iva"
+          formControlName="iva"
+          value="Iva"
+        />
+        <label for="CHECKBOX_1626100865789_3">Iva</label>
+
+        <br />
+        <input
+          id="CHECKBOX_1626100865789_4"
+          type="checkbox"
+          name="ivb"
+          formControlName="ivb"
+          value="Ivb"
+        />
+        <label for="CHECKBOX_1626100865789_4">Ivb</label>
+
+        <br />
+        <input
+          id="CHECKBOX_1626100865789_5"
+          type="checkbox"
+          name="v"
+          formControlName="v"
+          value="V"
+        />
+        <label for="CHECKBOX_1626100865789_5">V</label>
+
+        <br />
+        <input
+          id="CHECKBOX_1626100865789_6"
+          type="checkbox"
+          name="vi"
+          formControlName="vi"
+          value="VI"
+        />
+        <label for="CHECKBOX_1626100865789_6">VI</label>
+
+        <br />
+        <input
+          id="CHECKBOX_1626100865789_7"
+          type="checkbox"
+          name="vii"
+          formControlName="vii"
+          value="VII"
+        />
+        <label for="CHECKBOX_1626100865789_7">VII</label>
+
+        <br />
+        <input
+          id="CHECKBOX_1626100865789_8"
+          type="checkbox"
+          name="viii"
+          formControlName="viii"
+          value="VIII"
+        />
+        <label for="CHECKBOX_1626100865789_8">VIII</label>
+      </span>
+    </p>
+    <p title="">
+      <label for="NUMBER_1626100865799">Size in cm</label>
+      <span>
+        <input
+          type="number"
+          step="1.0"
+          data-field-units=""
+          id="NUMBER_1626100865799"
+          name="sizeInCm"
+          formControlName="sizeInCm"
+          data-field-type="NUMBER"
+          data-field-completion-action="NONE"
+          value=""
+        />
+      </span>
+    </p>
+    <p title="">
+      <label for="NUMBER_1626100865800">Size in mm</label>
+      <span>
+        <input
+          type="number"
+          step="1.0"
+          data-field-units=""
+          id="NUMBER_1626100865800"
+          name="sizeInMm"
+          formControlName="sizeInMm"
+          data-field-type="NUMBER"
+          data-field-completion-action="NONE"
+          value=""
+        />
+      </span>
+    </p>
+    <p title="">
+      <label for="NUMBER_1626100865801">Image ID number</label>
+      <span>
+        <input
+          type="number"
+          step="1.0"
+          data-field-units=""
+          id="NUMBER_1626100865801"
+          name="imageIdNumber"
+          formControlName="imageIdNumber"
+          data-field-type="NUMBER"
+          data-field-completion-action="NONE"
+          value=""
+        />
+      </span>
+    </p>
+    <p title="">
+      <label for="NUMBER_1626100865802">Series number</label>
+      <span>
+        <input
+          type="number"
+          step="1.0"
+          data-field-units=""
+          id="NUMBER_1626100865802"
+          name="seriesNumber"
+          formControlName="seriesNumber"
+          data-field-type="NUMBER"
+          data-field-completion-action="NONE"
+          value=""
+        />
+      </span>
+    </p>
+    <p title="">
+      <label for="RADIO_1626100865803">Tumor in vein</label>
+      <span
+        id="RADIO_1626100865803"
+        data-field-type="RADIO"
+        data-field-completion-action="NONE"
+      >
+        <br />
+        <input
+          id="RADIO_1626100865803_0"
+          type="radio"
+          name="tumorInVein"
+          formControlName="tumorInVein"
+          value="yes"
+          checked=""
+        />
+        <label for="RADIO_1626100865803_0">yes</label>
+        <br />
+        <input
+          id="RADIO_1626100865803_1"
+          type="radio"
+          name="tumorInVein"
+          formControlName="tumorInVein"
+          value="no"
+        />
+        <label for="RADIO_1626100865803_1">no</label>
+      </span>
+    </p>
+    <p
+      title="List all that apply e.g., targetoid mass or nontargetoid mass with infiltrative appearance, marked diffusion restriction, necrosis or severe ischemia, or other features."
+    >
+      <label for="TEXT_1626100865806">LR-M features</label>
+      <textarea
+        rows="3"
+        class="d-flex w-100"
+        id="TEXT_1626100865806"
+        name="lrmFeatures"
+        formControlName="lrmFeatures"
+        data-field-type="TEXTAREA"
+        data-field-completion-action="NONE"
+      ></textarea>
+    </p>
+    <p title="Describe most likely etiology.">
+      <label for="TEXT_1626100865807">LR-M etiology</label>
+      <textarea
+        rows="3"
+        class="d-flex w-100"
+        id="TEXT_1626100865807"
+        name="lrmEtiology"
+        formControlName="lrmEtiology"
+        data-field-type="TEXTAREA"
+        data-field-completion-action="NONE"
+      ></textarea>
+    </p>
+    <p title="">
+      <label for="RADIO_1626100865808">Nonrim APHE</label>
+      <span
+        id="RADIO_1626100865808"
+        data-field-type="RADIO"
+        data-field-completion-action="NONE"
+      >
+        <br />
+        <input
+          id="RADIO_1626100865808_0"
+          type="radio"
+          name="nonrimAphe"
+          formControlName="nonrimAphe"
+          value="yes"
+          checked=""
+        />
+        <label for="RADIO_1626100865808_0">yes</label>
+        <br />
+        <input
+          id="RADIO_1626100865808_1"
+          type="radio"
+          name="nonrimAphe"
+          formControlName="nonrimAphe"
+          value="no"
+        />
+        <label for="RADIO_1626100865808_1">no</label>
+      </span>
+    </p>
+    <p title="">
+      <label for="RADIO_1626100865811">Threshold growth</label>
+      <span
+        id="RADIO_1626100865811"
+        data-field-type="RADIO"
+        data-field-completion-action="NONE"
+      >
+        <br />
+        <input
+          id="RADIO_1626100865811_0"
+          type="radio"
+          name="thresholdGrowth"
+          formControlName="thresholdGrowth"
+          value="yes"
+          checked=""
+        />
+        <label for="RADIO_1626100865811_0">yes</label>
+        <br />
+        <input
+          id="RADIO_1626100865811_1"
+          type="radio"
+          name="thresholdGrowth"
+          formControlName="thresholdGrowth"
+          value="no"
+        />
+        <label for="RADIO_1626100865811_1">no</label>
+        <br />
+        <input
+          id="RADIO_1626100865811_2"
+          type="radio"
+          name="thresholdGrowth"
+          formControlName="thresholdGrowth"
+          value="N/A"
+        />
+        <label for="RADIO_1626100865811_2">N/A</label>
+      </span>
+    </p>
+    <p title="">
+      <label for="RADIO_1626100865815">Washout</label>
+      <span
+        id="RADIO_1626100865815"
+        data-field-type="RADIO"
+        data-field-completion-action="NONE"
+      >
+        <br />
+        <input
+          id="RADIO_1626100865815_0"
+          type="radio"
+          name="washout"
+          formControlName="washout"
+          value="yes"
+          checked=""
+        />
+        <label for="RADIO_1626100865815_0">washout</label>
+        <br />
+        <input
+          id="RADIO_1626100865815_1"
+          type="radio"
+          name="washout"
+          formControlName="washout"
+          value="no"
+        />
+        <label for="RADIO_1626100865815_1">washout</label>
+      </span>
+    </p>
+    <p title="">
+      <label for="RADIO_1626100865818">Enhancing capsule</label>
+      <span
+        id="RADIO_1626100865818"
+        data-field-type="RADIO"
+        data-field-completion-action="NONE"
+      >
+        <br />
+        <input
+          id="RADIO_1626100865818_0"
+          type="radio"
+          name="enhancingCapsule"
+          formControlName="enhancingCapsule"
+          value="yes"
+          checked=""
+        />
+        <label for="RADIO_1626100865818_0">yes</label>
+        <br />
+        <input
+          id="RADIO_1626100865818_1"
+          type="radio"
+          name="enhancingCapsule"
+          formControlName="enhancingCapsule"
+          value="no"
+        />
+        <label for="RADIO_1626100865818_1">no</label>
+      </span>
+    </p>
+    <p title="If applied.">
+      <label for="TEXT_1626100865821">Ancillary features</label>
+      <textarea
+        rows="3"
+        class="d-flex w-100"
+        id="TEXT_1626100865821"
+        name="ancillaryFeatures"
+        formControlName="ancillaryFeatures"
+        data-field-type="TEXTAREA"
+        data-field-completion-action="NONE"
+      ></textarea>
+    </p>
+    <p title="">
+      <label for="RADIO_1626100865822">Favoring benignity</label>
+      <span
+        id="RADIO_1626100865822"
+        data-field-type="RADIO"
+        data-field-completion-action="NONE"
+      >
+        <br />
+        <input
+          id="RADIO_1626100865822_0"
+          type="radio"
+          name="favoringBenignity"
+          formControlName="favoringBenignity"
+          value="none"
+          checked=""
+        />
+        <label for="RADIO_1626100865822_0">none</label>
+        <br />
+        <input
+          id="RADIO_1626100865822_1"
+          type="radio"
+          name="favoringBenignity"
+          formControlName="favoringBenignity"
+          value="yes"
+        />
+        <label for="RADIO_1626100865822_1">yes</label>
+      </span>
+    </p>
+    <p title="If yes, list all that apply.">
+      <label for="TEXT_1626100865825">Favoring benignity</label>
+      <textarea
+        rows="3"
+        class="d-flex w-100"
+        id="TEXT_1626100865825"
+        name="favoringBenignityText"
+        formControlName="favoringBenignityText"
+        data-field-type="TEXTAREA"
+        data-field-completion-action="NONE"
+      ></textarea>
+    </p>
+    <p title="">
+      <label for="RADIO_1626100865826">Favoring malignancy</label>
+      <span
+        id="RADIO_1626100865826"
+        data-field-type="RADIO"
+        data-field-completion-action="NONE"
+      >
+        <br />
+        <input
+          id="RADIO_1626100865826_0"
+          type="radio"
+          name="favoringMalignancy"
+          formControlName="favoringMalignancy"
+          value="none"
+          checked=""
+        />
+        <label for="RADIO_1626100865826_0">no</label>
+        <br />
+        <input
+          id="RADIO_1626100865826_1"
+          type="radio"
+          name="favoringMalignancy"
+          formControlName="favoringMalignancy"
+          value="yes"
+        />
+        <label for="RADIO_1626100865826_1">yes</label>
+      </span>
+    </p>
+    <p title="If yes, list all that apply.">
+      <label for="TEXT_1626100865829">Favoring malignancy </label>
+      <textarea
+        rows="3"
+        class="d-flex w-100"
+        id="TEXT_1626100865829"
+        name="favoringMalignancyText"
+        formControlName="favoringMalignancyText"
+        data-field-type="TEXTAREA"
+        data-field-completion-action="NONE"
+      ></textarea>
+    </p>
+    <p title="">
+      <label for="RADIO_1626100865830">Favoring HCC in particular</label>
+      <span
+        id="RADIO_1626100865830"
+        data-field-type="RADIO"
+        data-field-completion-action="NONE"
+      >
+        <br />
+        <input
+          id="RADIO_1626100865830_0"
+          type="radio"
+          name="favoringHccInParticular"
+          formControlName="favoringHccInParticular"
+          value="none"
+          checked=""
+        />
+        <label for="RADIO_1626100865830_0">none</label>
+        <br />
+        <input
+          id="RADIO_1626100865830_1"
+          type="radio"
+          name="favoringHccInParticular"
+          formControlName="favoringHccInParticular"
+          value="yes"
+        />
+        <label for="RADIO_1626100865830_1">yes</label>
+      </span>
+    </p>
+    <p title="If yes, list all that apply.">
+      <label for="TEXT_1626100865833">Favoring HCC in particular</label>
+      <textarea
+        rows="3"
+        class="d-flex w-100"
+        id="TEXT_1626100865833"
+        name="favoringHccInParticularText"
+        formControlName="favoringHccInParticularText"
+        data-field-type="TEXTAREA"
+        data-field-completion-action="NONE"
+      ></textarea>
+    </p>
+    <section
+      id="SECTION_HEADER_1626879268237"
+      class="level2"
+      data-section-name="Treated Observation"
+    >
+      <header class="level2">Treated Observation</header>
+    </section>
+    <p title="">
+      <label for="RADIO_1626100865834">Treated observation</label>
+      <span
+        id="RADIO_1626100865834"
+        data-field-type="RADIO"
+        data-field-completion-action="NONE"
+      >
+        <br />
+        <input
+          id="RADIO_1626100865834_0"
+          type="radio"
+          name="treatedObservation"
+          formControlName="treatedObservation"
+          value="yes"
+          checked=""
+        />
+        <label for="RADIO_1626100865834_0">yes</label>
+        <br />
+        <input
+          id="RADIO_1626100865834_1"
+          type="radio"
+          name="treatedObservation"
+          formControlName="treatedObservation"
+          value="no"
+        />
+        <label for="RADIO_1626100865834_1">no</label>
+      </span>
+    </p>
+    <p title="">
+      <label for="NUMBER_1626100865837"
+        >Size of equivocal or viable tumor</label
+      >
+      <span>
+        <input
+          type="number"
+          step="1.0"
+          data-field-units=""
+          id="NUMBER_1626100865837"
+          name="sizeOfEquivocalOrViableTumor"
+          formControlName="sizeOfEquivocalOrViableTumor"
+          data-field-type="NUMBER"
+          data-field-completion-action="NONE"
+          value=""
+        />
+      </span>
+    </p>
+    <p title="">
+      <label for="TEXT_1626100865838">Pretreatment LR category and size</label>
+      <textarea
+        rows="3"
+        class="d-flex w-100"
+        id="TEXT_1626100865838"
+        name="pretreatmentLrCategoryAndSize"
+        formControlName="pretreatmentLrCategoryAndSize"
+        data-field-type="TEXTAREA"
+        data-field-completion-action="NONE"
+      ></textarea>
+    </p>
+    <p title="">
+      <label for="TEXT_1626100865839">Treatment modality</label>
+      <textarea
+        rows="3"
+        class="d-flex w-100"
+        id="TEXT_1626100865839"
+        name="treatmentModality"
+        formControlName="treatmentModality"
+        data-field-type="TEXTAREA"
+        data-field-completion-action="NONE"
+      ></textarea>
+    </p>
+    <p title="">
+      <label for="TEXT_1626100865840">Interim change</label>
+      <textarea
+        rows="3"
+        class="d-flex w-100"
+        id="TEXT_1626100865840"
+        name="interimChange"
+        formControlName="interimChange"
+        data-field-type="TEXTAREA"
+        data-field-completion-action="NONE"
+      ></textarea>
+    </p>
+    <section
+      id="SECTION_HEADER_1626100865841"
+      class="level2"
+      data-section-name="Observations Described in Aggregate"
+    >
+      <header class="level2">Observations Described in Aggregate</header>
+    </section>
+    <p title="">
+      <label for="TEXT_1626100865842">Unique identifier</label>
+      <textarea
+        rows="3"
+        class="d-flex w-100"
+        id="TEXT_1626100865842"
+        name="uniqueIdentifier"
+        formControlName="uniqueIdentifier"
+        data-field-type="TEXTAREA"
+        data-field-completion-action="NONE"
+      ></textarea>
+    </p>
+    <p title="">
+      <label for="NUMBER_1626100865843">Overall size</label>
+      <span>
+        <input
+          type="number"
+          step="1.0"
+          data-field-units=""
+          id="NUMBER_1626100865843"
+          name="overallSize"
+          formControlName="overallSize"
+          data-field-type="NUMBER"
+          data-field-completion-action="NONE"
+          value=""
+        />
+      </span>
+    </p>
+    <p title="">
+      <label for="TEXT_1626100865844">Location</label>
+      <textarea
+        rows="3"
+        class="d-flex w-100"
+        id="TEXT_1626100865844"
+        name="location"
+        formControlName="location"
+        data-field-type="TEXTAREA"
+        data-field-completion-action="NONE"
+      ></textarea>
+    </p>
+    <p title="">
+      <label for="TEXT_1626100865845">Imaging features</label>
+      <textarea
+        rows="3"
+        class="d-flex w-100"
+        id="TEXT_1626100865845"
+        name="imagingFeatures"
+        formControlName="imagingFeatures"
+        data-field-type="TEXTAREA"
+        data-field-completion-action="NONE"
+      ></textarea>
+    </p>
+    <p
+      title="Describe relevant findings, e.g. patency, anatomic variants, etc."
+    >
+      <label for="TEXT_1626100865846">Vascular</label>
+      <textarea
+        rows="3"
+        class="d-flex w-100"
+        id="TEXT_1626100865846"
+        name="vascular"
+        formControlName="vascular"
+        data-field-type="TEXTAREA"
+        data-field-completion-action="NONE"
+      ></textarea>
+    </p>
+    <p
+      title="Describe relevant findings, e.g. diffuse or focal dilatation, anatomic variants, etc."
+    >
+      <label for="TEXT_1626100865847">Biliary</label>
+      <textarea
+        rows="3"
+        class="d-flex w-100"
+        id="TEXT_1626100865847"
+        name="biliary"
+        formControlName="biliary"
+        data-field-type="TEXTAREA"
+        data-field-completion-action="NONE"
+      ></textarea>
+    </p>
+    <section
+      id="SECTION_HEADER_1626879268238"
+      class="level2"
+      data-section-name="Signs of Portal Hypertension"
+    >
+      <header class="level2">Signs of Portal Hypertension</header>
+    </section>
+    <p
+      title="Describe relevant findings, e.g. varices, ascites, and splenomegaly."
+    >
+      <label for="TEXT_1626100865848">Signs of portal hypertension</label>
+      <textarea
+        rows="3"
+        class="d-flex w-100"
+        id="TEXT_1626100865848"
+        name="signsOfPortalHypertension"
+        formControlName="signsOfPortalHypertension"
+        data-field-type="TEXTAREA"
+        data-field-completion-action="NONE"
+      ></textarea>
+    </p>
+    <section
+      id="SECTION_HEADER_1626879268239"
+      class="level2"
+      data-section-name="Extra Hepatic Findings"
+    >
+      <header class="level2">Extra Hepatic Findings</header>
+    </section>
+    <p title="Specify.">
+      <label for="TEXT_1626100865849">Extra-hepatic findings</label>
+      <textarea
+        rows="3"
+        class="d-flex w-100"
+        id="TEXT_1626100865849"
+        name="extraHepaticFindings"
+        formControlName="extraHepaticFindings"
+        data-field-type="TEXTAREA"
+        data-field-completion-action="NONE"
+      ></textarea>
+    </p>
+  </section>
+  <section id="impression" class="level1" data-section-name="Impression">
+    <header class="level1">Impression</header>
+    <p title="LI-RADS v2018 category up to 5.">
+      <label for="RADIO_1626100865850">LI-RADS category per observation</label>
+      <span
+        id="RADIO_1626100865850"
+        data-field-type="RADIO"
+        data-field-completion-action="NONE"
+      >
+        <br />
+        <input
+          id="RADIO_1626100865850_0"
+          type="radio"
+          name="liradsCategoryPerObservation"
+          formControlName="liradsCategoryPerObservation"
+          value="LR-NC"
+          checked=""
+        />
+        <label for="RADIO_1626100865850_0">LR-NC</label>
+        <br />
+        <input
+          id="RADIO_1626100865850_1"
+          type="radio"
+          name="liradsCategoryPerObservation"
+          formControlName="liradsCategoryPerObservation"
+          value="LR-1"
+        />
+        <label for="RADIO_1626100865850_1">LR-1</label>
+        <br />
+        <input
+          id="RADIO_1626100865850_2"
+          type="radio"
+          name="liradsCategoryPerObservation"
+          formControlName="liradsCategoryPerObservation"
+          value="LR-2"
+        />
+        <label for="RADIO_1626100865850_2">LR-2</label>
+        <br />
+        <input
+          id="RADIO_1626100865850_3"
+          type="radio"
+          name="liradsCategoryPerObservation"
+          formControlName="liradsCategoryPerObservation"
+          value="LR-3"
+        />
+        <label for="RADIO_1626100865850_3">LR-3</label>
+        <br />
+        <input
+          id="RADIO_1626100865850_4"
+          type="radio"
+          name="liradsCategoryPerObservation"
+          formControlName="liradsCategoryPerObservation"
+          value="LR-4"
+        />
+        <label for="RADIO_1626100865850_4">LR-4</label>
+        <br />
+        <input
+          id="RADIO_1626100865850_5"
+          type="radio"
+          name="liradsCategoryPerObservation"
+          formControlName="liradsCategoryPerObservation"
+          value="LR-5"
+        />
+        <label for="RADIO_1626100865850_5">LR-5</label>
+        <br />
+        <input
+          id="RADIO_1626100865850_6"
+          type="radio"
+          name="liradsCategoryPerObservation"
+          formControlName="liradsCategoryPerObservation"
+          value="LR-TIV"
+        />
+        <label for="RADIO_1626100865850_6">LR-TIV</label>
+        <br />
+        <input
+          id="RADIO_1626100865850_7"
+          type="radio"
+          name="liradsCategoryPerObservation"
+          formControlName="liradsCategoryPerObservation"
+          value="LR-M"
+        />
+        <label for="RADIO_1626100865850_7">LR-M</label>
+      </span>
+    </p>
+    <p title="">
+      <label for="NUMBER_1626100865859">Observation number</label>
+      <span>
+        <input
+          type="number"
+          step="1.0"
+          data-field-units=""
+          id="NUMBER_1626100865859"
+          name="observationNumber1"
+          formControlName="observationNumber1"
+          data-field-type="NUMBER"
+          data-field-completion-action="NONE"
+          value=""
+        />
+      </span>
+    </p>
+    <p title="LI-RADS v2018 category up to 5.">
+      <label for="RADIO_1626100865860">LI-RADS category in aggregate</label>
+      <span
+        id="RADIO_1626100865860"
+        data-field-type="RADIO"
+        data-field-completion-action="NONE"
+      >
+        <br />
+        <input
+          id="RADIO_1626100865860_0"
+          type="radio"
+          name="liradsCategoryInAggregate"
+          formControlName="liradsCategoryInAggregate"
+          value="LR-NC"
+          checked=""
+        />
+        <label for="RADIO_1626100865860_0">LR-NC</label>
+        <br />
+        <input
+          id="RADIO_1626100865860_1"
+          type="radio"
+          name="liradsCategoryInAggregate"
+          formControlName="liradsCategoryInAggregate"
+          value="LR-1"
+        />
+        <label for="RADIO_1626100865860_1">LR-1</label>
+
+        <br />
+        <input
+          id="RADIO_1626100865860_2"
+          type="radio"
+          name="liradsCategoryInAggregate"
+          formControlName="liradsCategoryInAggregate"
+          value="LR-2"
+        />
+        <label for="RADIO_1626100865860_2">LR-2</label>
+        <br />
+        <input
+          id="RADIO_1626100865860_3"
+          type="radio"
+          name="liradsCategoryInAggregate"
+          formControlName="liradsCategoryInAggregate"
+          value="LR-3"
+        />
+        <label for="RADIO_1626100865860_3">LR-3</label>
+
+        <br />
+        <input
+          id="RADIO_1626100865860_4"
+          type="radio"
+          name="liradsCategoryInAggregate"
+          formControlName="liradsCategoryInAggregate"
+          value="LR-4"
+        />
+        <label for="RADIO_1626100865860_4">LR-4</label>
+
+        <br />
+        <input
+          id="RADIO_1626100865860_5"
+          type="radio"
+          name="liradsCategoryInAggregate"
+          formControlName="liradsCategoryInAggregate"
+          value="LR-5"
+        />
+        <label for="RADIO_1626100865860_5">LR-5</label>
+
+        <br />
+        <input
+          id="RADIO_1626100865860_6"
+          type="radio"
+          name="liradsCategoryInAggregate"
+          formControlName="liradsCategoryInAggregate"
+          value="LR-TIV"
+        />
+        <label for="RADIO_1626100865860_6">LR-TIV</label>
+
+        <br />
+        <input
+          id="RADIO_1626100865860_7"
+          type="radio"
+          name="liradsCategoryInAggregate"
+          formControlName="liradsCategoryInAggregate"
+          value="LR-M"
+        />
+        <label for="RADIO_1626100865860_7">LR-M</label>
+      </span>
+    </p>
+    <p title="">
+      <label for="NUMBER_1626100865869">Observation number</label>
+      <span>
+        <input
+          type="number"
+          step="1.0"
+          data-field-units=""
+          id="NUMBER_1626100865869"
+          name="observationNumber2"
+          formControlName="observationNumber2"
+          data-field-type="NUMBER"
+          data-field-completion-action="NONE"
+          value=""
+        />
+      </span>
+    </p>
+    <p title="LI-RADS v2018. Currently not applicable for systemic therapy.">
+      <label for="RADIO_1626100865870"
+        >LI-RADS treatment response category per observation</label
+      >
+      <span
+        id="RADIO_1626100865870"
+        data-field-type="RADIO"
+        data-field-completion-action="NONE"
+      >
+        <br />
+        <input
+          id="RADIO_1626100865870_0"
+          type="radio"
+          name="liradsTreatmentResponseCategoryPerObservation"
+          formControlName="liradsTreatmentResponseCategoryPerObservation"
+          value="LR-TR Nonviable"
+          checked=""
+        />
+        <label for="RADIO_1626100865870_0">LR-TR Nonviable</label>
+        <br />
+        <input
+          id="RADIO_1626100865870_1"
+          type="radio"
+          name="liradsTreatmentResponseCategoryPerObservation"
+          formControlName="liradsTreatmentResponseCategoryPerObservation"
+          value="LR-TR Equivocal"
+        />
+        <label for="RADIO_1626100865870_1">LR-TR Equivocal</label>
+
+        <br />
+        <input
+          id="RADIO_1626100865870_2"
+          type="radio"
+          name="liradsTreatmentResponseCategoryPerObservation"
+          formControlName="liradsTreatmentResponseCategoryPerObservation"
+          value="LR-TR Viable"
+        />
+        <label for="RADIO_1626100865870_2">LR-TR Viable</label>
+      </span>
+    </p>
+    <p title="">
+      <label for="TEXT_1626100865874">Observation number</label>
+      <textarea
+        rows="3"
+        class="d-flex w-100"
+        id="TEXT_1626100865874"
+        name="observationNumber3"
+        formControlName="observationNumber3"
+        data-field-type="TEXTAREA"
+        data-field-completion-action="NONE"
+      ></textarea>
+    </p>
+    <section
+      id="SECTION_HEADER_1626878201567"
+      class="level2"
+      data-section-name="HCC RADIOLOGICAL T-STAGE"
+    >
+      <header class="level2">HCC RADIOLOGICAL T-STAGE</header>
+    </section>
+    <p title="Optional.">
+      <label for="RADIO_1626100865875">HCC radiologic T-stage</label>
+      <span
+        id="RADIO_1626100865875"
+        data-field-type="RADIO"
+        data-field-completion-action="NONE"
+      >
+        <br />
+        <input
+          id="RADIO_1626100865875_0"
+          type="radio"
+          name="hccRadiologicTStage"
+          formControlName="hccRadiologicTStage"
+          value="1"
+          checked=""
+        />
+        <br />
+        <input
+          id="RADIO_1626100865875_1"
+          type="radio"
+          name="hccRadiologicTStage"
+          formControlName="hccRadiologicTStage"
+          value="2"
+        />
+        <br />
+        <input
+          id="RADIO_1626100865875_2"
+          type="radio"
+          name="hccRadiologicTStage"
+          formControlName="hccRadiologicTStage"
+          value="3"
+        />
+        <br />
+        <input
+          id="RADIO_1626100865875_3"
+          type="radio"
+          name="hccRadiologicTStage"
+          formControlName="hccRadiologicTStage"
+          value="4"
+        />
+      </span>
+    </p>
+    <p title="">
+      <label for="NUMBER_1626100865880">Observation number</label>
+      <span>
+        <input
+          type="number"
+          step="1.0"
+          data-field-units=""
+          id="NUMBER_1626100865880"
+          name="observationNumber4"
+          formControlName="observationNumber4"
+          data-field-type="NUMBER"
+          data-field-completion-action="NONE"
+          value=""
+        />
+      </span>
+    </p>
+    <p title="Optional.">
+      <label for="TEXT_1626100865881"
+        >Management and follow-up recommendations</label
+      >
+      <textarea
+        rows="3"
+        class="d-flex w-100"
+        id="TEXT_1626100865881"
+        name="followUp"
+        formControlName="followUp"
+        data-field-type="TEXTAREA"
+        data-field-completion-action="NONE"
+      ></textarea>
+    </p>
+  </section>
+</form>
