@@ -1,0 +1,74 @@
+<form [formGroup]="bodyForm" class="form-group bg-dark text-light">
+  <div class="mb-3">
+    <label class="form-label">Title</label>
+    <input type="text" class="form-control" formControlName="title" />
+  </div>
+
+  <!-- Dynamic Form Fields -->
+  <div formArrayName="bodyTemplateElementDTOs">
+    <div
+      *ngFor="let field of getFormArrayControls(); let i = index"
+      [formGroupName]="i"
+    >
+      <label class="d-flex w-100 mt-3 mb-1">{{ field.value.label }}</label>
+
+      <!-- Text Input -->
+      <input
+        *ngIf="field.value.type === 'text'"
+        class="form-control"
+        formControlName="control"
+        ngDefaultControl
+      />
+
+      <!-- Textarea -->
+      <textarea
+        *ngIf="field.value.type === 'textarea'"
+        class="form-control"
+        formControlName="control"
+        ngDefaultControl
+      ></textarea>
+
+      <!-- Radio Group -->
+      <div *ngIf="field.value.type === 'radio'">
+        <div *ngFor="let option of field.value.options">
+          <input
+            type="radio"
+            [value]="option"
+            ngDefaultControl
+            formControlName="control"
+          />
+          {{ option }}
+        </div>
+      </div>
+
+      <!-- Checkbox Group -->
+      <div
+        *ngIf="field.value.type === 'checkbox'"
+      >
+        <div *ngFor="let option of field.value.options; let j = index" >
+          <input
+            type="checkbox"
+            [value]="option"
+            (change)="onCheckboxChange($event, field, option)"
+          />
+          {{ option }}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <button
+    (click)="handleAction('pdf')"
+    class="btn btn-primary m-2"
+    type="button"
+  >
+    Save as PDF
+  </button>
+  <button
+    (click)="handleAction('html')"
+    class="btn btn-primary m-2"
+    type="button"
+  >
+    Save as HTML
+  </button>
+</form>

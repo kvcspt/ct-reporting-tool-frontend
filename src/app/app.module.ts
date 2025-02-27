@@ -41,6 +41,7 @@ import { BodyTemplateDialogComponent } from './template-management/body-template
 import { MatListModule } from '@angular/material/list';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatRadioModule } from '@angular/material/radio';
+import { BodyFormComponent } from './dicom-viewer/report/body-report/body-components/body-form.component';
 
 @NgModule({
   declarations: [
@@ -64,6 +65,7 @@ import { MatRadioModule } from '@angular/material/radio';
     ChestComponent,
     LiverComponent,
     BodyTemplateDialogComponent,
+    BodyFormComponent,
   ],
   imports: [
     BrowserModule,
