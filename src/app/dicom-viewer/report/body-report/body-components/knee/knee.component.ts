@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { KneeService } from '../../../../../services/body/knee.service';
 import { FormMetadata } from '../../../../../models/template';
 import { BodyReport } from '../../../../../models/report';
 import { Utils } from '../../../../../utils/utils';
+import { BodyService } from '../../../../../services/body/body.service';
 
 @Component({
   selector: 'app-knee',
@@ -14,7 +14,7 @@ export class KneeComponent {
   private formMetadata: FormMetadata[];
   public constructor(
     private fb: FormBuilder,
-    private kneeService: KneeService,
+    private bodyService: BodyService,
   ) {
     this.kneeForm = this.fb.group({
       procedureInformationText: [
@@ -144,7 +144,7 @@ export class KneeComponent {
     });
 
     if (type === 'html') {
-      this.kneeService.saveAsHTML(formData).subscribe({
+      this.bodyService.saveAsHTML(formData).subscribe({
         next: (response) => {
           const blob = new Blob([response], { type: 'text/html' });
           const url = window.URL.createObjectURL(blob);
@@ -159,7 +159,7 @@ export class KneeComponent {
         },
       });
     } else if (type === 'pdf') {
-      this.kneeService.saveAsPdf(formData).subscribe({
+      this.bodyService.saveAsPdf(formData).subscribe({
         next: (response) => {
           const blob = new Blob([response], { type: 'text/pdf' });
           const url = window.URL.createObjectURL(blob);

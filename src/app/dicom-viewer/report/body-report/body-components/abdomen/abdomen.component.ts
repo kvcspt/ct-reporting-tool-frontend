@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { AbdomenService } from '../../../../../services/body/abdomen.service';
 import { FormMetadata } from '../../../../../models/template';
 import { BodyReport } from '../../../../../models/report';
 import { Utils } from '../../../../../utils/utils';
+import { BodyService } from '../../../../../services/body/body.service';
 
 @Component({
   selector: 'app-abdomen',
@@ -15,7 +15,7 @@ export class AbdomenComponent {
 
   public constructor(
     private fb: FormBuilder,
-    private abdomenService: AbdomenService,
+    private bodyService: BodyService,
   ) {
     this.abdomenForm = this.fb.group({
       procedureInformationText: [''],
@@ -252,7 +252,7 @@ export class AbdomenComponent {
     });
 
     if (type === 'html') {
-      this.abdomenService.saveAsHTML(formData).subscribe({
+      this.bodyService.saveAsHTML(formData).subscribe({
         next: (response) => {
           const blob = new Blob([response], { type: 'text/html' });
           const url = window.URL.createObjectURL(blob);
@@ -267,7 +267,7 @@ export class AbdomenComponent {
         },
       });
     } else if (type === 'pdf') {
-      this.abdomenService.saveAsPdf(formData).subscribe({
+      this.bodyService.saveAsPdf(formData).subscribe({
         next: (response) => {
           const blob = new Blob([response], { type: 'text/pdf' });
           const url = window.URL.createObjectURL(blob);

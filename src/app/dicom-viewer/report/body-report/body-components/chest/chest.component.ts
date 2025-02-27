@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { ChestService } from '../../../../../services/body/chest.service';
 import { FormMetadata } from '../../../../../models/template';
 import { BodyReport } from '../../../../../models/report';
 import { Utils } from '../../../../../utils/utils';
+import { BodyService } from '../../../../../services/body/body.service';
 @Component({
   selector: 'app-chest',
   templateUrl: './chest.component.html',
@@ -14,7 +14,7 @@ export class ChestComponent {
 
   public constructor(
     private fb: FormBuilder,
-    private chestService: ChestService,
+    private bodyService: BodyService,
   ) {
     this.chestForm = this.fb.group({
       procedureInformationText: [''],
@@ -227,7 +227,7 @@ export class ChestComponent {
     });
     console.log(formData);
     if (type === 'html') {
-      this.chestService.saveAsHTML(formData).subscribe({
+      this.bodyService.saveAsHTML(formData).subscribe({
         next: (response) => {
           const blob = new Blob([response], { type: 'text/html' });
           const url = window.URL.createObjectURL(blob);
@@ -242,7 +242,7 @@ export class ChestComponent {
         },
       });
     } else if (type === 'pdf') {
-      this.chestService.saveAsPdf(this.chestForm.value).subscribe({
+      this.bodyService.saveAsPdf(this.chestForm.value).subscribe({
         next: (response) => {
           const blob = new Blob([response], { type: 'text/pdf' });
           const url = window.URL.createObjectURL(blob);

@@ -33,4 +33,16 @@ export class BodyService {
       `${this.apiUrl}/templates/${encodeURIComponent(title)}`,
     );
   }
+
+  public saveAsHTML(form: object): Observable<Blob> {
+    return this.http.post(`${this.apiUrl}/dynamic/html`, form, {
+      responseType: 'blob',
+    });
+  }
+
+  public saveAsPdf(form: object): Observable<Blob> {
+    return this.http.post(`${this.apiUrl}/dynamic/pdf`, form, {
+      responseType: 'blob',
+    });
+  }
 }
