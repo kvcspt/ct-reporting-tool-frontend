@@ -56,8 +56,11 @@ export class BodyFormComponent implements OnInit, OnChanges {
 
     this.bodyTemplate.bodyTemplateElementDTOs.forEach((field) => {
       let control: any;
-      if (field.type === 'checkbox') {
-        control = new FormGroup({});
+
+      if (field.duplicate) {
+        control = this.fb.array([new FormControl('')]);
+      } else if (field.type === 'checkbox') {
+        control = this.fb.group({});
         field.options?.forEach((option: string) => {
           control.addControl(option, new FormControl(false));
         });
@@ -70,6 +73,7 @@ export class BodyFormComponent implements OnInit, OnChanges {
           label: field.label,
           name: field.name,
           type: field.type,
+          duplicate: field.duplicate,
           control: control,
           options: [field.options || []],
         }),
@@ -110,6 +114,8 @@ export class BodyFormComponent implements OnInit, OnChanges {
       return new BodyReport(field.name, field.label, field.type, value);
     });
 
+    console.log(formData);
+
     if (type === 'html') {
       this.bodyService.saveAsHTML(formData).subscribe({
         next: (response) => {
@@ -141,5 +147,25 @@ export class BodyFormComponent implements OnInit, OnChanges {
         },
       });
     }
+  }
+
+  public addDuplicateField(index: number): void {
+    const duplicateControls = this.getDuplicateFormArray(index);
+    duplicateControls.push(new FormControl(''));
+  }
+
+  public removeDuplicateField(index: number, duplicateIndex: number): void {
+    const duplicateControls = this.getDuplicateFormArray(index);
+    duplicateControls.removeAt(duplicateIndex);
+  }
+
+  public getDuplicateFormArray(index: number): FormArray {
+    return (this.bodyForm.get('bodyTemplateElementDTOs') as FormArray)
+      .at(index)
+      .get('control') as FormArray;
+  }
+
+  public getDuplicateFormArrayControls(index: number): FormControl<any>[] {
+    return this.getDuplicateFormArray(index).controls as FormControl[];
   }
 }

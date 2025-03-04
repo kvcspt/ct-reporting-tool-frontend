@@ -11,6 +11,7 @@ export class BodyTemplateElement {
     public label: string,
     public name: string,
     public type: string,
+    public duplicate: boolean,
     public options?: string[],
   ) {}
 }

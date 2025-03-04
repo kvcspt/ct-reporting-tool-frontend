@@ -6,6 +6,8 @@
       <input matInput type="text" formControlName="label"/>
     </mat-form-field>
 
+    <mat-checkbox class="mb-1" formControlName="duplicate">Duplicate</mat-checkbox>
+
     <mat-form-field class="w-100">
       <mat-label>Field Type</mat-label>
       <mat-select formControlName="type">
@@ -57,7 +59,7 @@
   >
     <mat-form-field class="w-100 mb-3">
       <mat-label>Title</mat-label>
-      <input matInput required type="text" [disabled]="!isNew" formControlName="title" />
+      <input matInput required type="text" formControlName="title" />
     </mat-form-field>
     <div *ngFor="let field of formFields" class="form-group border p-3 mb-3 rounded bg-light">
       <div class="row align-items-center">

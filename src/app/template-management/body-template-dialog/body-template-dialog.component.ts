@@ -42,6 +42,7 @@ export class BodyTemplateDialogComponent {
     this.fieldForm = this.fb.group({
       label: [''],
       type: ['text'],
+      duplicate: [false],
       options: this.fb.array([]),
     });
   }
