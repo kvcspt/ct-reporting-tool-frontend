@@ -4,52 +4,104 @@
     <input type="text" class="form-control" formControlName="title" />
   </div>
 
-  <!-- Dynamic Form Fields -->
   <div formArrayName="bodyTemplateElementDTOs">
     <div
       *ngFor="let field of getFormArrayControls(); let i = index"
       [formGroupName]="i"
     >
-      <label class="d-flex w-100 mt-3 mb-1">{{ field.value.label }}</label>
+      <label *ngIf="!field.value.duplicate" class="d-flex w-100 mt-3 mb-1">{{
+        field.value.label
+      }}</label>
 
-      <!-- Text Input -->
       <ng-container *ngIf="field.value.type === 'text'">
-        <div *ngFor="let control of getDuplicateFormArrayControls(i); let j = index" class="align-items-center">
-          <input class="form-control mb-2" [formControl]="control"/>
-          <button *ngIf="field.value.duplicate" (click)="removeDuplicateField(i, j)" class="btn btn-danger ms-2">-</button>
-        </div>
-        <input *ngIf="!field.value.duplicate" class="form-control mb-2" formControlName="control"/>
-        <button *ngIf="field.value.duplicate" (click)="addDuplicateField(i)" class="btn btn-success mt-1">+</button>
+        <!--        <div-->
+        <!--          *ngFor="-->
+        <!--            let control of getDuplicateFormArrayControls(i);-->
+        <!--            let j = index-->
+        <!--          "-->
+        <!--          class="align-items-center"-->
+        <!--        >-->
+        <!--          <input class="form-control mb-2" [formControl]="control" />-->
+        <!--        </div>-->
+        <input
+          *ngIf="!field.value.duplicate"
+          class="form-control mb-2"
+          formControlName="control"
+        />
       </ng-container>
 
       <ng-container *ngIf="field.value.type === 'textarea'">
-        <div *ngFor="let control of getDuplicateFormArray(i).controls; let j = index" class="align-items-center">
-          <label class="d-flex w-100 mt-3 mb-1">{{ field.value.label }}</label>
-          <textarea class="form-control" formControlName="control"></textarea>
-        <button *ngIf="field.value.duplicate" (click)="removeDuplicateField(i, j)" class="btn btn-danger ms-2">-</button>
-      </div>
-        <textarea *ngIf="!field.value.duplicate" class="form-control" formControlName="control"></textarea>
-        <button *ngIf="field.value.duplicate" (click)="addDuplicateField(i)" class="btn btn-success mt-2">+</button>
-    </ng-container>
+        <!--        <div-->
+        <!--          *ngFor="-->
+        <!--            let control of getDuplicateFormArrayControls(i);-->
+        <!--            let j = index-->
+        <!--          "-->
+        <!--          class="align-items-center"-->
+        <!--        >-->
+        <!--          <label class="d-flex w-100 mt-3 mb-1">{{ field.value.label }}</label>-->
+        <!--          <textarea class="form-control" [formControl]="control"></textarea>-->
+        <!--        </div>-->
+        <textarea
+          *ngIf="!field.value.duplicate"
+          class="form-control"
+          formControlName="control"
+        ></textarea>
+      </ng-container>
 
-      <!-- Radio Group -->
       <div *ngIf="field.value.type === 'radio'">
-        <div *ngFor="let option of field.value.options">
-          <input
-            type="radio"
-            [value]="option"
-            ngDefaultControl
-            formControlName="control"
-          />
-          {{ option }}
+        <!--        <div-->
+        <!--          *ngFor="-->
+        <!--            let control of getDuplicateFormArrayControls(i);-->
+        <!--            let j = index-->
+        <!--          "-->
+        <!--          class="align-items-center"-->
+        <!--        >-->
+        <!--          <label class="d-flex w-100 mt-3 mb-1">{{ field.value.label }}</label>-->
+        <!--          <div *ngFor="let option of field.value.options">-->
+        <!--            <input-->
+        <!--              type="radio"-->
+        <!--              [value]="option"-->
+        <!--              ngDefaultControl-->
+        <!--              [formControl]="control"-->
+        <!--            />-->
+        <!--            {{ option }}-->
+        <!--          </div>-->
+        <!--        </div>-->
+        <div *ngIf="!field.value.duplicate">
+          <!--          <div-->
+          <!--            *ngFor="-->
+          <!--              let control of getDuplicateFormArrayControls(i);-->
+          <!--              let j = index-->
+          <!--            "-->
+          <!--            class="align-items-center"-->
+          <!--          >-->
+          <!--            <label class="d-flex w-100 mt-3 mb-1">{{-->
+          <!--              field.value.label-->
+          <!--            }}</label>-->
+          <!--            <div *ngFor="let option of field.value.options">-->
+          <!--              <input-->
+          <!--                type="radio"-->
+          <!--                [value]="option"-->
+          <!--                ngDefaultControl-->
+          <!--                [formControl]="control"-->
+          <!--              />-->
+          <!--              {{ option }}-->
+          <!--            </div>-->
+          <!--          </div>-->
+          <div *ngFor="let option of field.value.options">
+            <input
+              type="radio"
+              [value]="option"
+              ngDefaultControl
+              formControlName="control"
+            />
+            {{ option }}
+          </div>
         </div>
       </div>
 
-      <!-- Checkbox Group -->
-      <div
-        *ngIf="field.value.type === 'checkbox'"
-      >
-        <div *ngFor="let option of field.value.options; let j = index" >
+      <div *ngIf="field.value.type === 'checkbox'">
+        <div *ngFor="let option of field.value.options; let j = index">
           <input
             type="checkbox"
             [value]="option"
@@ -58,6 +110,59 @@
           {{ option }}
         </div>
       </div>
+
+      <div
+        *ngFor="let control of getDuplicateFormArrayControls(i); let j = index"
+        class="align-items-center"
+      >
+        <ng-container *ngIf="field.value.type === 'text'">
+          <label class="d-flex w-100 mt-3 mb-1">{{ field.value.label }}</label>
+          <input class="form-control mb-2" [formControl]="control" />
+        </ng-container>
+        <ng-container *ngIf="field.value.type === 'textarea'">
+          <label class="d-flex w-100 mt-3 mb-1">{{ field.value.label }}</label>
+          <textarea class="form-control" [formControl]="control"></textarea>
+        </ng-container>
+        <ng-container *ngIf="field.value.type === 'radio'"
+          >
+          <label class="d-flex w-100 mt-3 mb-1">{{ field.value.label }}</label>
+          <div *ngFor="let option of field.value.options">
+            <input
+              type="radio"
+              [value]="option"
+              ngDefaultControl
+              [formControl]="control"
+            />
+            {{ option }}
+          </div>
+        </ng-container>
+        <ng-container *ngIf="field.value.type === 'checkbox'">
+          <label class="d-flex w-100 mt-3 mb-1">{{ field.value.label }}</label>
+          <div *ngFor="let option of field.value.options">
+            <input
+              type="radio"
+              [value]="option"
+              ngDefaultControl
+              [formControl]="control"
+            />
+            {{ option }}
+          </div>
+        </ng-container>
+      </div>
+      <button
+        *ngIf="field.value.duplicate && isLastInGroup(i)"
+        (click)="addDuplicateField(i)"
+        class="btn btn-success mt-2"
+      >
+        +
+      </button>
+      <button
+        *ngIf="field.value.duplicate && isLastInGroup(i)"
+        (click)="removeDuplicateField(i)"
+        class="btn btn-danger mt-2"
+      >
+        -
+      </button>
     </div>
   </div>
 

@@ -70,6 +70,7 @@ export class BodyFormComponent implements OnInit, OnChanges {
 
       formArray.push(
         this.fb.group({
+          groupId: field.groupId,
           label: field.label,
           name: field.name,
           type: field.type,
@@ -150,13 +151,35 @@ export class BodyFormComponent implements OnInit, OnChanges {
   }
 
   public addDuplicateField(index: number): void {
-    const duplicateControls = this.getDuplicateFormArray(index);
-    duplicateControls.push(new FormControl(''));
+    const field = this.getFormArrayControls()[index];
+    const groupId = field.value.groupId;
+
+    const fieldsToDuplicate = this.getFormArrayControls().filter(
+      (f) => f.value.groupId === groupId,
+    );
+
+    fieldsToDuplicate.forEach((f) => {
+      const duplicateControls = this.getDuplicateFormArray(
+        this.getFormArrayControls().indexOf(f),
+      );
+      if (duplicateControls instanceof FormArray) {
+        duplicateControls.push(new FormControl('')); // Add a new input field
+      }
+    });
   }
 
-  public removeDuplicateField(index: number, duplicateIndex: number): void {
-    const duplicateControls = this.getDuplicateFormArray(index);
-    duplicateControls.removeAt(duplicateIndex);
+  public removeDuplicateField(index: number): void {
+    const field = this.getFormArrayControls()[index];
+    const groupId = field.value.groupId;
+
+    this.getFormArrayControls().forEach((f, i) => {
+      if (f.value.groupId === groupId) {
+        const duplicateControls = this.getDuplicateFormArray(i);
+        if (duplicateControls.length > 1) {
+          duplicateControls.removeAt(duplicateControls.length - 1);
+        }
+      }
+    });
   }
 
   public getDuplicateFormArray(index: number): FormArray {
@@ -167,5 +190,13 @@ export class BodyFormComponent implements OnInit, OnChanges {
 
   public getDuplicateFormArrayControls(index: number): FormControl<any>[] {
     return this.getDuplicateFormArray(index).controls as FormControl[];
+  }
+
+  public isLastInGroup(index: number): boolean {
+    const currentGroupId =
+      this.bodyTemplate.bodyTemplateElementDTOs[index].groupId;
+    const nextField = this.bodyTemplate.bodyTemplateElementDTOs[index + 1];
+
+    return !nextField || nextField.groupId !== currentGroupId;
   }
 }
