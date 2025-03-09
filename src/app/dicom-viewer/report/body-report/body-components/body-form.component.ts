@@ -94,18 +94,18 @@ export class BodyFormComponent implements OnInit, OnChanges {
     }
   }
 
-  public getFormArrayControls(): AbstractControl<any, any>[] {
+  public getFormArrayControls(): AbstractControl[] {
     return (this.bodyForm.get('bodyTemplateElementDTOs') as FormArray).controls;
   }
 
-  public handleAction(type: string): void {
+  public handleAction(_: string): void {
     const formData = this.bodyTemplate.bodyTemplateElementDTOs.map((field) => {
       const fieldGroup = this.getFormArrayControls().find(
         (control) => control.get('name')?.value === field.name,
       );
 
-      let value = fieldGroup?.get('control')?.value || '';
-
+      let value = fieldGroup?.value.control || '';
+      console.log(fieldGroup);
       if (field.type === 'checkbox') {
         value = Object.entries(value)
           .filter(([, value]) => value === true)
@@ -117,37 +117,37 @@ export class BodyFormComponent implements OnInit, OnChanges {
 
     console.log(formData);
 
-    if (type === 'html') {
-      this.bodyService.saveAsHTML(formData).subscribe({
-        next: (response) => {
-          const blob = new Blob([response], { type: 'text/html' });
-          const url = window.URL.createObjectURL(blob);
-          const a = document.createElement('a');
-          a.href = url;
-          a.download = 'body' + '.html';
-          a.click();
-          window.URL.revokeObjectURL(url);
-        },
-        error: (err) => {
-          console.error('Error generating HTML:', err);
-        },
-      });
-    } else if (type === 'pdf') {
-      this.bodyService.saveAsPdf(formData).subscribe({
-        next: (response) => {
-          const blob = new Blob([response], { type: 'text/pdf' });
-          const url = window.URL.createObjectURL(blob);
-          const a = document.createElement('a');
-          a.href = url;
-          a.download = 'body' + '.pdf';
-          a.click();
-          window.URL.revokeObjectURL(url);
-        },
-        error: (err) => {
-          console.error('Error generating HTML:', err);
-        },
-      });
-    }
+    // if (type === 'html') {
+    //   this.bodyService.saveAsHTML(formData).subscribe({
+    //     next: (response) => {
+    //       const blob = new Blob([response], { type: 'text/html' });
+    //       const url = window.URL.createObjectURL(blob);
+    //       const a = document.createElement('a');
+    //       a.href = url;
+    //       a.download = 'body' + '.html';
+    //       a.click();
+    //       window.URL.revokeObjectURL(url);
+    //     },
+    //     error: (err) => {
+    //       console.error('Error generating HTML:', err);
+    //     },
+    //   });
+    // } else if (type === 'pdf') {
+    //   this.bodyService.saveAsPdf(formData).subscribe({
+    //     next: (response) => {
+    //       const blob = new Blob([response], { type: 'text/pdf' });
+    //       const url = window.URL.createObjectURL(blob);
+    //       const a = document.createElement('a');
+    //       a.href = url;
+    //       a.download = 'body' + '.pdf';
+    //       a.click();
+    //       window.URL.revokeObjectURL(url);
+    //     },
+    //     error: (err) => {
+    //       console.error('Error generating HTML:', err);
+    //     },
+    //   });
+    // }
   }
 
   public addDuplicateField(index: number): void {
@@ -198,5 +198,12 @@ export class BodyFormComponent implements OnInit, OnChanges {
     const nextField = this.bodyTemplate.bodyTemplateElementDTOs[index + 1];
 
     return !nextField || nextField.groupId !== currentGroupId;
+  }
+
+  public generateRadioControlName(
+    groupId: number,
+    optionIndex: number,
+  ): string {
+    return `radioControl_${groupId}_${optionIndex}`;
   }
 }
