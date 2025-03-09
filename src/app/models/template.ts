@@ -8,6 +8,7 @@ export class Template {
 
 export class BodyTemplateElement {
   public constructor(
+    public groupId: number,
     public label: string,
     public name: string,
     public type: string,

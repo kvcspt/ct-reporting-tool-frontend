@@ -6,7 +6,7 @@
       <input matInput type="text" formControlName="label"/>
     </mat-form-field>
 
-    <mat-checkbox class="mb-1" formControlName="duplicate">Duplicate</mat-checkbox>
+<!--    <mat-checkbox class="mb-1" formControlName="duplicate">Duplicate</mat-checkbox>-->
 
     <mat-form-field class="w-100">
       <mat-label>Field Type</mat-label>
@@ -49,6 +49,9 @@
 
     <mat-dialog-actions class="d-flex justify-content-center p-3">
       <button mat-raised-button type="submit" color="primary">Add Field</button>
+      <button *ngIf="!data.duplicate" mat-raised-button color="accent" type="button" (click)="duplicateGroup()">
+        Duplicate Group
+      </button>
     </mat-dialog-actions>
   </form>
 
@@ -57,7 +60,7 @@
     [formGroup]="dynamicForm"
     (ngSubmit)="onSubmit()"
   >
-    <mat-form-field class="w-100 mb-3">
+    <mat-form-field *ngIf="!data.duplicate" class="w-100 mb-3">
       <mat-label>Title</mat-label>
       <input matInput required type="text" formControlName="title" />
     </mat-form-field>
@@ -101,16 +104,17 @@
       </div>
     </div>
     <mat-dialog-actions class="d-flex justify-content-center p-3">
-      <button *ngIf="isNew" [disabled]="!this.dynamicForm.valid" mat-raised-button mat-dialog-close color="primary" type="submit">
+      <button *ngIf="isNew && !data.duplicate" [disabled]="!this.dynamicForm.valid" mat-raised-button mat-dialog-close color="primary" type="submit">
         Submit
       </button>
+      <button *ngIf="data.duplicate" (click)="onClose()" mat-raised-button mat-dialog-close color="primary" type="button">Done</button>
       <button *ngIf="!isNew" mat-raised-button mat-dialog-close color="primary" type="button" (click)="updateBodyTemplate()">
         Update
       </button>
       <button *ngIf="!isNew" mat-raised-button mat-dialog-close color="warn" type="button" (click)="deleteBodyTemplate()">
         Delete
       </button>
-      <button mat-raised-button mat-dialog-close>Cancel</button>
+      <button mat-raised-button mat-dialog-close >Cancel</button>
     </mat-dialog-actions>
   </form>
 </mat-dialog-content>
