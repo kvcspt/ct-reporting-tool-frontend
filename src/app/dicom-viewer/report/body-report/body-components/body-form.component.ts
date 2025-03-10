@@ -199,11 +199,4 @@ export class BodyFormComponent implements OnInit, OnChanges {
 
     return !nextField || nextField.groupId !== currentGroupId;
   }
-
-  public generateRadioControlName(
-    groupId: number,
-    optionIndex: number,
-  ): string {
-    return `radioControl_${groupId}_${optionIndex}`;
-  }
 }
