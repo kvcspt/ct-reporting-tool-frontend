@@ -98,7 +98,7 @@ export class BodyFormComponent implements OnInit, OnChanges {
     return (this.bodyForm.get('bodyTemplateElementDTOs') as FormArray).controls;
   }
 
-  public handleAction(_: string): void {
+  public handleAction(type: string): void {
     const formData = this.bodyTemplate.bodyTemplateElementDTOs.map((field) => {
       const fieldGroup = this.getFormArrayControls().find(
         (control) => control.get('name')?.value === field.name,
@@ -117,37 +117,37 @@ export class BodyFormComponent implements OnInit, OnChanges {
 
     console.log(formData);
 
-    // if (type === 'html') {
-    //   this.bodyService.saveAsHTML(formData).subscribe({
-    //     next: (response) => {
-    //       const blob = new Blob([response], { type: 'text/html' });
-    //       const url = window.URL.createObjectURL(blob);
-    //       const a = document.createElement('a');
-    //       a.href = url;
-    //       a.download = 'body' + '.html';
-    //       a.click();
-    //       window.URL.revokeObjectURL(url);
-    //     },
-    //     error: (err) => {
-    //       console.error('Error generating HTML:', err);
-    //     },
-    //   });
-    // } else if (type === 'pdf') {
-    //   this.bodyService.saveAsPdf(formData).subscribe({
-    //     next: (response) => {
-    //       const blob = new Blob([response], { type: 'text/pdf' });
-    //       const url = window.URL.createObjectURL(blob);
-    //       const a = document.createElement('a');
-    //       a.href = url;
-    //       a.download = 'body' + '.pdf';
-    //       a.click();
-    //       window.URL.revokeObjectURL(url);
-    //     },
-    //     error: (err) => {
-    //       console.error('Error generating HTML:', err);
-    //     },
-    //   });
-    // }
+    if (type === 'html') {
+      this.bodyService.saveAsHTML(formData).subscribe({
+        next: (response) => {
+          const blob = new Blob([response], { type: 'text/html' });
+          const url = window.URL.createObjectURL(blob);
+          const a = document.createElement('a');
+          a.href = url;
+          a.download = 'body' + '.html';
+          a.click();
+          window.URL.revokeObjectURL(url);
+        },
+        error: (err) => {
+          console.error('Error generating HTML:', err);
+        },
+      });
+    } else if (type === 'pdf') {
+      this.bodyService.saveAsPdf(formData).subscribe({
+        next: (response) => {
+          const blob = new Blob([response], { type: 'text/pdf' });
+          const url = window.URL.createObjectURL(blob);
+          const a = document.createElement('a');
+          a.href = url;
+          a.download = 'body' + '.pdf';
+          a.click();
+          window.URL.revokeObjectURL(url);
+        },
+        error: (err) => {
+          console.error('Error generating HTML:', err);
+        },
+      });
+    }
   }
 
   public addDuplicateField(index: number): void {
