@@ -1,5 +1,11 @@
 import { Component, Inject } from '@angular/core';
-import { FormArray, FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import {
+  FormArray,
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
 import { BodyTemplate, BodyTemplateElement } from '../../models/template';
 import { Utils } from '../../utils/utils';
 import { BodyService } from '../../services/body/body.service';
@@ -20,6 +26,8 @@ export class BodyTemplateDialogComponent {
   public formFields: BodyTemplateElement[] = [];
   public title: string;
   public isNew: boolean = true;
+  public editingFieldName: string | null = null;
+  public tempLabel: string = '';
 
   public constructor(
     private fb: FormBuilder,
@@ -34,13 +42,9 @@ export class BodyTemplateDialogComponent {
     this.formFields = data?.template?.bodyTemplateElementDTOs || [];
     this.isNew = data.isNew;
     this.dynamicForm = this.fb.group({
-      title: [
-        {
-          value: !this.isNew ? this.title : '',
-          disabled: !this.isNew,
-        },
-      ],
+      title: [this.title, Validators.required],
     });
+
     this.fieldForm = this.fb.group({
       groupId: 0,
       label: [''],
@@ -48,6 +52,25 @@ export class BodyTemplateDialogComponent {
       duplicate: [false],
       options: this.fb.array([]),
     });
+  }
+
+  public startEditingLabel(field: any): void {
+    this.editingFieldName = field.name;
+    this.dynamicForm.addControl(
+      'tempLabel',
+      new FormControl(field.label, Validators.required),
+    );
+  }
+
+  public saveLabel(field: any): void {
+    field.label = this.dynamicForm.get('tempLabel')?.value;
+    this.editingFieldName = null;
+    this.dynamicForm.removeControl('tempLabel');
+  }
+
+  public cancelEditingLabel(): void {
+    this.editingFieldName = null;
+    this.dynamicForm.removeControl('tempLabel');
   }
 
   public addField(): void {
@@ -115,6 +138,8 @@ export class BodyTemplateDialogComponent {
       (this.dynamicForm.get('title') as FormControl).value,
       this.formFields,
     );
+
+    console.log(bodyTemplate);
     this.bodyService.updateBodyTemplate(bodyTemplate).subscribe({
       next: () => {
         this.toastr.success('Successful template creation');

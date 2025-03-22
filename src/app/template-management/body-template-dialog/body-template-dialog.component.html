@@ -6,8 +6,6 @@
       <input matInput type="text" formControlName="label"/>
     </mat-form-field>
 
-<!--    <mat-checkbox class="mb-1" formControlName="duplicate">Duplicate</mat-checkbox>-->
-
     <mat-form-field class="w-100">
       <mat-label>Field Type</mat-label>
       <mat-select formControlName="type">
@@ -67,6 +65,22 @@
     <div *ngFor="let field of formFields" class="form-group border p-3 mb-3 rounded bg-light">
       <div class="row align-items-center">
         <div class="col-md-9">
+          <div *ngIf="editingFieldName !== field.name">
+            <span>{{ field.label }}</span>
+            <button mat-icon-button color="primary" (click)="startEditingLabel(field)">
+              <mat-icon>edit</mat-icon>
+            </button>
+          </div>
+
+          <div *ngIf="editingFieldName === field.name">
+            <mat-form-field class="w-100">
+              <mat-label>Edit Label</mat-label>
+              <input matInput formControlName="tempLabel" />
+            </mat-form-field>
+            <button mat-button color="primary" (click)="saveLabel(field)">Save</button>
+            <button mat-button color="warn" (click)="cancelEditingLabel()">Cancel</button>
+          </div>
+
           <mat-form-field class="w-100" *ngIf="field.type === 'text'">
             <mat-label>{{ field.label }}</mat-label>
             <input matInput type="text"/>
@@ -108,6 +122,9 @@
         Submit
       </button>
       <button *ngIf="data.duplicate" (click)="onClose()" mat-raised-button mat-dialog-close color="primary" type="button">Done</button>
+      <button *ngIf="!isNew" mat-raised-button mat-dialog-close color="primary" type="submit">
+        Save as
+      </button>
       <button *ngIf="!isNew" mat-raised-button mat-dialog-close color="primary" type="button" (click)="updateBodyTemplate()">
         Update
       </button>
