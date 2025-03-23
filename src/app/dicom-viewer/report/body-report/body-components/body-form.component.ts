@@ -12,7 +12,7 @@ import {
   FormControl,
   FormGroup,
 } from '@angular/forms';
-import { BodyTemplate } from '../../../../models/template';
+import { BodyTemplate, BodyTemplateElement } from '../../../../models/template';
 import { BodyService } from '../../../../services/body/body.service';
 import { BodyReport } from '../../../../models/report';
 import { Utils } from '../../../../utils/utils';
@@ -55,18 +55,7 @@ export class BodyFormComponent implements OnInit, OnChanges {
     const formArray = this.bodyForm.get('bodyTemplateElementDTOs') as FormArray;
 
     this.bodyTemplate.bodyTemplateElementDTOs.forEach((field) => {
-      let control: any;
-
-      if (field.duplicate) {
-        control = this.fb.array([new FormControl('')]);
-      } else if (field.type === 'checkbox') {
-        control = this.fb.group({});
-        field.options?.forEach((option: string) => {
-          control.addControl(option, new FormControl(false));
-        });
-      } else {
-        control = new FormControl('');
-      }
+      const control = this.createFormControlFromField(field);
 
       formArray.push(
         this.fb.group({
@@ -99,24 +88,23 @@ export class BodyFormComponent implements OnInit, OnChanges {
   }
 
   public handleAction(type: string): void {
-    const formData = this.bodyTemplate.bodyTemplateElementDTOs.map((field) => {
-      const fieldGroup = this.getFormArrayControls().find(
-        (control) => control.get('name')?.value === field.name,
-      );
-
-      let value = fieldGroup?.value.control || '';
-      console.log(fieldGroup);
-      if (field.type === 'checkbox') {
+    const formData = this.getFormArrayControls().map((field) => {
+      let value = field.value.control || '';
+      console.log(field);
+      if (field.value.type === 'checkbox') {
         value = Object.entries(value)
           .filter(([, value]) => value === true)
           .map(([key]) => Utils.camelToTitleCase(key))
           .join(', ');
       }
-      return new BodyReport(field.name, field.label, field.type, value);
+      return new BodyReport(
+        field.value.name,
+        field.value.label,
+        field.value.type,
+        value,
+      );
     });
-
     console.log(formData);
-
     if (type === 'html') {
       this.bodyService.saveAsHTML(formData).subscribe({
         next: (response) => {
@@ -154,30 +142,66 @@ export class BodyFormComponent implements OnInit, OnChanges {
     const field = this.getFormArrayControls()[index];
     const groupId = field.value.groupId;
 
-    const fieldsToDuplicate = this.getFormArrayControls().filter(
-      (f) => f.value.groupId === groupId,
+    const fieldsToDuplicate = this.bodyTemplate.bodyTemplateElementDTOs.filter(
+      (f) => f.groupId === groupId,
     );
 
-    fieldsToDuplicate.forEach((f) => {
-      const duplicateControls = this.getDuplicateFormArray(
-        this.getFormArrayControls().indexOf(f),
-      );
-      if (duplicateControls instanceof FormArray) {
-        duplicateControls.push(new FormControl('')); // Add a new input field
-      }
+    const formArray = this.bodyForm.get('bodyTemplateElementDTOs') as FormArray;
+
+    fieldsToDuplicate.reverse().forEach((field) => {
+      const control = this.createFormControlFromField(field);
+      const newGroup = this.fb.group({
+        groupId: groupId,
+        label: field.label,
+        name: field.name,
+        type: field.type,
+        duplicate: field.duplicate,
+        control: control,
+        options: [field.options || []],
+      });
+      formArray.insert(index + 1, newGroup);
     });
+  }
+
+  private createFormControlFromField(field: BodyTemplateElement): any {
+    let control: any;
+
+    if (field.duplicate) {
+      return this.fb.array([new FormControl('')]);
+    } else if (field.type === 'checkbox') {
+      control = this.fb.group({});
+      field.options?.forEach((option: string) => {
+        control.addControl(option, new FormControl(false));
+      });
+    } else {
+      return new FormControl('');
+    }
   }
 
   public removeDuplicateField(index: number): void {
     const field = this.getFormArrayControls()[index];
-    const groupId = field.value.groupId;
+    if (!field) return;
 
-    this.getFormArrayControls().forEach((f, i) => {
-      if (f.value.groupId === groupId) {
-        const duplicateControls = this.getDuplicateFormArray(i);
-        if (duplicateControls.length > 1) {
-          duplicateControls.removeAt(duplicateControls.length - 1);
-        }
+    const groupId = field.value.groupId;
+    const formArray = this.bodyForm.get('bodyTemplateElementDTOs') as FormArray;
+
+    const fieldsToRemove = this.bodyTemplate.bodyTemplateElementDTOs.filter(
+      (element) => element.groupId === groupId,
+    );
+
+    fieldsToRemove.forEach((fieldToRemove) => {
+      const formIndex = this.getFormArrayControls()
+        .map((control, i) => ({ control, i }))
+        .filter(
+          (item) =>
+            item.control.value.groupId === fieldToRemove.groupId &&
+            item.control.value.label === fieldToRemove.label &&
+            item.control.value.name === fieldToRemove.name,
+        )
+        .pop()?.i;
+
+      if (formIndex !== undefined) {
+        formArray.removeAt(formIndex);
       }
     });
   }
@@ -193,10 +217,12 @@ export class BodyFormComponent implements OnInit, OnChanges {
   }
 
   public isLastInGroup(index: number): boolean {
-    const currentGroupId =
-      this.bodyTemplate.bodyTemplateElementDTOs[index].groupId;
-    const nextField = this.bodyTemplate.bodyTemplateElementDTOs[index + 1];
+    const formArray = this.bodyForm.get('bodyTemplateElementDTOs') as FormArray;
+    const currentGroupId = formArray.at(index)?.value.groupId;
+    const nextFieldGroupId = formArray.at(index + 1)?.value?.groupId;
 
-    return !nextField || nextField.groupId !== currentGroupId;
+    return (
+      nextFieldGroupId === undefined || nextFieldGroupId !== currentGroupId
+    );
   }
 }

@@ -45,7 +45,7 @@
 
       <div *ngIf="field.value.type === 'checkbox'">
         <div *ngIf="!field.value.duplicate">
-          <div *ngFor="let option of field.value.options; let j = index">
+          <div *ngFor="let option of field.value.options">
             <input
               type="checkbox"
               [value]="option"
