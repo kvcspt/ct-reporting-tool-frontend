@@ -12,7 +12,7 @@ import {
   FormControl,
   FormGroup,
 } from '@angular/forms';
-import { BodyTemplate } from '../../../../models/template';
+import { BodyTemplate, BodyTemplateElement } from '../../../../models/template';
 import { BodyService } from '../../../../services/body/body.service';
 import { BodyReport } from '../../../../models/report';
 import { Utils } from '../../../../utils/utils';
@@ -24,6 +24,7 @@ import { Utils } from '../../../../utils/utils';
 export class BodyFormComponent implements OnInit, OnChanges {
   public bodyForm!: FormGroup;
   @Input() public bodyTemplate!: BodyTemplate;
+
   public constructor(
     private fb: FormBuilder,
     private bodyService: BodyService,
@@ -55,21 +56,11 @@ export class BodyFormComponent implements OnInit, OnChanges {
     const formArray = this.bodyForm.get('bodyTemplateElementDTOs') as FormArray;
 
     this.bodyTemplate.bodyTemplateElementDTOs.forEach((field) => {
-      let control: any;
-
-      if (field.duplicate) {
-        control = this.fb.array([new FormControl('')]);
-      } else if (field.type === 'checkbox') {
-        control = this.fb.group({});
-        field.options?.forEach((option: string) => {
-          control.addControl(option, new FormControl(false));
-        });
-      } else {
-        control = new FormControl('');
-      }
+      const control = this.createFormControlFromField(field);
 
       formArray.push(
         this.fb.group({
+          groupId: field.groupId,
           label: field.label,
           name: field.name,
           type: field.type,
@@ -93,29 +84,28 @@ export class BodyFormComponent implements OnInit, OnChanges {
     }
   }
 
-  public getFormArrayControls(): AbstractControl<any, any>[] {
+  public getFormArrayControls(): AbstractControl[] {
     return (this.bodyForm.get('bodyTemplateElementDTOs') as FormArray).controls;
   }
 
   public handleAction(type: string): void {
-    const formData = this.bodyTemplate.bodyTemplateElementDTOs.map((field) => {
-      const fieldGroup = this.getFormArrayControls().find(
-        (control) => control.get('name')?.value === field.name,
-      );
-
-      let value = fieldGroup?.get('control')?.value || '';
-
-      if (field.type === 'checkbox') {
+    const formData = this.getFormArrayControls().map((field) => {
+      let value = field.value.control || '';
+      console.log(field);
+      if (field.value.type === 'checkbox') {
         value = Object.entries(value)
           .filter(([, value]) => value === true)
           .map(([key]) => Utils.camelToTitleCase(key))
           .join(', ');
       }
-      return new BodyReport(field.name, field.label, field.type, value);
+      return new BodyReport(
+        field.value.name,
+        field.value.label,
+        field.value.type,
+        value,
+      );
     });
-
     console.log(formData);
-
     if (type === 'html') {
       this.bodyService.saveAsHTML(formData).subscribe({
         next: (response) => {
@@ -150,22 +140,80 @@ export class BodyFormComponent implements OnInit, OnChanges {
   }
 
   public addDuplicateField(index: number): void {
-    const duplicateControls = this.getDuplicateFormArray(index);
-    duplicateControls.push(new FormControl(''));
+    const field = this.getFormArrayControls()[index];
+    const groupId = field.value.groupId;
+
+    const fieldsToDuplicate = this.bodyTemplate.bodyTemplateElementDTOs.filter(
+      (f) => f.groupId === groupId,
+    );
+
+    const formArray = this.bodyForm.get('bodyTemplateElementDTOs') as FormArray;
+
+    fieldsToDuplicate.reverse().forEach((field) => {
+      const control = this.createFormControlFromField(field);
+      const newGroup = this.fb.group({
+        groupId: groupId,
+        label: field.label,
+        name: field.name,
+        type: field.type,
+        duplicate: field.duplicate,
+        control: control,
+        options: [field.options || []],
+      });
+      formArray.insert(index + 1, newGroup);
+    });
   }
 
-  public removeDuplicateField(index: number, duplicateIndex: number): void {
-    const duplicateControls = this.getDuplicateFormArray(index);
-    duplicateControls.removeAt(duplicateIndex);
+  private createFormControlFromField(field: BodyTemplateElement): any {
+    let control: any;
+
+    if (field.type === 'checkbox') {
+      control = this.fb.group({});
+      field.options?.forEach((option: string) => {
+        control.addControl(option, new FormControl(false));
+      });
+    } else {
+      control = new FormControl('');
+    }
+
+    return control;
   }
 
-  public getDuplicateFormArray(index: number): FormArray {
-    return (this.bodyForm.get('bodyTemplateElementDTOs') as FormArray)
-      .at(index)
-      .get('control') as FormArray;
+  public removeDuplicateField(index: number): void {
+    const field = this.getFormArrayControls()[index];
+    if (!field) return;
+
+    const groupId = field.value.groupId;
+    const formArray = this.bodyForm.get('bodyTemplateElementDTOs') as FormArray;
+
+    const fieldsToRemove = this.bodyTemplate.bodyTemplateElementDTOs.filter(
+      (element) => element.groupId === groupId,
+    );
+
+    fieldsToRemove.forEach((fieldToRemove) => {
+      const formIndex = this.getFormArrayControls()
+        .map((control, i) => ({ control, i }))
+        .filter(
+          (item) =>
+            item.control.value.groupId === fieldToRemove.groupId &&
+            item.control.value.label === fieldToRemove.label &&
+            item.control.value.name === fieldToRemove.name,
+        )
+        .pop()?.i;
+
+      if (formIndex !== undefined) {
+        formArray.removeAt(formIndex);
+      }
+    });
   }
 
-  public getDuplicateFormArrayControls(index: number): FormControl<any>[] {
-    return this.getDuplicateFormArray(index).controls as FormControl[];
+  public isLastInGroup(index: number): boolean {
+    const formArray = this.bodyForm.get('bodyTemplateElementDTOs') as FormArray;
+    const currentGroupId = formArray.at(index)?.value.groupId;
+    const nextFieldGroupId = formArray.at(index + 1)?.value?.groupId;
+
+    return (
+      nextFieldGroupId === undefined || nextFieldGroupId !== currentGroupId
+    );
   }
 }
