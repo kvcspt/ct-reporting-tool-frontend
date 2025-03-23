@@ -24,6 +24,7 @@ import { Utils } from '../../../../utils/utils';
 export class BodyFormComponent implements OnInit, OnChanges {
   public bodyForm!: FormGroup;
   @Input() public bodyTemplate!: BodyTemplate;
+
   public constructor(
     private fb: FormBuilder,
     private bodyService: BodyService,
@@ -166,16 +167,16 @@ export class BodyFormComponent implements OnInit, OnChanges {
   private createFormControlFromField(field: BodyTemplateElement): any {
     let control: any;
 
-    if (field.duplicate) {
-      return this.fb.array([new FormControl('')]);
-    } else if (field.type === 'checkbox') {
+    if (field.type === 'checkbox') {
       control = this.fb.group({});
       field.options?.forEach((option: string) => {
         control.addControl(option, new FormControl(false));
       });
     } else {
-      return new FormControl('');
+      control = new FormControl('');
     }
+
+    return control;
   }
 
   public removeDuplicateField(index: number): void {
@@ -204,16 +205,6 @@ export class BodyFormComponent implements OnInit, OnChanges {
         formArray.removeAt(formIndex);
       }
     });
-  }
-
-  public getDuplicateFormArray(index: number): FormArray {
-    return (this.bodyForm.get('bodyTemplateElementDTOs') as FormArray)
-      .at(index)
-      .get('control') as FormArray;
-  }
-
-  public getDuplicateFormArrayControls(index: number): FormControl<any>[] {
-    return this.getDuplicateFormArray(index).controls as FormControl[];
   }
 
   public isLastInGroup(index: number): boolean {
