@@ -92,7 +92,7 @@ export class BodyFormComponent implements OnInit, OnChanges {
   public handleAction(type: string): void {
     const formData = this.getFormArrayControls().map((field) => {
       let value = field.value.control || '';
-      console.log(field);
+
       if (field.value.type === 'checkbox') {
         value = Object.entries(value)
           .filter(([, value]) => value === true)
@@ -106,7 +106,7 @@ export class BodyFormComponent implements OnInit, OnChanges {
         value,
       );
     });
-    console.log(formData);
+
     if (type === 'html') {
       this.bodyService.saveAsHTML(formData).subscribe({
         next: (response) => {
@@ -137,6 +137,24 @@ export class BodyFormComponent implements OnInit, OnChanges {
           console.error('Error generating HTML:', err);
         },
       });
+    } else if (type === 'dicom-sr') {
+      const scans = JSON.parse(localStorage.getItem('scans') || '[]');
+      this.bodyService
+        .saveDicomSr(this.bodyForm.get('title')?.value, scans[0], formData)
+        .subscribe({
+          next: (response) => {
+            const blob = new Blob([response], { type: 'text/pdf' });
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'body' + '.dcm';
+            a.click();
+            window.URL.revokeObjectURL(url);
+          },
+          error: (err) => {
+            console.error('Error generating HTML:', err);
+          },
+        });
     }
   }
 

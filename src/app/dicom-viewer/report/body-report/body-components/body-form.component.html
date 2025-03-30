@@ -9,22 +9,14 @@
       *ngFor="let field of getFormArrayControls(); let i = index"
       [formGroupName]="i"
     >
-      <label class="d-flex w-100 mt-3 mb-1">{{
-        field.value.label
-      }}</label>
+      <label class="d-flex w-100 mt-3 mb-1">{{ field.value.label }}</label>
 
       <ng-container *ngIf="field.value.type === 'text'">
-        <input
-          class="form-control mb-2"
-          formControlName="control"
-        />
+        <input class="form-control mb-2" formControlName="control" />
       </ng-container>
 
       <ng-container *ngIf="field.value.type === 'textarea'">
-        <textarea
-          class="form-control"
-          formControlName="control"
-        ></textarea>
+        <textarea class="form-control" formControlName="control"></textarea>
       </ng-container>
 
       <div *ngIf="field.value.type === 'radio'">
@@ -79,5 +71,12 @@
     type="button"
   >
     Save as HTML
+  </button>
+  <button
+    (click)="handleAction('dicom-sr')"
+    class="btn btn-primary m-2"
+    type="button"
+  >
+    Upload to DICOM
   </button>
 </form>
