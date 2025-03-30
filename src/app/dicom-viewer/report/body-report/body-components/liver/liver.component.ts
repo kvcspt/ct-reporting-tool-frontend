@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { BodyReport } from '../../../../../models/report';
 import { Utils } from '../../../../../utils/utils';
 import { FormMetadata } from '../../../../../models/template';
-import { BodyService } from '../../../../../services/body/body.service';
+import { BodyService } from '../../../../../services/body.service';
 
 @Component({
   selector: 'app-liver',

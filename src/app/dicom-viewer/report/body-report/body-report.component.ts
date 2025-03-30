@@ -1,6 +1,6 @@
 import { Component, OnInit, Type } from '@angular/core';
 import { BodyTemplate } from '../../../models/template';
-import { BodyService } from '../../../services/body/body.service';
+import { BodyService } from '../../../services/body.service';
 import { ToastrService } from 'ngx-toastr';
 import { KneeComponent } from './body-components/knee/knee.component';
 import { AbdomenComponent } from './body-components/abdomen/abdomen.component';

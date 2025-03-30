@@ -4,7 +4,7 @@ import { BodyTemplate, Template } from '../models/template';
 import { MatDialog } from '@angular/material/dialog';
 import { TemplateDialogComponent } from './template-dialog/template-dialog.component';
 import { BodyTemplateDialogComponent } from './body-template-dialog/body-template-dialog.component';
-import { BodyService } from '../services/body/body.service';
+import { BodyService } from '../services/body.service';
 
 @Component({
   selector: 'app-template-management',

@@ -101,8 +101,6 @@ export class ReportComponent implements OnInit {
       );
     });
 
-    console.log(this.generatedReport);
-
     switch (action) {
       case 'pdf':
         this.reportService.saveAsPDF(this.generatedReport!).subscribe({

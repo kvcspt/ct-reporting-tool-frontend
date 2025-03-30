@@ -15,6 +15,7 @@ import {
 import { BodyTemplate, BodyTemplateElement } from '../../../../models/template';
 import { BodyService } from '../../../../services/body/body.service';
 import { BodyReport } from '../../../../models/report';
+import { BodyService } from '../../../../services/body.service';
 import { Utils } from '../../../../utils/utils';
 
 @Component({

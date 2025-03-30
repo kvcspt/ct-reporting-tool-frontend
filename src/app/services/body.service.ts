@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { BodyTemplate } from '../../models/template';
+import { BodyTemplate } from '../models/template';
 import { Observable } from 'rxjs';
+import { Scan } from '../models/scan';
 
 @Injectable({
   providedIn: 'root',
@@ -42,6 +43,17 @@ export class BodyService {
 
   public saveAsPdf(form: object): Observable<Blob> {
     return this.http.post(`${this.apiUrl}/dynamic/pdf`, form, {
+      responseType: 'blob',
+    });
+  }
+
+  public saveDicomSr(
+    title: string,
+    scan: Scan,
+    form: object,
+  ): Observable<Blob> {
+    const body = { title, scan, form };
+    return this.http.post(`${this.apiUrl}/dicomsr`, body, {
       responseType: 'blob',
     });
   }

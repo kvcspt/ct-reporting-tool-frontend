@@ -8,7 +8,7 @@ import {
 } from '@angular/forms';
 import { BodyTemplate, BodyTemplateElement } from '../../models/template';
 import { Utils } from '../../utils/utils';
-import { BodyService } from '../../services/body/body.service';
+import { BodyService } from '../../services/body.service';
 import { ToastrService } from 'ngx-toastr';
 import {
   MAT_DIALOG_DATA,

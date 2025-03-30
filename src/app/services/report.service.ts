@@ -2,8 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Scan } from '../models/scan';
 import { Observable } from 'rxjs';
-import { Report } from '../models/report';
-import { Template } from '../models/template';
+import { BodyReport, Report } from '../models/report';
 
 @Injectable({
   providedIn: 'root',
@@ -38,13 +37,18 @@ export class ReportService {
     });
   }
 
-  public saveAsFHIRJson(report: Report): Observable<Blob> {
-    return this.http.post(`${this.apiUrl}/fhir-json`, report, {
+  public saveAsFHIRJson(report: Report, form: BodyReport[]): Observable<Blob> {
+    const body = { report, form };
+    return this.http.post(`${this.apiUrl}/fhir-json`, body, {
       responseType: 'blob',
     });
   }
 
-  public uploadToFHIRCast(report: Report): Observable<object> {
-    return this.http.post(`${this.apiUrl}/fhircast`, report);
+  public uploadToFHIRCast(
+    report: Report,
+    form: BodyReport[],
+  ): Observable<object> {
+    const body = { report, form };
+    return this.http.post(`${this.apiUrl}/fhircast`, body);
   }
 }
