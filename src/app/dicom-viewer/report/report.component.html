@@ -1,11 +1,14 @@
 <div class="container">
   <div class="mt-3">
-    <label for="templateSelect" class="form-label">Select Template</label>
+    <label for="templateSelect" class="form-label"
+      >Select Metadata collection</label
+    >
     <select
       id="templateSelect"
       class="form-select"
       [(ngModel)]="selectedTemplateId"
-      (change)="onTemplateSelect()">
+      (change)="onTemplateSelect()"
+    >
       <option *ngFor="let template of templates" [value]="template.id">
         {{ template.name }}
       </option>
@@ -38,7 +41,11 @@
     <div class="form-group mt-3">
       <label class="fw-bold" *ngIf="lesions?.length ?? 0 > 0">Lesions</label>
 
-      <div formArrayName="lesions" *ngFor="let lesion of lesions?.controls; let i = index" class="mb-3">
+      <div
+        formArrayName="lesions"
+        *ngFor="let lesion of lesions?.controls; let i = index"
+        class="mb-3"
+      >
         <div [formGroupName]="i">
           <label for="diameterX-{{ i }}">Diameter X</label>
           <input
@@ -67,22 +74,65 @@
             placeholder="Enter lesion diameter Z"
           />
 
-          <button type="button" class="btn btn-danger mt-2" (click)="removeLesion(i)">
+          <button
+            type="button"
+            class="btn btn-danger mt-2"
+            (click)="removeLesion(i)"
+          >
             Remove Lesion
           </button>
         </div>
       </div>
 
-      <button mat-flat-button color="accent" type="button" class="btn my-2 w-100" (click)="addLesion()">Add Lesion</button>
+      <button
+        mat-flat-button
+        color="accent"
+        type="button"
+        class="btn my-2 w-100"
+        (click)="addLesion()"
+      >
+        Add Lesion
+      </button>
     </div>
 
-    <button type="button" class="btn btn-primary m-1" (click)="handleAction('pdf')">Save as PDF</button>
-    <button type="button" class="btn btn-primary m-1" (click)="handleAction('html')">Save as HTML</button>
-    <button type="button" class="btn btn-primary m-1" (click)="handleAction('json')">Save as JSON</button>
-    <button type="button" class="btn btn-primary m-1" (click)="handleAction('fhirJson')">Save as FHIR JSON</button>
-    <button type="button" class="btn btn-primary m-1" (click)="handleAction('fhirCast')">Upload to FHIRCast</button>
+    <button
+      type="button"
+      class="btn btn-primary m-1"
+      (click)="handleAction('pdf')"
+    >
+      Save as PDF
+    </button>
+    <button
+      type="button"
+      class="btn btn-primary m-1"
+      (click)="handleAction('html')"
+    >
+      Save as HTML
+    </button>
+    <button
+      type="button"
+      class="btn btn-primary m-1"
+      (click)="handleAction('json')"
+    >
+      Save as JSON
+    </button>
   </form>
 
   <app-body-report></app-body-report>
+  <div *ngIf="this.selectedTemplateId">
+    <button
+      type="button"
+      class="btn btn-primary m-1"
+      (click)="handleAction('fhirJson')"
+    >
+      Save as FHIR JSON
+    </button>
+    <button
+      type="button"
+      class="btn btn-primary m-1"
+      (click)="handleAction('fhirCast')"
+    >
+      Upload to FHIRCast
+    </button>
+  </div>
 </div>
-

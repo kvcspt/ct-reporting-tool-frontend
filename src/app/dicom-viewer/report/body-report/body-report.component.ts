@@ -1,4 +1,4 @@
-import { Component, OnInit, Type } from '@angular/core';
+import { Component, OnInit, Type, ViewChild } from '@angular/core';
 import { BodyTemplate } from '../../../models/template';
 import { BodyService } from '../../../services/body.service';
 import { ToastrService } from 'ngx-toastr';
@@ -6,12 +6,14 @@ import { KneeComponent } from './body-components/knee/knee.component';
 import { AbdomenComponent } from './body-components/abdomen/abdomen.component';
 import { ChestComponent } from './body-components/chest/chest.component';
 import { LiverComponent } from './body-components/liver/liver.component';
+import { BodyFormComponent } from './body-components/body-form.component';
 
 @Component({
   selector: 'app-body-report',
   templateUrl: './body-report.component.html',
 })
 export class BodyReportComponent implements OnInit {
+  @ViewChild(BodyFormComponent) public bodyFormComponent!: BodyFormComponent;
   public templateFiles = [
     'knee.html',
     'liver.html',

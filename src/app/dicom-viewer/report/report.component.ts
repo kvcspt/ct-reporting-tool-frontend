@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { Template } from '../../models/template';
 import { TemplateService } from '../../services/template.service';
 import { Scan } from '../../models/scan';
@@ -7,6 +7,7 @@ import { Report } from '../../models/report';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Lesion } from '../../models/lesion';
 import { ToastrService } from 'ngx-toastr';
+import { BodyReportComponent } from './body-report/body-report.component';
 
 @Component({
   selector: 'app-report',
@@ -15,6 +16,9 @@ import { ToastrService } from 'ngx-toastr';
 export class ReportComponent implements OnInit {
   @Input()
   public scans: Scan[] | undefined;
+  @ViewChild(BodyReportComponent)
+  private bodyReportComponent!: BodyReportComponent;
+
   public templates: Template[] = [];
   public selectedTemplateId: number | undefined;
   public generatedReport: Report | undefined;
@@ -146,29 +150,37 @@ export class ReportComponent implements OnInit {
           },
         });
         break;
-
       case 'fhirJson':
-        this.reportService.saveAsFHIRJson(this.generatedReport!).subscribe({
-          next: (response) => {
-            this.downloadJson(response);
-          },
-          error: (error) => {
-            console.error('Error saving FHIR JSON', error);
-          },
-        });
+        this.reportService
+          .saveAsFHIRJson(
+            this.generatedReport!,
+            this.bodyReportComponent.bodyFormComponent.handleAction('fhirJson'),
+          )
+          .subscribe({
+            next: (response) => {
+              this.downloadJson(response);
+            },
+            error: (error) => {
+              console.error('Error saving FHIR JSON', error);
+            },
+          });
         break;
-
       case 'fhirCast':
-        this.reportService.uploadToFHIRCast(this.generatedReport!).subscribe({
-          next: (response) => {
-            this.toastr.success('Uploaded to FHIR server successfully');
-            console.log('Uploaded to FHIRCast successfully', response);
-          },
-          error: (error) => {
-            this.toastr.error('Error uploading to FHIR server');
-            console.error('Error uploading to FHIRCast', error);
-          },
-        });
+        this.reportService
+          .uploadToFHIRCast(
+            this.generatedReport!,
+            this.bodyReportComponent.bodyFormComponent.handleAction('fhirCast'),
+          )
+          .subscribe({
+            next: (response) => {
+              this.toastr.success('Uploaded to FHIR server successfully');
+              console.log('Uploaded to FHIRCast successfully', response);
+            },
+            error: (error) => {
+              this.toastr.error('Error uploading to FHIR server');
+              console.error('Error uploading to FHIRCast', error);
+            },
+          });
         break;
 
       default:

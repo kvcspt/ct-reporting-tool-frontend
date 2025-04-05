@@ -3,7 +3,7 @@
 
   <div class="d-flex justify-content-between mb-4">
     <button mat-raised-button color="primary" (click)="createNewTemplate()" class="btn btn-primary">
-      Create New Template
+      Create New Metadata Collection
     </button>
   </div>
 
@@ -15,7 +15,7 @@
 
   <div class="mb-4">
     <mat-form-field appearance="fill" class="w-100">
-      <mat-label>Select Template</mat-label>
+      <mat-label>Select Metadata Collection</mat-label>
       <mat-select [(value)]="selectedTemplate">
         <mat-option *ngFor="let template of templates" [value]="template" (click)="editTemplate(template)">
           {{ template.name }}

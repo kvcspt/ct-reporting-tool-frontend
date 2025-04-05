@@ -13,9 +13,8 @@ import {
   FormGroup,
 } from '@angular/forms';
 import { BodyTemplate, BodyTemplateElement } from '../../../../models/template';
-import { BodyService } from '../../../../services/body/body.service';
-import { BodyReport } from '../../../../models/report';
 import { BodyService } from '../../../../services/body.service';
+import { BodyReport } from '../../../../models/report';
 import { Utils } from '../../../../utils/utils';
 
 @Component({
@@ -89,7 +88,7 @@ export class BodyFormComponent implements OnInit, OnChanges {
     return (this.bodyForm.get('bodyTemplateElementDTOs') as FormArray).controls;
   }
 
-  public handleAction(type: string): void {
+  public handleAction(type: string): BodyReport[] {
     const formData = this.getFormArrayControls().map((field) => {
       let value = field.value.control || '';
 
@@ -143,7 +142,7 @@ export class BodyFormComponent implements OnInit, OnChanges {
         .saveDicomSr(this.bodyForm.get('title')?.value, scans[0], formData)
         .subscribe({
           next: (response) => {
-            const blob = new Blob([response], { type: 'text/pdf' });
+            const blob = new Blob([response], { type: 'application/dicom' });
             const url = window.URL.createObjectURL(blob);
             const a = document.createElement('a');
             a.href = url;
@@ -156,6 +155,8 @@ export class BodyFormComponent implements OnInit, OnChanges {
           },
         });
     }
+
+    return formData;
   }
 
   public addDuplicateField(index: number): void {
