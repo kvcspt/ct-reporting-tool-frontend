@@ -15,7 +15,6 @@ import { ChestComponent } from './body-components/chest/chest.component';
 import { LiverComponent } from './body-components/liver/liver.component';
 import { BodyFormComponent } from './body-components/body-form.component';
 import { BodySectionComponent } from '../../../utils/utils';
-import { BodyReport } from '../../../models/report';
 
 @Component({
   selector: 'app-body-report',
