@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { BodyReport } from '../../../../../models/report';
-import { Utils } from '../../../../../utils/utils';
+import { BodySectionComponent, Utils } from '../../../../../utils/utils';
 import { FormMetadata } from '../../../../../models/template';
 import { BodyService } from '../../../../../services/body.service';
 
@@ -9,7 +9,7 @@ import { BodyService } from '../../../../../services/body.service';
   selector: 'app-liver',
   templateUrl: './liver.component.html',
 })
-export class LiverComponent {
+export class LiverComponent implements BodySectionComponent {
   public liverForm: FormGroup;
   private formMetadata: FormMetadata[];
   public constructor(
@@ -286,33 +286,7 @@ export class LiverComponent {
   }
 
   public handleAction(type: string): void {
-    const formData: BodyReport[] = [];
-    this.formMetadata.forEach((field) => {
-      if (field.type === 'checkbox') {
-        const selectedValuesObj = this.liverForm.get(field.name)?.value;
-
-        if (selectedValuesObj) {
-          const selected = Object.entries(selectedValuesObj)
-            .filter(([, value]) => value)
-            .map(([key]) => Utils.camelToTitleCase(key))
-            .join(', ');
-
-          formData.push({
-            name: field.name,
-            label: field.label,
-            type: field.type,
-            value: selected,
-          });
-        }
-      } else {
-        formData.push({
-          name: field.name,
-          label: field.label,
-          type: field.type,
-          value: this.liverForm.get(field.name)?.value,
-        });
-      }
-    });
+    const formData = this.getReportData();
 
     if (type === 'html') {
       this.bodyService.saveAsHTML(formData).subscribe({
@@ -345,5 +319,37 @@ export class LiverComponent {
         },
       });
     }
+  }
+
+  public getReportData(): BodyReport[] {
+    const formData: BodyReport[] = [];
+    this.formMetadata.forEach((field) => {
+      if (field.type === 'checkbox') {
+        const selectedValuesObj = this.liverForm.get(field.name)?.value;
+
+        if (selectedValuesObj) {
+          const selected = Object.entries(selectedValuesObj)
+            .filter(([, value]) => value)
+            .map(([key]) => Utils.camelToTitleCase(key))
+            .join(', ');
+
+          formData.push({
+            name: field.name,
+            label: field.label,
+            type: field.type,
+            value: selected,
+          });
+        }
+      } else {
+        formData.push({
+          name: field.name,
+          label: field.label,
+          type: field.type,
+          value: this.liverForm.get(field.name)?.value,
+        });
+      }
+    });
+
+    return formData;
   }
 }

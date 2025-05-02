@@ -1,4 +1,11 @@
-import { Component, OnInit, Type, ViewChild } from '@angular/core';
+import {
+  Component,
+  ComponentRef,
+  OnInit,
+  Type,
+  ViewChild,
+  ViewContainerRef,
+} from '@angular/core';
 import { BodyTemplate } from '../../../models/template';
 import { BodyService } from '../../../services/body.service';
 import { ToastrService } from 'ngx-toastr';
@@ -7,13 +14,19 @@ import { AbdomenComponent } from './body-components/abdomen/abdomen.component';
 import { ChestComponent } from './body-components/chest/chest.component';
 import { LiverComponent } from './body-components/liver/liver.component';
 import { BodyFormComponent } from './body-components/body-form.component';
+import { BodySectionComponent } from '../../../utils/utils';
+import { BodyReport } from '../../../models/report';
 
 @Component({
   selector: 'app-body-report',
   templateUrl: './body-report.component.html',
 })
-export class BodyReportComponent implements OnInit {
+export class BodyReportComponent implements OnInit, BodySectionComponent {
   @ViewChild(BodyFormComponent) public bodyFormComponent!: BodyFormComponent;
+  @ViewChild('dynamicComponentContainer', { read: ViewContainerRef })
+  public dynamicComponentContainer!: ViewContainerRef;
+  private componentRef: ComponentRef<any> | null = null;
+
   public templateFiles = [
     'knee.html',
     'liver.html',
@@ -54,20 +67,37 @@ export class BodyReportComponent implements OnInit {
   }
 
   public onTemplateChange(): void {
+    this.dynamicComponentContainer.clear();
+    this.componentRef = null;
+
     if (this.templateComponentMap[this.selectedBodyTemplate || '']) {
-      this.selectedComponent =
-        this.templateComponentMap[this.selectedBodyTemplate || ''];
+      const componentType =
+        this.templateComponentMap[this.selectedBodyTemplate!];
+      this.componentRef =
+        this.dynamicComponentContainer.createComponent(componentType);
       this.selectedBodyTemplateObject = null;
     } else {
       this.selectedComponent = null;
-
       const foundTemplate = this.savedTemplates.find(
         (template) => template.title + '.html' === this.selectedBodyTemplate,
       );
-
       this.selectedBodyTemplateObject = foundTemplate
         ? { ...foundTemplate }
         : null;
     }
+  }
+
+  public getReportData(): any {
+    if (this.componentRef) {
+      const instance = this.componentRef.instance as BodySectionComponent;
+      return instance.getReportData();
+    }
+
+    if (this.bodyFormComponent) {
+      // Else, return generic body form data
+      return this.bodyFormComponent.getReportData();
+    }
+
+    return null;
   }
 }

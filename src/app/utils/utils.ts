@@ -1,3 +1,5 @@
+import { BodyReport } from '../models/report';
+
 export class Utils {
   public static camelToTitleCase(str: string): string {
     const result = str
@@ -12,4 +14,8 @@ export class Utils {
       .replace(/(?:[_\s-])(\w)/g, (_, char) => char.toUpperCase())
       .replace(/^(.)/, (match) => match.toLowerCase());
   }
+}
+
+export interface BodySectionComponent {
+  getReportData(): BodyReport[];
 }

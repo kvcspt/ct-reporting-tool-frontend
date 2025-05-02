@@ -14,9 +14,7 @@
     </option>
   </select>
 
-  <ng-container *ngIf="selectedComponent">
-    <ng-container *ngComponentOutlet="selectedComponent"></ng-container>
-  </ng-container>
+  <ng-template #dynamicComponentContainer></ng-template>
 
   <div *ngIf="!selectedComponent && selectedBodyTemplateObject">
     <app-body-form [bodyTemplate]="selectedBodyTemplateObject"></app-body-form>

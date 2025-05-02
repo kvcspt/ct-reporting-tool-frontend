@@ -15,13 +15,15 @@ import {
 import { BodyTemplate, BodyTemplateElement } from '../../../../models/template';
 import { BodyService } from '../../../../services/body.service';
 import { BodyReport } from '../../../../models/report';
-import { Utils } from '../../../../utils/utils';
+import { BodySectionComponent, Utils } from '../../../../utils/utils';
 
 @Component({
   selector: 'app-body-form',
   templateUrl: './body-form.component.html',
 })
-export class BodyFormComponent implements OnInit, OnChanges {
+export class BodyFormComponent
+  implements OnInit, OnChanges, BodySectionComponent
+{
   public bodyForm!: FormGroup;
   @Input() public bodyTemplate!: BodyTemplate;
 
@@ -88,8 +90,8 @@ export class BodyFormComponent implements OnInit, OnChanges {
     return (this.bodyForm.get('bodyTemplateElementDTOs') as FormArray).controls;
   }
 
-  public handleAction(type: string): BodyReport[] {
-    const formData = this.getFormArrayControls().map((field) => {
+  public getReportData(): BodyReport[] {
+    return this.getFormArrayControls().map((field) => {
       let value = field.value.control || '';
 
       if (field.value.type === 'checkbox') {
@@ -105,6 +107,10 @@ export class BodyFormComponent implements OnInit, OnChanges {
         value,
       );
     });
+  }
+
+  public handleAction(type: string): void {
+    const formData = this.getReportData();
 
     if (type === 'html') {
       this.bodyService.saveAsHTML(formData).subscribe({
@@ -155,8 +161,6 @@ export class BodyFormComponent implements OnInit, OnChanges {
           },
         });
     }
-
-    return formData;
   }
 
   public addDuplicateField(index: number): void {

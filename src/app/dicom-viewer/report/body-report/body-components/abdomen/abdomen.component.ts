@@ -2,14 +2,14 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { FormMetadata } from '../../../../../models/template';
 import { BodyReport } from '../../../../../models/report';
-import { Utils } from '../../../../../utils/utils';
+import { BodySectionComponent, Utils } from '../../../../../utils/utils';
 import { BodyService } from '../../../../../services/body.service';
 
 @Component({
   selector: 'app-abdomen',
   templateUrl: './abdomen.component.html',
 })
-export class AbdomenComponent {
+export class AbdomenComponent implements BodySectionComponent {
   public abdomenForm: FormGroup;
   private formMetadata: FormMetadata[];
 
@@ -222,7 +222,7 @@ export class AbdomenComponent {
     ];
   }
 
-  public handleAction(type: string): void {
+  public getReportData(): BodyReport[] {
     const formData: BodyReport[] = [];
     this.formMetadata.forEach((field) => {
       if (field.type === 'checkbox') {
@@ -250,6 +250,12 @@ export class AbdomenComponent {
         });
       }
     });
+
+    return formData;
+  }
+
+  public handleAction(type: string): void {
+    const formData = this.getReportData();
 
     if (type === 'html') {
       this.bodyService.saveAsHTML(formData).subscribe({

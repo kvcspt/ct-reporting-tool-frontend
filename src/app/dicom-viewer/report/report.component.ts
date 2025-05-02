@@ -154,7 +154,7 @@ export class ReportComponent implements OnInit {
         this.reportService
           .saveAsFHIRJson(
             this.generatedReport!,
-            this.bodyReportComponent.bodyFormComponent.handleAction('fhirJson'),
+            this.bodyReportComponent.getReportData(),
           )
           .subscribe({
             next: (response) => {
@@ -165,11 +165,12 @@ export class ReportComponent implements OnInit {
             },
           });
         break;
+
       case 'fhirCast':
         this.reportService
           .uploadToFHIRCast(
             this.generatedReport!,
-            this.bodyReportComponent.bodyFormComponent.handleAction('fhirCast'),
+            this.bodyReportComponent.getReportData(),
           )
           .subscribe({
             next: (response) => {
