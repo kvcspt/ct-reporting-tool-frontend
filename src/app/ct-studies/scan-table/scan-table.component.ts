@@ -30,6 +30,7 @@ export class ScanTableComponent implements AfterViewInit, AfterViewChecked {
     'bodyPart',
     'patient',
     'open',
+    'delete',
   ];
   public dataSource = new MatTableDataSource<Scan>(this.filteredScans);
   @ViewChild(MatPaginator) private paginator!: MatPaginator;
