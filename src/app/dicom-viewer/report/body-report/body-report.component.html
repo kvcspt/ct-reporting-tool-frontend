@@ -18,7 +18,6 @@
     <ng-container *ngComponentOutlet="selectedComponent"></ng-container>
   </ng-container>
 
-  <!-- Placeholder for dynamically loaded saved templates -->
   <div *ngIf="!selectedComponent && selectedBodyTemplateObject">
     <app-body-form [bodyTemplate]="selectedBodyTemplateObject"></app-body-form>
   </div>

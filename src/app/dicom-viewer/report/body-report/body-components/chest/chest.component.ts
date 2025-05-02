@@ -225,7 +225,7 @@ export class ChestComponent {
         });
       }
     });
-    console.log(formData);
+
     if (type === 'html') {
       this.bodyService.saveAsHTML(formData).subscribe({
         next: (response) => {
