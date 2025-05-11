@@ -5,6 +5,7 @@ import {
   Component,
   EventEmitter,
   Input,
+  OnInit,
   Output,
   ViewChild,
 } from '@angular/core';
@@ -14,12 +15,15 @@ import { ToastrService } from 'ngx-toastr';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { Router } from '@angular/router';
+import { AuthService } from '../../auth/auth.service';
 
 @Component({
   selector: 'app-scan-table',
   templateUrl: './scan-table.component.html',
 })
-export class ScanTableComponent implements AfterViewInit, AfterViewChecked {
+export class ScanTableComponent
+  implements AfterViewInit, AfterViewChecked, OnInit
+{
   @Output() private deleteComplete = new EventEmitter<void>();
   @Input()
   public filteredScans: Array<Scan> = [];
@@ -30,13 +34,13 @@ export class ScanTableComponent implements AfterViewInit, AfterViewChecked {
     'bodyPart',
     'patient',
     'open',
-    'delete',
   ];
   public dataSource = new MatTableDataSource<Scan>(this.filteredScans);
   @ViewChild(MatPaginator) private paginator!: MatPaginator;
 
   public constructor(
     private scanService: ScanService,
+    private authService: AuthService,
     private toastr: ToastrService,
     private changeDetectorRef: ChangeDetectorRef,
     private router: Router,
@@ -49,6 +53,12 @@ export class ScanTableComponent implements AfterViewInit, AfterViewChecked {
 
   public ngAfterViewChecked(): void {
     this.changeDetectorRef.detectChanges();
+  }
+
+  public ngOnInit(): void {
+    if (this.authService.isLoggedIn() && this.authService.isAdmin()) {
+      this.displayedColumns.push('delete');
+    }
   }
 
   public deleteScan(scanId: number): void {

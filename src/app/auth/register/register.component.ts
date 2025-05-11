@@ -77,8 +77,8 @@ export class RegisterComponent {
           this.toastr.success('Registration successful');
           this.router.navigate(['/login']);
         },
-        error: () => {
-          this.toastr.error('Something went wrong!');
+        error: (err) => {
+          this.toastr.error('Something went wrong!', err.error);
         },
       });
     }

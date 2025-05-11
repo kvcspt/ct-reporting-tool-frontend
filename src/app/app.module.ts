@@ -42,6 +42,7 @@ import { MatListModule } from '@angular/material/list';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatRadioModule } from '@angular/material/radio';
 import { BodyFormComponent } from './dicom-viewer/report/body-report/body-components/body-form.component';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 @NgModule({
   declarations: [
@@ -92,6 +93,7 @@ import { BodyFormComponent } from './dicom-viewer/report/body-report/body-compon
     MatListModule,
     MatCheckboxModule,
     MatRadioModule,
+    MatTooltipModule,
   ],
   providers: [
     {
