@@ -5,7 +5,11 @@ import { RegisterComponent } from './auth/register/register.component';
 import { CtStudiesComponent } from './ct-studies/ct-studies.component';
 import { AuthService } from './auth/auth.service';
 import { TemplateManagementComponent } from './template-management/template-management.component';
-import { authGuard, defaultRouteGuard } from './auth/auth.guard';
+import {
+  authAdminGuard,
+  authGuard,
+  defaultRouteGuard,
+} from './auth/auth.guard';
 import { DicomViewerComponent } from './dicom-viewer/dicom-viewer.component';
 import { UserProfileComponent } from './user/user-profile.component';
 
@@ -25,7 +29,7 @@ const routes: Routes = [
   {
     path: 'templates',
     component: TemplateManagementComponent,
-    canActivate: [authGuard],
+    canActivate: [authGuard, authAdminGuard],
   },
   {
     path: 'user-update',

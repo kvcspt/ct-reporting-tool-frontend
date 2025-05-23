@@ -44,10 +44,7 @@ export class BodyFormComponent
 
   private createDynamicForm(): void {
     this.bodyForm = this.fb.group({
-      title: new FormControl({
-        value: this.bodyTemplate.title,
-        disabled: true,
-      }),
+      title: new FormControl(this.bodyTemplate.title),
       bodyTemplateElementDTOs: this.fb.array([]),
     });
 

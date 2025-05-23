@@ -44,7 +44,7 @@
       <button
         *ngIf="field.value.duplicate && isLastInGroup(i)"
         (click)="addDuplicateField(i)"
-        class="btn btn-success mt-2"
+        class="btn btn-success mt-2 mx-2"
       >
         +
       </button>
@@ -77,6 +77,6 @@
     class="btn btn-primary m-2"
     type="button"
   >
-    Upload to DICOM
+    Upload to PACS and Save as DICOM SR
   </button>
 </form>

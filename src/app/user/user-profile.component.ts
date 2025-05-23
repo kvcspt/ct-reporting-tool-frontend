@@ -21,7 +21,7 @@ export class UserProfileComponent implements OnInit {
   ) {
     this.userForm = this.fb.group(
       {
-        username: ['', [Validators.required]],
+        username: [{ value: '', disabled: true }, [Validators.required]],
         password: [''],
         confirmPassword: [''],
         name: [''],

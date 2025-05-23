@@ -318,6 +318,24 @@ export class LiverComponent implements BodySectionComponent {
           console.error('Error generating HTML:', err);
         },
       });
+    } else if (type === 'dicom-sr') {
+      const scans = JSON.parse(localStorage.getItem('scans') || '[]');
+      this.bodyService
+        .saveDicomSr('Liver examination', scans[0], formData)
+        .subscribe({
+          next: (response) => {
+            const blob = new Blob([response], { type: 'application/dicom' });
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'body' + '.dcm';
+            a.click();
+            window.URL.revokeObjectURL(url);
+          },
+          error: (err) => {
+            console.error('Error generating HTML:', err);
+          },
+        });
     }
   }
 

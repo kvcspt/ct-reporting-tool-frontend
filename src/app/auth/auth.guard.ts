@@ -14,6 +14,18 @@ export const authGuard: CanActivateFn = () => {
   }
 };
 
+export const authAdminGuard: CanActivateFn = () => {
+  const authService = inject(AuthService);
+  const router = inject(Router);
+
+  if (authService.isLoggedIn() && authService.isAdmin()) {
+    return true;
+  } else {
+    router.navigate(['/ct-studies']);
+    return false;
+  }
+};
+
 export const defaultRouteGuard: CanActivateFn = () => {
   const authService = inject(AuthService);
   const router = inject(Router);

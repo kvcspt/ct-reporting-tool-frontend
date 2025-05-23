@@ -1,9 +1,11 @@
-<mat-dialog-content class="container-fluid p-3" style="max-height: 70vh; overflow-y: auto; display: block;">
-
+<mat-dialog-content
+  class="container-fluid p-3"
+  style="max-height: 70vh; overflow-y: auto; display: block"
+>
   <form [formGroup]="fieldForm" (ngSubmit)="addField()">
     <mat-form-field class="w-100">
       <mat-label>Field Label</mat-label>
-      <input matInput type="text" formControlName="label"/>
+      <input matInput type="text" formControlName="label" />
     </mat-form-field>
 
     <mat-form-field class="w-100">
@@ -18,9 +20,9 @@
 
     <div
       *ngIf="
-    fieldForm.get('type')?.value === 'radio' ||
-    fieldForm.get('type')?.value === 'checkbox'
-  "
+        fieldForm.get('type')?.value === 'radio' ||
+        fieldForm.get('type')?.value === 'checkbox'
+      "
     >
       <mat-form-field class="w-100">
         <mat-label>Options</mat-label>
@@ -36,7 +38,9 @@
         Add Option
       </button>
       <mat-list>
-        <mat-list-item *ngFor="let opt of fieldForm.get('options')?.value; let i = index">
+        <mat-list-item
+          *ngFor="let opt of fieldForm.get('options')?.value; let i = index"
+        >
           {{ opt }}
           <button mat-icon-button color="warn" (click)="removeOption(i)">
             <mat-icon>delete</mat-icon>
@@ -47,7 +51,13 @@
 
     <mat-dialog-actions class="d-flex justify-content-center p-3">
       <button mat-raised-button type="submit" color="primary">Add Field</button>
-      <button *ngIf="!data.duplicate" mat-raised-button color="accent" type="button" (click)="duplicateGroup()">
+      <button
+        *ngIf="!data.duplicate"
+        mat-raised-button
+        color="accent"
+        type="button"
+        (click)="duplicateGroup()"
+      >
         Duplicate Group
       </button>
     </mat-dialog-actions>
@@ -62,12 +72,19 @@
       <mat-label>Title</mat-label>
       <input matInput required type="text" formControlName="title" />
     </mat-form-field>
-    <div *ngFor="let field of formFields" class="form-group border p-3 mb-3 rounded bg-light">
+    <div
+      *ngFor="let field of formFields"
+      class="form-group border p-3 mb-3 rounded bg-light"
+    >
       <div class="row align-items-center">
         <div class="col-md-9">
           <div *ngIf="editingFieldName !== field.name">
             <span>{{ field.label }}</span>
-            <button mat-icon-button color="primary" (click)="startEditingLabel(field)">
+            <button
+              mat-icon-button
+              color="primary"
+              (click)="startEditingLabel(field)"
+            >
               <mat-icon>edit</mat-icon>
             </button>
           </div>
@@ -77,13 +94,17 @@
               <mat-label>Edit Label</mat-label>
               <input matInput formControlName="tempLabel" />
             </mat-form-field>
-            <button mat-button color="primary" (click)="saveLabel(field)">Save</button>
-            <button mat-button color="warn" (click)="cancelEditingLabel()">Cancel</button>
+            <button mat-button color="primary" (click)="saveLabel(field)">
+              Save
+            </button>
+            <button mat-button color="warn" (click)="cancelEditingLabel()">
+              Cancel
+            </button>
           </div>
 
           <mat-form-field class="w-100" *ngIf="field.type === 'text'">
             <mat-label>{{ field.label }}</mat-label>
-            <input matInput type="text"/>
+            <input matInput type="text" />
           </mat-form-field>
 
           <mat-form-field class="w-100" *ngIf="field.type === 'textarea'">
@@ -94,7 +115,11 @@
           <div *ngIf="field.type === 'radio'" class="radio-group">
             <mat-label class="d-block">{{ field.label }}</mat-label>
             <mat-radio-group>
-              <mat-radio-button *ngFor="let option of field.options" [value]="option" class="me-3">
+              <mat-radio-button
+                *ngFor="let option of field.options"
+                [value]="option"
+                class="me-3"
+              >
                 {{ option }}
               </mat-radio-button>
             </mat-radio-group>
@@ -103,7 +128,11 @@
           <div *ngIf="field.type === 'checkbox'" class="checkbox-group">
             <mat-label class="d-block">{{ field.label }}</mat-label>
             <div class="d-flex flex-wrap">
-              <mat-checkbox *ngFor="let option of field.options" [value]="option" class="me-3">
+              <mat-checkbox
+                *ngFor="let option of field.options"
+                [value]="option"
+                class="me-3"
+              >
                 {{ option }}
               </mat-checkbox>
             </div>
@@ -111,27 +140,69 @@
         </div>
 
         <div class="col-md-2 text-end">
-          <button mat-raised-button color="warn" type="button" class="btn btn-danger btn-sm" (click)="removeField(field.name)">
+          <button
+            mat-raised-button
+            color="warn"
+            type="button"
+            class="btn btn-danger btn-sm"
+            (click)="removeField(field.name)"
+          >
             <mat-icon>delete</mat-icon> Remove
           </button>
         </div>
       </div>
     </div>
     <mat-dialog-actions class="d-flex justify-content-center p-3">
-      <button *ngIf="isNew && !data.duplicate" [disabled]="!this.dynamicForm.valid" mat-raised-button mat-dialog-close color="primary" type="submit">
+      <button
+        *ngIf="isNew && !data.duplicate"
+        [disabled]="!this.dynamicForm.valid"
+        mat-raised-button
+        mat-dialog-close
+        color="primary"
+        type="submit"
+      >
         Submit
       </button>
-      <button *ngIf="data.duplicate" (click)="onClose()" mat-raised-button mat-dialog-close color="primary" type="button">Done</button>
-      <button *ngIf="!isNew" mat-raised-button mat-dialog-close color="primary" type="submit">
+      <button
+        *ngIf="data.duplicate"
+        (click)="onClose()"
+        mat-raised-button
+        mat-dialog-close
+        color="primary"
+        type="button"
+      >
+        Done
+      </button>
+      <button
+        *ngIf="!isNew"
+        mat-raised-button
+        mat-dialog-close
+        color="primary"
+        type="submit"
+      >
         Save as
       </button>
-      <button *ngIf="!isNew" mat-raised-button mat-dialog-close color="primary" type="button" (click)="updateBodyTemplate()">
+      <button
+        *ngIf="!isNew"
+        mat-raised-button
+        mat-dialog-close
+        color="primary"
+        type="button"
+        (click)="updateBodyTemplate()"
+      >
         Update
       </button>
-      <button *ngIf="!isNew" mat-raised-button mat-dialog-close color="warn" type="button" (click)="deleteBodyTemplate()">
+      <button
+        *ngIf="!isNew"
+        mat-raised-button
+        mat-dialog-close
+        color="warn"
+        type="button"
+        (click)="deleteBodyTemplate()"
+      >
         Delete
       </button>
-      <button mat-raised-button mat-dialog-close >Cancel</button>
+      <button mat-raised-button mat-dialog-close>Cancel</button>
     </mat-dialog-actions>
   </form>
 </mat-dialog-content>
